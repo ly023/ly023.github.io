@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="朝花夕拾">
 <meta property="og:description" content="iPhone X适配参考文章：https://aotu.io/notes/2017/11/27/iphonex/ 12345678&amp;lt;!--viweport-fit 属性，使得页面内容完全覆盖整个窗口--&amp;gt;&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, viewport-fit=cover&amp;quot">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-26T01:17:19.988Z">
+<meta property="og:updated_time" content="2019-06-26T03:29:55.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="H5移动端兼容性总结--iOS篇">
 <meta name="twitter:description" content="iPhone X适配参考文章：https://aotu.io/notes/2017/11/27/iphonex/ 12345678&amp;lt;!--viweport-fit 属性，使得页面内容完全覆盖整个窗口--&amp;gt;&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, viewport-fit=cover&amp;quot">
@@ -413,7 +413,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-26 09:17:19" itemprop="dateModified" datetime="2019-06-26T09:17:19+08:00">2019-06-26</time>
+                <time title="修改时间：2019-06-26 11:29:55" itemprop="dateModified" datetime="2019-06-26T11:29:55+08:00">2019-06-26</time>
               
             
           </span>
@@ -441,20 +441,22 @@
           
             
             
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/26/H5-iOS/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/26/H5-iOS/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
-          
-            <span id="/2019/02/26/H5-iOS/" class="leancloud_visitors" data-flag-title="H5移动端兼容性总结--iOS篇">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
           
 
           
@@ -506,6 +508,10 @@
 <h3 id="引入fastclick导致输入框难以聚焦"><a href="#引入fastclick导致输入框难以聚焦" class="headerlink" title="引入fastclick导致输入框难以聚焦"></a>引入fastclick导致输入框难以聚焦</h3><p><a href="https://github.com/ftlabs/fastclick/issues/548" target="_blank" rel="noopener">issue: can not bring up keyboard instantly in ios 11.3 </a></p>
 <p>解决方案（修改源码或改写fastclick）：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">FastClick.prototype.focus = <span class="function"><span class="keyword">function</span> (<span class="params">targetElement</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> length;</span><br><span class="line">  <span class="keyword">if</span> (targetElement.setSelectionRange &amp;&amp; targetElement.type.indexOf(<span class="string">'date'</span>) !== <span class="number">0</span> &amp;&amp; targetElement.type !== <span class="string">'time'</span> &amp;&amp; targetElement.type !== <span class="string">'month'</span>) &#123;</span><br><span class="line">    length = targetElement.value.length;</span><br><span class="line">    targetElement.focus();</span><br><span class="line">    targetElement.setSelectionRange(length, length);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    targetElement.focus();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="微信-企业微信下键盘收起页面不会回到原位置"><a href="#微信-企业微信下键盘收起页面不会回到原位置" class="headerlink" title="微信/企业微信下键盘收起页面不会回到原位置"></a>微信/企业微信下键盘收起页面不会回到原位置</h3><p>bug描述：微信下打开网页键盘弹起后页面上滑，键盘收起后页面不会回到原位置，且页面触摸响应错位。</p>
+<p>解决方案：<code>focus</code>键盘弹起时保存<code>element</code>的<code>scrollTop</code>，<code>blur</code>键盘收起时回到原位置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">focus = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.scrollTop = getElementScrollTop(scrollElement)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">blur = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    scrollElement.scrollTop = <span class="keyword">this</span>.scrollTop</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -554,8 +560,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/19/JS-[[OwnPropertyKeys]]/" rel="prev" title="对象属性枚举顺序">
-                对象属性枚举顺序 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/20/JS-element-size-and-scrolling-3/" rel="prev" title="Element size and scrolling, Part 3">
+                Element size and scrolling, Part 3 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -577,6 +583,13 @@
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
 
   
 
@@ -735,7 +748,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#iPhone-X适配"><span class="nav-number">1.</span> <span class="nav-text">iPhone X适配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#input输入框在iOS中光标及字体不居中"><span class="nav-number">2.</span> <span class="nav-text">input输入框在iOS中光标及字体不居中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webkit-overflow-scrolling-touch与overflow-y-auto与fixed定位"><span class="nav-number">3.</span> <span class="nav-text">-webkit-overflow-scrolling:touch与overflow-y:auto与fixed定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS下输入框设置readOnly仍会聚焦"><span class="nav-number">4.</span> <span class="nav-text">iOS下输入框设置readOnly仍会聚焦</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入fastclick导致输入框难以聚焦"><span class="nav-number">5.</span> <span class="nav-text">引入fastclick导致输入框难以聚焦</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#iPhone-X适配"><span class="nav-number">1.</span> <span class="nav-text">iPhone X适配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#input输入框在iOS中光标及字体不居中"><span class="nav-number">2.</span> <span class="nav-text">input输入框在iOS中光标及字体不居中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webkit-overflow-scrolling-touch与overflow-y-auto与fixed定位"><span class="nav-number">3.</span> <span class="nav-text">-webkit-overflow-scrolling:touch与overflow-y:auto与fixed定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS下输入框设置readOnly仍会聚焦"><span class="nav-number">4.</span> <span class="nav-text">iOS下输入框设置readOnly仍会聚焦</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入fastclick导致输入框难以聚焦"><span class="nav-number">5.</span> <span class="nav-text">引入fastclick导致输入框难以聚焦</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微信-企业微信下键盘收起页面不会回到原位置"><span class="nav-number">6.</span> <span class="nav-text">微信/企业微信下键盘收起页面不会回到原位置</span></a></li></ol></div>
             
 
           </div>
@@ -909,6 +922,38 @@
   
 
   
+  
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://ewenli.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://yoursite.com/2019/02/26/H5-iOS/";
+    this.page.identifier = "2019/02/26/H5-iOS/";
+    this.page.title = 'H5移动端兼容性总结--iOS篇';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://ewenli.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    window.addEventListener('load', loadComments, false);
+  
+</script>
+
+
+
 
 
   
@@ -920,70 +965,6 @@
 
 
   
-  
-  <script>
-    
-    function addCount(Counter) {
-      var $visitors = $('.leancloud_visitors');
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
-        .done(function({ results }) {
-          if (results.length > 0) {
-            var counter = results[0];
-            
-            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
-            
-              .done(function() {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.time + 1);
-              })
-            
-              .fail(function ({ responseJSON }) {
-                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
-              })
-          } else {
-            
-              var $element = $(document.getElementById(url));
-              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
-            
-          }
-        })
-        .fail(function ({ responseJSON }) {
-          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
-        });
-    }
-    
-
-    $(function() {
-      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'US72CESGmTTcG7m2tCbvcDgu-gzGzoHsz')
-        .done(function({ api_server }) {
-          var Counter = function(method, url, data) {
-            return $.ajax({
-              method: method,
-              url: 'https://' + api_server + '/1.1' + url,
-              headers: {
-                'X-LC-Id': 'US72CESGmTTcG7m2tCbvcDgu-gzGzoHsz',
-                'X-LC-Key': 'FYX2f3e0JoI1MqLkVrYSAl0E',
-                'Content-Type': 'application/json',
-              },
-              data: data
-            });
-          };
-          
-            const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
-            if (localhost.test(document.URL)) {
-              return;
-            }
-            addCount(Counter);
-          
-        });
-    });
-  </script>
-
-
 
   
 

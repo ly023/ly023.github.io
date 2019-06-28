@@ -98,11 +98,11 @@
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="对象属性枚举顺序">
-<meta property="og:url" content="http://yoursite.com/2019/06/19/JS-[[OwnPropertyKeys]]/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/06/28/JS-[[OwnPropertyKeys]]/index.html">
 <meta property="og:site_name" content="朝花夕拾">
 <meta property="og:description" content="ES6规定了对象属性枚举顺序。 ES6 [[OwnPropertyKeys]]() 123456789101112131415161718199.1.12 [[OwnPropertyKeys]]()调用 O 的 [[OwnPropertyKeys]] 内部方法时，采取以下步骤：      1.使 keys 变为一个空的 List    2.对于整数类型的 O 的每个自己的属性键 P，按照数字索引升">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-20T11:52:15.097Z">
+<meta property="og:updated_time" content="2019-06-28T14:07:03.178Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对象属性枚举顺序">
 <meta name="twitter:description" content="ES6规定了对象属性枚举顺序。 ES6 [[OwnPropertyKeys]]() 123456789101112131415161718199.1.12 [[OwnPropertyKeys]]()调用 O 的 [[OwnPropertyKeys]] 内部方法时，采取以下步骤：      1.使 keys 变为一个空的 List    2.对于整数类型的 O 的每个自己的属性键 P，按照数字索引升">
@@ -113,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/06/19/JS-[[OwnPropertyKeys]]/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/28/JS-[[OwnPropertyKeys]]/">
 
 
 
@@ -353,7 +353,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/19/JS-[[OwnPropertyKeys]]/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/28/JS-[[OwnPropertyKeys]]/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木子李">
@@ -396,25 +396,9 @@
                 
               
 
-              <time title="创建时间：2019-06-19 17:52:24" itemprop="dateCreated datePublished" datetime="2019-06-19T17:52:24+08:00">2019-06-19</time>
+              <time title="创建时间：2019-06-28 22:07:03" itemprop="dateCreated datePublished" datetime="2019-06-28T22:07:03+08:00">2019-06-28</time>
             
 
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-06-20 19:52:15" itemprop="dateModified" datetime="2019-06-20T19:52:15+08:00">2019-06-20</time>
-              
             
           </span>
 
@@ -441,20 +425,22 @@
           
             
             
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/06/28/JS-[[OwnPropertyKeys]]/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/28/JS-[[OwnPropertyKeys]]/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
-          
-            <span id="/2019/06/19/JS-[[OwnPropertyKeys]]/" class="leancloud_visitors" data-flag-title="对象属性枚举顺序">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
           
 
           
@@ -496,7 +482,7 @@
 
 <p>Chrome DevTools调用<code>[[OwnPropertyKeys]]()</code>列出对象的所有属性。</p>
 <h4 id="Object-keys的枚举顺序"><a href="#Object-keys的枚举顺序" class="headerlink" title="Object.keys的枚举顺序"></a>Object.keys的枚举顺序</h4><p>参考文章：<a href="https://juejin.im/post/5b593e065188251aff2169f7" target="_blank" rel="noopener">5分钟彻底理解Object.keys</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = &#123;b:20, 3:2, [Symbol(&apos;A&apos;)]:2, a:100, 2:1&#125;</span><br><span class="line">Object.keys(x)</span><br><span class="line">&gt; [&quot;2&quot;, &quot;3&quot;, &quot;b&quot;, &quot;a&quot;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = &#123;<span class="attr">b</span>:<span class="number">20</span>, <span class="number">3</span>:<span class="number">2</span>, [<span class="built_in">Symbol</span>(<span class="string">'A'</span>)]:<span class="number">2</span>, <span class="attr">a</span>:<span class="number">100</span>, <span class="number">2</span>:<span class="number">1</span>&#125;</span><br><span class="line"><span class="built_in">Object</span>.keys(x)</span><br><span class="line">&gt; [<span class="string">"2"</span>, <span class="string">"3"</span>, <span class="string">"b"</span>, <span class="string">"a"</span>]</span><br></pre></td></tr></table></figure>
 
 <p><code>Object.keys</code>将<code>Symbol</code>类型的属性过滤掉了。</p>
 <p><a href="http://www.ecma-international.org/ecma-262/8.0/index.html#sec-object.keys" target="_blank" rel="noopener">ES8 Object.keys(O)</a></p>
@@ -508,9 +494,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Undefined: 抛出TypeError</span><br><span class="line">Null: 抛出TypeError</span><br><span class="line"></span><br><span class="line">Boolean: 返回一个新的 Boolean 对象</span><br><span class="line">Number: 返回一个新的 Number 对象</span><br><span class="line">String: 返回一个新的 String 对象</span><br><span class="line">Symbol: 返回一个新的 Symbol 对象</span><br><span class="line"></span><br><span class="line">Object: 直接返回Object</span><br></pre></td></tr></table></figure>
 
 <p>举例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">new Number(123)</span><br><span class="line">&gt; Number &#123;123&#125;</span><br><span class="line">    __proto__: Number</span><br><span class="line">    [[PrimitiveValue]]: 123</span><br><span class="line"></span><br><span class="line">// Number对象没有任何可提取的属性，故返回空数组</span><br><span class="line">Object.keys(123)</span><br><span class="line">&gt; []</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">123</span>)</span><br><span class="line">&gt; <span class="built_in">Number</span> &#123;<span class="number">123</span>&#125;</span><br><span class="line">    __proto__: <span class="built_in">Number</span></span><br><span class="line">    [[PrimitiveValue]]: <span class="number">123</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Number对象没有任何可提取的属性，故返回空数组</span></span><br><span class="line"><span class="built_in">Object</span>.keys(<span class="number">123</span>)</span><br><span class="line">&gt; []</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">new String(&apos;test&apos;)</span><br><span class="line">&gt; String &#123;&quot;test&quot;&#125;</span><br><span class="line">    0: &quot;t&quot;</span><br><span class="line">    1: &quot;e&quot;</span><br><span class="line">    2: &quot;s&quot;</span><br><span class="line">    3: &quot;t&quot;</span><br><span class="line">    length: 4</span><br><span class="line">    __proto__: String</span><br><span class="line">    [[PrimitiveValue]]: &quot;test&quot;</span><br><span class="line">    </span><br><span class="line">Object.keys(&apos;test&apos;)</span><br><span class="line">&gt; [&quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3&quot;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'test'</span>)</span><br><span class="line">&gt; <span class="built_in">String</span> &#123;<span class="string">"test"</span>&#125;</span><br><span class="line">    <span class="number">0</span>: <span class="string">"t"</span></span><br><span class="line">    <span class="number">1</span>: <span class="string">"e"</span></span><br><span class="line">    <span class="number">2</span>: <span class="string">"s"</span></span><br><span class="line">    <span class="number">3</span>: <span class="string">"t"</span></span><br><span class="line">    length: <span class="number">4</span></span><br><span class="line">    __proto__: <span class="built_in">String</span></span><br><span class="line">    [[PrimitiveValue]]: <span class="string">"test"</span></span><br><span class="line">    </span><br><span class="line"><span class="built_in">Object</span>.keys(<span class="string">'test'</span>)</span><br><span class="line">&gt; [<span class="string">"0"</span>, <span class="string">"1"</span>, <span class="string">"2"</span>, <span class="string">"3"</span>]</span><br></pre></td></tr></table></figure>
 
 <h5 id="2-获取属性列表（EnumerableOwnPropertyNames-obj-“key”-）"><a href="#2-获取属性列表（EnumerableOwnPropertyNames-obj-“key”-）" class="headerlink" title="2. 获取属性列表（EnumerableOwnPropertyNames(obj, “key”)）"></a>2. 获取属性列表（EnumerableOwnPropertyNames(obj, “key”)）</h5><blockquote>
 <p>Let nameList be ? EnumerableOwnProperties(obj, “key”).</p>
@@ -578,8 +564,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/26/H5-iOS/" rel="next" title="H5移动端兼容性总结--iOS篇">
-                <i class="fa fa-chevron-left"></i> H5移动端兼容性总结--iOS篇
+              <a href="/2019/06/20/JS-element-size-and-scrolling-3/" rel="next" title="Element size and scrolling, Part 3">
+                <i class="fa fa-chevron-left"></i> Element size and scrolling, Part 3
               </a>
             
           </div>
@@ -587,10 +573,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/20/JS-element-size-and-scrolling-3/" rel="prev" title="Element size and scrolling, Part 3">
-                Element size and scrolling, Part 3 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -611,6 +593,13 @@
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
 
   
 
@@ -943,6 +932,38 @@
   
 
   
+  
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://ewenli.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://yoursite.com/2019/06/28/JS-[[OwnPropertyKeys]]/";
+    this.page.identifier = "2019/06/28/JS-[[OwnPropertyKeys]]/";
+    this.page.title = '对象属性枚举顺序';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://ewenli.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    window.addEventListener('load', loadComments, false);
+  
+</script>
+
+
+
 
 
   
@@ -954,70 +975,6 @@
 
 
   
-  
-  <script>
-    
-    function addCount(Counter) {
-      var $visitors = $('.leancloud_visitors');
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
-        .done(function({ results }) {
-          if (results.length > 0) {
-            var counter = results[0];
-            
-            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
-            
-              .done(function() {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.time + 1);
-              })
-            
-              .fail(function ({ responseJSON }) {
-                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
-              })
-          } else {
-            
-              var $element = $(document.getElementById(url));
-              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
-            
-          }
-        })
-        .fail(function ({ responseJSON }) {
-          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
-        });
-    }
-    
-
-    $(function() {
-      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'US72CESGmTTcG7m2tCbvcDgu-gzGzoHsz')
-        .done(function({ api_server }) {
-          var Counter = function(method, url, data) {
-            return $.ajax({
-              method: method,
-              url: 'https://' + api_server + '/1.1' + url,
-              headers: {
-                'X-LC-Id': 'US72CESGmTTcG7m2tCbvcDgu-gzGzoHsz',
-                'X-LC-Key': 'FYX2f3e0JoI1MqLkVrYSAl0E',
-                'Content-Type': 'application/json',
-              },
-              data: data
-            });
-          };
-          
-            const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
-            if (localhost.test(document.URL)) {
-              return;
-            }
-            addCount(Counter);
-          
-        });
-    });
-  </script>
-
-
 
   
 
