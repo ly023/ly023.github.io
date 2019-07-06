@@ -94,17 +94,18 @@
 
 
 
-  <meta name="description" content="web前端_个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+  <meta name="description" content="getBoundingClientRect()方法返回元素的大小及其相对于视口的位置。该函数返回一个 DOMRect对象，包含了一组用于描述边框的只读属性——left、top、right和bottom，单位为像素。除了width和height 外的属性都是相对于视口的左上角位置而言的。">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="getBoundingClientRect()">
+<meta property="og:url" content="http://yoursite.com/2019/07/04/JS-getBoundingClientRect()/index.html">
 <meta property="og:site_name" content="朝花夕拾">
-<meta property="og:description" content="web前端_个人博客">
+<meta property="og:description" content="getBoundingClientRect()方法返回元素的大小及其相对于视口的位置。该函数返回一个 DOMRect对象，包含了一组用于描述边框的只读属性——left、top、right和bottom，单位为像素。除了width和height 外的属性都是相对于视口的左上角位置而言的。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-16T03:35:34.000Z">
+<meta property="og:updated_time" content="2019-07-06T13:31:33.543Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
-<meta name="twitter:description" content="web前端_个人博客">
+<meta name="twitter:title" content="getBoundingClientRect()">
+<meta name="twitter:description" content="getBoundingClientRect()方法返回元素的大小及其相对于视口的位置。该函数返回一个 DOMRect对象，包含了一组用于描述边框的只读属性——left、top、right和bottom，单位为像素。除了width和height 外的属性都是相对于视口的左上角位置而言的。">
 
 
 
@@ -112,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/categories/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/04/JS-getBoundingClientRect()/">
 
 
 
@@ -122,7 +123,7 @@
   };
 </script>
 
-  <title>分类 | 朝花夕拾</title>
+  <title>getBoundingClientRect() | 朝花夕拾</title>
   
 
 
@@ -273,7 +274,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
 
     
     
@@ -332,119 +333,259 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/04/JS-getBoundingClientRect()/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="木子李">
+      <meta itemprop="description" content="web前端_个人博客">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朝花夕拾">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">分类
-
-</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
+          <h1 class="post-title" itemprop="name headline">getBoundingClientRect()
+
               
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-              目前共计 8 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Plugin/">Plugin</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/摘抄/">摘抄</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/模板引擎/">模板引擎</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/碎碎念/">碎碎念</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目实践/">项目实践</a><span class="category-list-count">3</span></li></ul>
-            </div>
-          </div>
+            
+          </h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-04 09:36:03" itemprop="dateCreated datePublished" datetime="2019-07-04T09:36:03+08:00">2019-07-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-06 21:31:33" itemprop="dateModified" datetime="2019-07-06T21:31:33+08:00">2019-07-06</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/07/04/JS-getBoundingClientRect()/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/07/04/JS-getBoundingClientRect()/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p><code>getBoundingClientRect()</code>方法返回元素的大小及其相对于视口的位置。该函数返回一个 <code>DOMRect</code>对象，包含了一组用于描述边框的只读属性——<code>left</code>、<code>top</code>、<code>right</code>和<code>bottom</code>，单位为像素。除了<code>width</code>和<code>height</code> 外的属性都是<strong>相对于视口的左上角位置</strong>而言的。</p>
+<a id="more"></a>
+
+<ul>
+<li><p>top：元素上边到视窗上边的距离</p>
+</li>
+<li><p>right：元素右边到视窗<strong>左边</strong>的距离</p>
+</li>
+<li><p>bottom：元素下边到视窗<strong>上边</strong>的距离</p>
+</li>
+<li><p>left：元素左边到视窗左边的距离</p>
+</li>
+<li><p>width：元素的宽度（等同于 right 减 left）</p>
+</li>
+<li><p>height：元素的高度（等同于 bottom 减 top）</p>
+</li>
+</ul>
+<h3 id="获取页面元素的位置"><a href="#获取页面元素的位置" class="headerlink" title="获取页面元素的位置"></a>获取页面元素的位置</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = box.getBoundingClientRect().left + <span class="built_in">document</span>.documentElement.scrollLeft;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> y = box.getBoundingClientRect().top + <span class="built_in">document</span>.documentElement.scrollTop;</span><br></pre></td></tr></table></figure>
+
+<h3 id="判断元素是否在视口之中"><a href="#判断元素是否在视口之中" class="headerlink" title="判断元素是否在视口之中"></a>判断元素是否在视口之中</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isInViewport</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> rect = el.getBoundingClientRect();</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        rect.top &gt;= <span class="number">0</span> &amp;&amp;</span><br><span class="line">        rect.left &gt;= <span class="number">0</span> &amp;&amp;</span><br><span class="line">        rect.bottom &lt;= (<span class="built_in">window</span>.innerHeight || <span class="built_in">document</span>.documentElement.clientHeight) &amp;&amp; </span><br><span class="line">        rect.right &lt;= (<span class="built_in">window</span>.innerWidth || <span class="built_in">document</span>.documentElement.clientWidth) </span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：如果在<code>scroll</code>事件中调用<code>getBoundingClientRect()</code>方法，由于<code>scroll</code>事件密集发生，容易造成性能问题。</p>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/28/JS-[[OwnPropertyKeys]]/" rel="next" title="对象属性枚举顺序">
+                <i class="fa fa-chevron-left"></i> 对象属性枚举顺序
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -464,8 +605,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -579,6 +729,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取页面元素的位置"><span class="nav-number">1.</span> <span class="nav-text">获取页面元素的位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断元素是否在视口之中"><span class="nav-number">2.</span> <span class="nav-text">判断元素是否在视口之中</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -760,9 +927,28 @@
 </script>
 
 
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://yoursite.com/2019/07/04/JS-getBoundingClientRect()/";
+    this.page.identifier = "2019/07/04/JS-getBoundingClientRect()/";
+    this.page.title = 'getBoundingClientRect()';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://ewenli.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    window.addEventListener('load', loadComments, false);
+  
+</script>
 
 
 
+
+
+  
 
 
   
