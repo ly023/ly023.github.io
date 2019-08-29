@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="getBoundingClientRect()方法返回元素的大小及其相对于视口的位置。该函数返回一个 DOMRect对象，包含了一组用于描述边框的只读属性——left、top、right和bottom，单位为像素。除了width和height 外的属性都是相对于视口的左上角位置而言的。">
-<meta name="keywords" content="JavaScript">
+  <meta name="description" content="React PureComponent 浅比较源码解析">
+<meta name="keywords" content="React源码解析">
 <meta property="og:type" content="article">
-<meta property="og:title" content="getBoundingClientRect()">
-<meta property="og:url" content="http://yoursite.com/2019/07/04/JS-getBoundingClientRect()/index.html">
+<meta property="og:title" content="PureComponent浅比较（16.8.6）">
+<meta property="og:url" content="http://yoursite.com/2019/08/13/React-PureComponent浅比较（16.8.6）/index.html">
 <meta property="og:site_name" content="朝花夕拾">
-<meta property="og:description" content="getBoundingClientRect()方法返回元素的大小及其相对于视口的位置。该函数返回一个 DOMRect对象，包含了一组用于描述边框的只读属性——left、top、right和bottom，单位为像素。除了width和height 外的属性都是相对于视口的左上角位置而言的。">
+<meta property="og:description" content="React PureComponent 浅比较源码解析">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-06T13:31:33.543Z">
+<meta property="og:updated_time" content="2019-08-29T05:54:53.581Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="getBoundingClientRect()">
-<meta name="twitter:description" content="getBoundingClientRect()方法返回元素的大小及其相对于视口的位置。该函数返回一个 DOMRect对象，包含了一组用于描述边框的只读属性——left、top、right和bottom，单位为像素。除了width和height 外的属性都是相对于视口的左上角位置而言的。">
+<meta name="twitter:title" content="PureComponent浅比较（16.8.6）">
+<meta name="twitter:description" content="React PureComponent 浅比较源码解析">
 
 
 
@@ -113,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/04/JS-getBoundingClientRect()/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/13/React-PureComponent浅比较（16.8.6）/">
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>getBoundingClientRect() | 朝花夕拾</title>
+  <title>PureComponent浅比较（16.8.6） | 朝花夕拾</title>
   
 
 
@@ -353,7 +353,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/04/JS-getBoundingClientRect()/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/13/React-PureComponent浅比较（16.8.6）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="木子李">
@@ -370,7 +370,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">getBoundingClientRect()
+          <h1 class="post-title" itemprop="name headline">PureComponent浅比较（16.8.6）
 
               
             
@@ -396,7 +396,7 @@
                 
               
 
-              <time title="创建时间：2019-07-04 09:36:03" itemprop="dateCreated datePublished" datetime="2019-07-04T09:36:03+08:00">2019-07-04</time>
+              <time title="创建时间：2019-08-13 09:22:55" itemprop="dateCreated datePublished" datetime="2019-08-13T09:22:55+08:00">2019-08-13</time>
             
 
             
@@ -413,7 +413,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-06 21:31:33" itemprop="dateModified" datetime="2019-07-06T21:31:33+08:00">2019-07-06</time>
+                <time title="修改时间：2019-08-29 13:54:53" itemprop="dateModified" datetime="2019-08-29T13:54:53+08:00">2019-08-29</time>
               
             
           </span>
@@ -430,7 +430,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a></span>
 
                 
                 
@@ -449,8 +449,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/07/04/JS-getBoundingClientRect()/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/07/04/JS-getBoundingClientRect()/" itemprop="commentCount"></span>
+                <a href="/2019/08/13/React-PureComponent浅比较（16.8.6）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/13/React-PureComponent浅比较（16.8.6）/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -485,28 +485,15 @@
       
 
       
-        <p><code>getBoundingClientRect()</code>方法返回元素的大小及其相对于视口的位置。该函数返回一个 <code>DOMRect</code>对象，包含了一组用于描述边框的只读属性——<code>left</code>、<code>top</code>、<code>right</code>和<code>bottom</code>，单位为像素。除了<code>width</code>和<code>height</code> 外的属性都是<strong>相对于视口的左上角位置</strong>而言的。</p>
+        <p>React PureComponent 浅比较源码解析</p>
 <a id="more"></a>
 
-<ul>
-<li><p>top：元素上边到视窗上边的距离</p>
-</li>
-<li><p>right：元素右边到视窗<strong>左边</strong>的距离</p>
-</li>
-<li><p>bottom：元素下边到视窗<strong>上边</strong>的距离</p>
-</li>
-<li><p>left：元素左边到视窗左边的距离</p>
-</li>
-<li><p>width：元素的宽度（等同于 right 减 left）</p>
-</li>
-<li><p>height：元素的高度（等同于 bottom 减 top）</p>
-</li>
-</ul>
-<h3 id="获取页面元素的位置"><a href="#获取页面元素的位置" class="headerlink" title="获取页面元素的位置"></a>获取页面元素的位置</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = box.getBoundingClientRect().left + <span class="built_in">document</span>.documentElement.scrollLeft;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> y = box.getBoundingClientRect().top + <span class="built_in">document</span>.documentElement.scrollTop;</span><br></pre></td></tr></table></figure>
+<h3 id="ReactFiberClassComponent-js"><a href="#ReactFiberClassComponent-js" class="headerlink" title="ReactFiberClassComponent.js"></a><a href="https://github.com/facebook/react/blob/master/packages/react-reconciler/src/ReactFiberClassComponent.js#L286-L290" target="_blank" rel="noopener">ReactFiberClassComponent.js</a></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// packages/react-reconciler/src/ReactFiberClassComponent.js</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">// 判断此组件是否为 PureComponent</span></span><br><span class="line"><span class="comment">// 对props跟state的前后状态做浅比较(shallowEqual)</span></span><br><span class="line"><span class="keyword">if</span> (ctor.prototype &amp;&amp; ctor.prototype.isPureReactComponent) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      !shallowEqual(oldProps, newProps) || !shallowEqual(oldState, newState)</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="判断元素是否在视口之中"><a href="#判断元素是否在视口之中" class="headerlink" title="判断元素是否在视口之中"></a>判断元素是否在视口之中</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isInViewport</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> rect = el.getBoundingClientRect();</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        rect.top &gt;= <span class="number">0</span> &amp;&amp;</span><br><span class="line">        rect.left &gt;= <span class="number">0</span> &amp;&amp;</span><br><span class="line">        rect.bottom &lt;= (<span class="built_in">window</span>.innerHeight || <span class="built_in">document</span>.documentElement.clientHeight) &amp;&amp; </span><br><span class="line">        rect.right &lt;= (<span class="built_in">window</span>.innerWidth || <span class="built_in">document</span>.documentElement.clientWidth) </span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="shallowEqual-js："><a href="#shallowEqual-js：" class="headerlink" title="shallowEqual.js："></a><a href="https://github.com/facebook/react/blob/master/packages/shared/shallowEqual.js" target="_blank" rel="noopener">shallowEqual.js</a>：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// packages/shared/shallowEqual.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> is <span class="keyword">from</span> <span class="string">'./objectIs'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shallowEqual</span>(<span class="params">objA: mixed, objB: mixed</span>): <span class="title">boolean</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 基本数据类型判断值是否相同，引用数据类型判断是否是同一个引用</span></span><br><span class="line">  <span class="keyword">if</span> (is(objA, objB)) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 如果两个对象都不是 Object，返回false</span></span><br><span class="line">  <span class="keyword">if</span> (</span><br><span class="line">  <span class="keyword">typeof</span> objA !== <span class="string">'object'</span> </span><br><span class="line">  || objA === <span class="literal">null</span> </span><br><span class="line">  || <span class="keyword">typeof</span> objB !== <span class="string">'object'</span> </span><br><span class="line">  || objB === <span class="literal">null</span></span><br><span class="line">  ) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 比较对象</span></span><br><span class="line">  <span class="comment">// 首先对key的长度进行对比</span></span><br><span class="line">  <span class="keyword">const</span> keysA = <span class="built_in">Object</span>.keys(objA);</span><br><span class="line">  <span class="keyword">const</span> keysB = <span class="built_in">Object</span>.keys(objB);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// key长度不等，不相等，返回false</span></span><br><span class="line">  <span class="keyword">if</span> (keysA.length !== keysB.length) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// key长度相等，循环比较</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; keysA.length; i++) &#123;</span><br><span class="line">    <span class="comment">// 用 hasOwnProperty 方法判断 objB 是否存在 objA 的 key</span></span><br><span class="line">    <span class="comment">// 对相同key的value进行is函数比较，只比较了第一层，没有对深层嵌套的数据做处理，返回结果</span></span><br><span class="line">    <span class="keyword">if</span> (</span><br><span class="line">      !hasOwnProperty.call(objB, keysA[i]) ||</span><br><span class="line">      !is(objA[keysA[i]], objB[keysA[i]])</span><br><span class="line">    ) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>注意：如果在<code>scroll</code>事件中调用<code>getBoundingClientRect()</code>方法，由于<code>scroll</code>事件密集发生，容易造成性能问题。</p>
+<h3 id="objectIs-js"><a href="#objectIs-js" class="headerlink" title="objectIs.js:"></a><a href="https://github.com/facebook/react/blob/master/packages/shared/objectIs.js" target="_blank" rel="noopener">objectIs.js</a>:</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// packages/shared/objectIs.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// (x === y &amp;&amp; (x !== 0 || 1 / x === 1 / y))  区分+0和-0， +0 === -0 为true，不能直接用===判断</span></span><br><span class="line"><span class="comment">// (x !== x &amp;&amp; y !== y)  区分NaN，NaN === NaN 为false，NaN不等于自身，不能直接用===判断</span></span><br><span class="line"><span class="comment">// 如果x、y为引用数据类型，仅对比它们的引用值，如果指向同一个内存地址，则直接认为相等</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">is</span>(<span class="params">x: any, y: any</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    (x === y &amp;&amp; (x !== <span class="number">0</span> || <span class="number">1</span> / x === <span class="number">1</span> / y)) || (x !== x &amp;&amp; y !== y)</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -533,7 +520,7 @@
         
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            <a href="/tags/React源码解析/" rel="tag"># React源码解析</a>
           
         </div>
       
@@ -546,8 +533,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/28/JS-[[OwnPropertyKeys]]/" rel="next" title="对象属性枚举顺序">
-                <i class="fa fa-chevron-left"></i> 对象属性枚举顺序
+              <a href="/2019/07/17/JS-链式取值/" rel="next" title="JavaScript链式取值">
+                <i class="fa fa-chevron-left"></i> JavaScript链式取值
               </a>
             
           </div>
@@ -556,8 +543,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/05/JS-Symbol/" rel="prev" title="Symbol">
-                Symbol <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/13/腾讯地图API/" rel="prev" title="腾讯地图API">
+                腾讯地图API <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -665,7 +652,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -704,7 +693,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -742,7 +733,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取页面元素的位置"><span class="nav-number">1.</span> <span class="nav-text">获取页面元素的位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断元素是否在视口之中"><span class="nav-number">2.</span> <span class="nav-text">判断元素是否在视口之中</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ReactFiberClassComponent-js"><span class="nav-number">1.</span> <span class="nav-text">ReactFiberClassComponent.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shallowEqual-js："><span class="nav-number">2.</span> <span class="nav-text">shallowEqual.js：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#objectIs-js"><span class="nav-number">3.</span> <span class="nav-text">objectIs.js:</span></a></li></ol></div>
             
 
           </div>
@@ -931,9 +922,9 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "http://yoursite.com/2019/07/04/JS-getBoundingClientRect()/";
-    this.page.identifier = "2019/07/04/JS-getBoundingClientRect()/";
-    this.page.title = 'getBoundingClientRect()';
+    this.page.url = "http://yoursite.com/2019/08/13/React-PureComponent浅比较（16.8.6）/";
+    this.page.identifier = "2019/08/13/React-PureComponent浅比较（16.8.6）/";
+    this.page.title = 'PureComponent浅比较（16.8.6）';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');
