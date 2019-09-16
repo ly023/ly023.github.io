@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="朝花夕拾">
 <meta property="og:description" content="iPhone X适配参考文章：https://aotu.io/notes/2017/11/27/iphonex/ 12345678&amp;lt;!--viweport-fit 属性，使得页面内容完全覆盖整个窗口--&amp;gt;&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, viewport-fit=cover&amp;quot">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-26T03:29:55.509Z">
+<meta property="og:updated_time" content="2019-09-16T10:50:10.368Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="H5移动端兼容性总结--iOS篇">
 <meta name="twitter:description" content="iPhone X适配参考文章：https://aotu.io/notes/2017/11/27/iphonex/ 12345678&amp;lt;!--viweport-fit 属性，使得页面内容完全覆盖整个窗口--&amp;gt;&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, viewport-fit=cover&amp;quot">
@@ -413,7 +413,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-26 11:29:55" itemprop="dateModified" datetime="2019-06-26T11:29:55+08:00">2019-06-26</time>
+                <time title="修改时间：2019-09-16 18:50:10" itemprop="dateModified" datetime="2019-09-16T18:50:10+08:00">2019-09-16</time>
               
             
           </span>
@@ -512,6 +512,12 @@
 <h3 id="微信-企业微信下键盘收起页面不会回到原位置"><a href="#微信-企业微信下键盘收起页面不会回到原位置" class="headerlink" title="微信/企业微信下键盘收起页面不会回到原位置"></a>微信/企业微信下键盘收起页面不会回到原位置</h3><p>bug描述：微信下打开网页键盘弹起后页面上滑，键盘收起后页面不会回到原位置，且页面触摸响应错位。</p>
 <p>解决方案：<code>focus</code>键盘弹起时保存<code>element</code>的<code>scrollTop</code>，<code>blur</code>键盘收起时回到原位置</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">focus = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.scrollTop = getElementScrollTop(scrollElement)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">blur = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    scrollElement.scrollTop = <span class="keyword">this</span>.scrollTop</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="时间转换为Invalid-Date"><a href="#时间转换为Invalid-Date" class="headerlink" title="时间转换为Invalid Date"></a>时间转换为Invalid Date</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2018-01-01 00:00:00'</span>)</span><br><span class="line"><span class="comment">// Invalid Date</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2018.01.01 00:00:00'</span>)</span><br><span class="line"><span class="comment">// Invalid Date</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2018/01/01 00:00:00'</span>)</span><br><span class="line"><span class="comment">// Mon Jan 01 2018 00:00:00 GMT+0800(CST)</span></span><br></pre></td></tr></table></figure>
+
+<p>原因：iOS系统不识别<code>YYYY-MM-DD</code>、<code>YYYY.MM.DD</code>格式，能识别<code>YYYY/MM/DD</code>格式</p>
+<p>解决方案：将时间字符串中的<code>-</code>替换成<code>/</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> timeStr = <span class="string">'2018-01-01 00:00:00'</span></span><br><span class="line"><span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(timeStr.replace(<span class="regexp">/-/g</span>, <span class="string">'/'</span>))</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -640,7 +646,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -752,7 +758,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#iPhone-X适配"><span class="nav-number">1.</span> <span class="nav-text">iPhone X适配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#input输入框在iOS中光标及字体不居中"><span class="nav-number">2.</span> <span class="nav-text">input输入框在iOS中光标及字体不居中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webkit-overflow-scrolling-touch与overflow-y-auto与fixed定位"><span class="nav-number">3.</span> <span class="nav-text">-webkit-overflow-scrolling:touch与overflow-y:auto与fixed定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS下输入框设置readOnly仍会聚焦"><span class="nav-number">4.</span> <span class="nav-text">iOS下输入框设置readOnly仍会聚焦</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入fastclick导致输入框难以聚焦"><span class="nav-number">5.</span> <span class="nav-text">引入fastclick导致输入框难以聚焦</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微信-企业微信下键盘收起页面不会回到原位置"><span class="nav-number">6.</span> <span class="nav-text">微信/企业微信下键盘收起页面不会回到原位置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#iPhone-X适配"><span class="nav-number">1.</span> <span class="nav-text">iPhone X适配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#input输入框在iOS中光标及字体不居中"><span class="nav-number">2.</span> <span class="nav-text">input输入框在iOS中光标及字体不居中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webkit-overflow-scrolling-touch与overflow-y-auto与fixed定位"><span class="nav-number">3.</span> <span class="nav-text">-webkit-overflow-scrolling:touch与overflow-y:auto与fixed定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS下输入框设置readOnly仍会聚焦"><span class="nav-number">4.</span> <span class="nav-text">iOS下输入框设置readOnly仍会聚焦</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入fastclick导致输入框难以聚焦"><span class="nav-number">5.</span> <span class="nav-text">引入fastclick导致输入框难以聚焦</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微信-企业微信下键盘收起页面不会回到原位置"><span class="nav-number">6.</span> <span class="nav-text">微信/企业微信下键盘收起页面不会回到原位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间转换为Invalid-Date"><span class="nav-number">7.</span> <span class="nav-text">时间转换为Invalid Date</span></a></li></ol></div>
             
 
           </div>
