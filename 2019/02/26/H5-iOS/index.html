@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="朝花夕拾">
 <meta property="og:description" content="记录移动端页面开发中遇到的一些iOS兼容性问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-21T01:47:10.484Z">
+<meta property="og:updated_time" content="2020-03-02T11:25:23.666Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="H5移动端兼容性总结--iOS篇">
 <meta name="twitter:description" content="记录移动端页面开发中遇到的一些iOS兼容性问题。">
@@ -413,7 +413,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-21 09:47:10" itemprop="dateModified" datetime="2020-02-21T09:47:10+08:00">2020-02-21</time>
+                <time title="修改时间：2020-03-02 19:25:23" itemprop="dateModified" datetime="2020-03-02T19:25:23+08:00">2020-03-02</time>
               
             
           </span>
@@ -490,8 +490,16 @@
 
 <h2 id="input输入框在iOS中光标及字体不居中"><a href="#input输入框在iOS中光标及字体不居中" class="headerlink" title="input输入框在iOS中光标及字体不居中"></a>input输入框在iOS中光标及字体不居中</h2><p>原因：使用line-height垂直居中</p>
 <p>解决方法：可直接定义height，然后高度由上下padding值撑开</p>
-<h2 id="webkit-overflow-scrolling-touch与overflow-y-auto与fixed定位"><a href="#webkit-overflow-scrolling-touch与overflow-y-auto与fixed定位" class="headerlink" title="-webkit-overflow-scrolling:touch与overflow-y:auto与fixed定位"></a>-webkit-overflow-scrolling:touch与overflow-y:auto与fixed定位</h2><p>iOS下Web页面，使用<code>-webkit-overflow-scrolling:touch</code>会导致使用固定定位的元素随着页面一起滚动，只有滚动停止时才会恢复原位。</p>
-<p>解决方法：使用<code>overflow-y</code>属性的元素中不应该包含固定定位的元素</p>
+<!--
+
+## -webkit-overflow-scrolling:touch与overflow-y:auto与fixed定位
+
+iOS下Web页面，使用`-webkit-overflow-scrolling:touch`会导致使用固定定位的元素随着页面一起滚动，只有滚动停止时才会恢复原位。
+
+解决方法：使用`overflow-y`属性的元素中不应该包含固定定位的元素
+
+-->
+
 <h2 id="iOS下输入框设置readOnly仍会聚焦"><a href="#iOS下输入框设置readOnly仍会聚焦" class="headerlink" title="iOS下输入框设置readOnly仍会聚焦"></a>iOS下输入框设置readOnly仍会聚焦</h2><ul>
 <li>方案一</li>
 </ul>
@@ -660,7 +668,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -676,6 +684,8 @@
                     
                   
                     
+                    
+                      
                     
                       
                     
@@ -711,6 +721,8 @@
                     
                   
                     
+                    
+                      
                     
                       
                     
@@ -778,7 +790,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#input输入框在iOS中光标及字体不居中"><span class="nav-number">1.</span> <span class="nav-text">input输入框在iOS中光标及字体不居中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webkit-overflow-scrolling-touch与overflow-y-auto与fixed定位"><span class="nav-number">2.</span> <span class="nav-text">-webkit-overflow-scrolling:touch与overflow-y:auto与fixed定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS下输入框设置readOnly仍会聚焦"><span class="nav-number">3.</span> <span class="nav-text">iOS下输入框设置readOnly仍会聚焦</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引入fastclick导致输入框难以聚焦"><span class="nav-number">4.</span> <span class="nav-text">引入fastclick导致输入框难以聚焦</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微信-企业微信下键盘收起页面不会回到原位置"><span class="nav-number">5.</span> <span class="nav-text">微信/企业微信下键盘收起页面不会回到原位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flex布局设置height-100-无效（iOS-10-3-2）"><span class="nav-number">6.</span> <span class="nav-text">Flex布局设置height: 100%无效（iOS 10.3.2）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间转换为Invalid-Date"><span class="nav-number">7.</span> <span class="nav-text">时间转换为Invalid Date</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iPhone-X适配"><span class="nav-number">8.</span> <span class="nav-text">iPhone X适配</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#input输入框在iOS中光标及字体不居中"><span class="nav-number">1.</span> <span class="nav-text">input输入框在iOS中光标及字体不居中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS下输入框设置readOnly仍会聚焦"><span class="nav-number">2.</span> <span class="nav-text">iOS下输入框设置readOnly仍会聚焦</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引入fastclick导致输入框难以聚焦"><span class="nav-number">3.</span> <span class="nav-text">引入fastclick导致输入框难以聚焦</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微信-企业微信下键盘收起页面不会回到原位置"><span class="nav-number">4.</span> <span class="nav-text">微信/企业微信下键盘收起页面不会回到原位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flex布局设置height-100-无效（iOS-10-3-2）"><span class="nav-number">5.</span> <span class="nav-text">Flex布局设置height: 100%无效（iOS 10.3.2）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间转换为Invalid-Date"><span class="nav-number">6.</span> <span class="nav-text">时间转换为Invalid Date</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iPhone-X适配"><span class="nav-number">7.</span> <span class="nav-text">iPhone X适配</span></a></li></ol></div>
             
 
           </div>
