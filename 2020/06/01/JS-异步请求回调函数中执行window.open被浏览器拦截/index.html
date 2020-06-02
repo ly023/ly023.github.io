@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="记一次使用window.open与window.close遇到的问题。">
+  <meta name="description" content="window.open被浏览器拦截问题。">
 <meta name="keywords" content="JS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="页面跳转后自动调用window.close无效">
-<meta property="og:url" content="http://yoursite.com/2020/01/08/JS-页面跳转后自动调用window.close无效/index.html">
+<meta property="og:title" content="异步请求回调函数中执行window.open被浏览器拦截">
+<meta property="og:url" content="http://yoursite.com/2020/06/01/JS-异步请求回调函数中执行window.open被浏览器拦截/index.html">
 <meta property="og:site_name" content="朝花夕拾">
-<meta property="og:description" content="记一次使用window.open与window.close遇到的问题。">
+<meta property="og:description" content="window.open被浏览器拦截问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-17T03:26:06.682Z">
+<meta property="og:updated_time" content="2020-06-02T01:12:17.262Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="页面跳转后自动调用window.close无效">
-<meta name="twitter:description" content="记一次使用window.open与window.close遇到的问题。">
+<meta name="twitter:title" content="异步请求回调函数中执行window.open被浏览器拦截">
+<meta name="twitter:description" content="window.open被浏览器拦截问题。">
 
 
 
@@ -113,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/01/08/JS-页面跳转后自动调用window.close无效/">
+  <link rel="canonical" href="http://yoursite.com/2020/06/01/JS-异步请求回调函数中执行window.open被浏览器拦截/">
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>页面跳转后自动调用window.close无效 | 朝花夕拾</title>
+  <title>异步请求回调函数中执行window.open被浏览器拦截 | 朝花夕拾</title>
   
 
 
@@ -353,7 +353,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/08/JS-页面跳转后自动调用window.close无效/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/01/JS-异步请求回调函数中执行window.open被浏览器拦截/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="多义词">
@@ -370,7 +370,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">页面跳转后自动调用window.close无效
+          <h1 class="post-title" itemprop="name headline">异步请求回调函数中执行window.open被浏览器拦截
 
               
             
@@ -396,7 +396,7 @@
                 
               
 
-              <time title="创建时间：2020-01-08 10:06:07" itemprop="dateCreated datePublished" datetime="2020-01-08T10:06:07+08:00">2020-01-08</time>
+              <time title="创建时间：2020-06-01 09:09:27" itemprop="dateCreated datePublished" datetime="2020-06-01T09:09:27+08:00">2020-06-01</time>
             
 
             
@@ -413,7 +413,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-17 11:26:06" itemprop="dateModified" datetime="2020-02-17T11:26:06+08:00">2020-02-17</time>
+                <time title="修改时间：2020-06-02 09:12:17" itemprop="dateModified" datetime="2020-06-02T09:12:17+08:00">2020-06-02</time>
               
             
           </span>
@@ -449,8 +449,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2020/01/08/JS-页面跳转后自动调用window.close无效/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/01/08/JS-页面跳转后自动调用window.close无效/" itemprop="commentCount"></span>
+                <a href="/2020/06/01/JS-异步请求回调函数中执行window.open被浏览器拦截/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/06/01/JS-异步请求回调函数中执行window.open被浏览器拦截/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -485,23 +485,24 @@
       
 
       
-        <p>记一次使用window.open与window.close遇到的问题。</p>
+        <p>window.open被浏览器拦截问题。</p>
 <a id="more"></a>
 
-<p><strong>交互</strong>：点击按钮，新窗口打开第三方页面授权，授权后跳转回result page。如果授权成功，result page倒计时5秒后自动关闭窗口；授权失败，点击“关闭页面”按钮可关闭窗口。</p>
-<p><strong>实现</strong>：使用<code>window.open(url, name, params)</code>打开第三方页面，第三方页面跳转到result page，result page执行<code>window.close()</code>关闭窗口。</p>
-<p><strong>问题</strong>：授权成功时，倒计时完成后调用<code>window.close()</code>无法关闭窗口。奇怪的是授权失败时，点击“关闭页面”按钮（同样是调用<code>window.close()</code>）能够关闭窗口。</p>
-<p><strong>分析</strong>：本地模拟使用<code>window.open(url, name, params)</code>打开result page，倒计时完成后，能够自动关闭窗口。猜测是线上经过第三方页面再跳转到result page后，浏览器认为当前页面不是由自己打开的，所以不生效。猜测需要用户手动触发才能生效。</p>
-<p><strong>解决</strong>：模拟用户点击行为后自动关闭的<code>window.close()</code>生效</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>)</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(a)</span><br><span class="line">a.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">window</span>.close()</span><br><span class="line">&#125;)</span><br><span class="line">a.click()</span><br><span class="line"><span class="built_in">document</span>.body.removeChild(a)</span><br></pre></td></tr></table></figure>
-
-<p>其他场景：</p>
 <ul>
-<li><p>如果是打开新标签页：<code>window.open(url, &#39;_blank&#39;)</code></p>
+<li><p>非用户触发的操作，调用window.open()打开新的tab页，会被浏览器拦截，浏览器认为这可能是一个广告，不是用户希望看到的页面；</p>
 </li>
-<li><p>如果需要在关闭子页面的同时刷新父页面：<code>window.opener.location.reload()</code>。通常在使用<code>window.opener</code>的时候要去判断父窗口的状态，如果父窗口被关闭或者更新，就会出错，需要加上<code>if(window.opener &amp;&amp; !window.opener.closed)</code>验证。</p>
+<li><p>在用户触发事件函数中，调用多个window.open()，第一个不会被拦截，其他的都会被拦截；</p>
+</li>
+<li><p>在用户触发事件函数中，若有异步请求，在异步请求的回调函数中调用window.open()也会被拦截；</p>
 </li>
 </ul>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="定时器（无效）"><a href="#定时器（无效）" class="headerlink" title="定时器（无效）"></a>定时器（无效）</h4><p>一开始使用定时器的方式，在异步请求前先设置定时器，判断openUrl有值后再调用window.open。后来发现在请求响应慢的情况下依然会被浏览器拦截。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">timer = <span class="built_in">window</span>.setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">     <span class="keyword">if</span> (openUrl) &#123;</span><br><span class="line">        <span class="built_in">window</span>.open(openUrl, <span class="string">'_blank'</span>)</span><br><span class="line">        clearTimer()</span><br><span class="line">     &#125;</span><br><span class="line">&#125;, <span class="number">500</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="最终解决方案"><a href="#最终解决方案" class="headerlink" title="最终解决方案"></a>最终解决方案</h4><p>在用户点击时先打开新的空白页面，再进行异步请求；请求完成后再对新页面进行重定向：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 打开新页面，提示正在加载中</span></span><br><span class="line"><span class="keyword">const</span> win = <span class="built_in">window</span>.open()</span><br><span class="line">win.document.write(<span class="string">'加载中，请稍候...'</span>)</span><br><span class="line">win.document.title = <span class="string">'加载中...'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求完成后重定向</span></span><br><span class="line">win.location = url</span><br></pre></td></tr></table></figure>
+
+
 
       
     </div>
@@ -541,8 +542,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/27/使用FormData对象上传文件/" rel="next" title="使用FormData对象上传文件">
-                <i class="fa fa-chevron-left"></i> 使用FormData对象上传文件
+              <a href="/2020/05/15/JS-debounce&throttle/" rel="next" title="防抖与节流">
+                <i class="fa fa-chevron-left"></i> 防抖与节流
               </a>
             
           </div>
@@ -550,10 +551,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/01/15/JS-多Tab数据同步问题/" rel="prev" title="多Tab数据同步问题">
-                多Tab数据同步问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -604,8 +601,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -735,6 +741,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案"><span class="nav-number">1.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定时器（无效）"><span class="nav-number">1.1.</span> <span class="nav-text">定时器（无效）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最终解决方案"><span class="nav-number">1.2.</span> <span class="nav-text">最终解决方案</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -918,9 +941,9 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "http://yoursite.com/2020/01/08/JS-页面跳转后自动调用window.close无效/";
-    this.page.identifier = "2020/01/08/JS-页面跳转后自动调用window.close无效/";
-    this.page.title = '页面跳转后自动调用window.close无效';
+    this.page.url = "http://yoursite.com/2020/06/01/JS-异步请求回调函数中执行window.open被浏览器拦截/";
+    this.page.identifier = "2020/06/01/JS-异步请求回调函数中执行window.open被浏览器拦截/";
+    this.page.title = '异步请求回调函数中执行window.open被浏览器拦截';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');
