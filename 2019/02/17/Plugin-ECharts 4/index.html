@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="朝花夕拾">
 <meta property="og:description" content="整理了一些工作中常用的ECharts配置。 示例：Echarts Gallery 在react中使用Echarts：echarts-for-react">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-30T05:40:42.482Z">
+<meta property="og:updated_time" content="2020-07-07T11:03:58.635Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ECharts 4 配置">
 <meta name="twitter:description" content="整理了一些工作中常用的ECharts配置。 示例：Echarts Gallery 在react中使用Echarts：echarts-for-react">
@@ -413,7 +413,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-06-30 13:40:42" itemprop="dateModified" datetime="2020-06-30T13:40:42+08:00">2020-06-30</time>
+                <time title="修改时间：2020-07-07 19:03:58" itemprop="dateModified" datetime="2020-07-07T19:03:58+08:00">2020-07-07</time>
               
             
           </span>
@@ -500,6 +500,7 @@
 <p>如果已经设置了<code>renderer: &#39;svg&#39;</code>，但是渲染出的仍然是canvas，检查一下是否引入了SVG 渲染器模块:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> echarts <span class="keyword">from</span> <span class="string">'echarts/lib/echarts'</span></span><br><span class="line"><span class="comment">// 引入SVG渲染器模块</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'zrender/lib/svg/svg'</span></span><br></pre></td></tr></table></figure>
 
+<p><strong>注意：svg渲染模式，不支持富文本标签，将在 5.0 支持。</strong><a href="https://github.com/apache/incubator-echarts/issues/12853" target="_blank" rel="noopener">issue</a> </p>
 <h3 id="通用"><a href="#通用" class="headerlink" title="通用"></a>通用</h3><h4 id="设置渐变填充色"><a href="#设置渐变填充色" class="headerlink" title="设置渐变填充色"></a>设置渐变填充色</h4><p>配置文档：<a href="https://echarts.apache.org/zh/option.html#series-boxplot.data.emphasis.itemStyle.color" target="_blank" rel="noopener">https://echarts.apache.org/zh/option.html#series-boxplot.data.emphasis.itemStyle.color</a></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">color: &#123;</span><br><span class="line">    type: <span class="string">'linear'</span>, </span><br><span class="line">    <span class="comment">// 线性渐变，x y x2 y2 参数用于配置渐变色的起止位置, 依次对应右/下/左/上四个方位。</span></span><br><span class="line">    <span class="comment">// 0 0 0 1 代表渐变色从正上方开始。</span></span><br><span class="line">    <span class="comment">// 范围从 0 - 1，相当于在图形包围盒中的百分比，</span></span><br><span class="line">    <span class="comment">// 如果 globalCoord 为 `true`，则该四个值是绝对的像素位置</span></span><br><span class="line">    x: <span class="number">0</span>,</span><br><span class="line">    y: <span class="number">0</span>,</span><br><span class="line">    x2: <span class="number">0</span>,</span><br><span class="line">    y2: <span class="number">1</span>,</span><br><span class="line">    colorStops: [&#123;</span><br><span class="line">        offset: <span class="number">0</span>,</span><br><span class="line">        color: <span class="string">'#7EB2FB'</span> <span class="comment">// 0% 处的颜色</span></span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        offset: <span class="number">1</span>,</span><br><span class="line">        color: <span class="string">'#487BF6'</span> <span class="comment">// 100% 处的颜色</span></span><br><span class="line">    &#125;],</span><br><span class="line">    globalCoord: <span class="literal">false</span> <span class="comment">// 缺省为 false</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 
@@ -666,7 +667,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-count">37</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
