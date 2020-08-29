@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="朝花夕拾">
 <meta property="og:description" content="记录项目开发过程中遇到的一些问题（antd 3.x）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-03T00:46:57.570Z">
+<meta property="og:updated_time" content="2020-08-19T01:43:00.667Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ant Design v3">
 <meta name="twitter:description" content="记录项目开发过程中遇到的一些问题（antd 3.x）">
@@ -396,7 +396,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-04-03 08:46:57" itemprop="dateModified" datetime="2020-04-03T08:46:57+08:00">2020-04-03</time>
+                <time title="修改时间：2020-08-19 09:43:00" itemprop="dateModified" datetime="2020-08-19T09:43:00+08:00">2020-08-19</time>
               
             
           </span>
@@ -471,7 +471,6 @@
         <p>记录项目开发过程中遇到的一些问题（antd 3.x）</p>
 <a id="more"></a>
 
-
 <h3 id="Form"><a href="#Form" class="headerlink" title="Form"></a>Form</h3><ul>
 <li><p>过滤首尾空格</p>
  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  getFieldDecorator(<span class="string">'keyword'</span>, &#123;</span><br><span class="line">   validate: [&#123;</span><br><span class="line">       trigger: <span class="string">'onChange'</span>,</span><br><span class="line">       rules: [</span><br><span class="line">           &#123; <span class="attr">validator</span>: <span class="keyword">this</span>.validator &#125;,</span><br><span class="line">       ],</span><br><span class="line">   &#125;, ],</span><br><span class="line">   <span class="comment">// 处理</span></span><br><span class="line">  normalize: <span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">typeof</span> value === <span class="string">'string'</span> ? value.trim() : <span class="string">''</span></span><br><span class="line">   &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
@@ -508,8 +507,21 @@
 <li>设置placeholder无效 </li>
 </ol>
 <p>value设为undefined而不是<code>&#39;&#39;</code>，placeholder才生效。</p>
-<h3 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h3><p>当 <code>mode</code>为<code>tags/multiple</code>时，value不能为空字符串或者undefined</p>
+<h3 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h3><blockquote>
+<p>如果发现下拉菜单跟随页面滚动，或者需要在其他弹层中触发 Select，请尝试使用 getPopupContainer={triggerNode =&gt; triggerNode.parentElement} 将下拉弹层渲染节点固定在触发器的父元素中。</p>
+</blockquote>
+<ol>
+<li><p>当 <code>mode</code>为<code>tags/multiple</code>时，value不能为空字符串或者undefined</p>
+</li>
+<li><p>分页加载</p>
+</li>
+</ol>
+<p><code>onPopupScroll</code>: 下拉列表滚动时的回调</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> handlePopupScroll = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;target&#125; = e</span><br><span class="line">    <span class="keyword">if</span> (target.scrollTop + target.offsetHeight === target.scrollHeight) &#123;</span><br><span class="line">        <span class="keyword">if</span> (loading) &#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// ...其他判断</span></span><br><span class="line">        <span class="comment">// ...fetchData</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>防止下拉滚动到底部或顶部时引发父元素的滚动：在下拉列表上设置<code>overscroll-behavior: contain</code></p>
+<p><a href="https://www.caniuse.com/#feat=css-overscroll-behavior" target="_blank" rel="noopener">兼容性</a></p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:global</span> &#123;</span><br><span class="line">    <span class="selector-class">.ant-select-dropdown-menu</span> &#123;</span><br><span class="line">        <span class="attribute">overscroll-behavior</span>: contain;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -638,7 +650,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">40</span>
+                    <span class="site-state-item-count">41</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -732,7 +744,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">19</span>
+                      
+                    
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
