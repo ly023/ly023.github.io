@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="场景：用户在A页面创建个人素材，B页面选择素材。用户可能都是在新Tab打开页面A和B，当用户在A页面创建素材时，B页面需要更新素材的内容。">
-<meta name="keywords" content="JS">
+  <meta name="description" content="原文：Why CSS ::before doesn’t work on inputs and images">
+<meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多Tab数据同步问题">
-<meta property="og:url" content="http://yoursite.com/2020/01/15/JS-多Tab数据同步问题/index.html">
+<meta property="og:title" content="【译】为什么::before对input和img无效">
+<meta property="og:url" content="http://yoursite.com/2020/09/01/CSS-【译】为什么伪元素对input和img无效/index.html">
 <meta property="og:site_name" content="朝花夕拾">
-<meta property="og:description" content="场景：用户在A页面创建个人素材，B页面选择素材。用户可能都是在新Tab打开页面A和B，当用户在A页面创建素材时，B页面需要更新素材的内容。">
+<meta property="og:description" content="原文：Why CSS ::before doesn’t work on inputs and images">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-08-04T10:30:35.383Z">
+<meta property="og:updated_time" content="2020-09-05T01:54:55.444Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="多Tab数据同步问题">
-<meta name="twitter:description" content="场景：用户在A页面创建个人素材，B页面选择素材。用户可能都是在新Tab打开页面A和B，当用户在A页面创建素材时，B页面需要更新素材的内容。">
+<meta name="twitter:title" content="【译】为什么::before对input和img无效">
+<meta name="twitter:description" content="原文：Why CSS ::before doesn’t work on inputs and images">
 
 
 
@@ -113,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/01/15/JS-多Tab数据同步问题/">
+  <link rel="canonical" href="http://yoursite.com/2020/09/01/CSS-【译】为什么伪元素对input和img无效/">
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>多Tab数据同步问题 | 朝花夕拾</title>
+  <title>【译】为什么::before对input和img无效 | 朝花夕拾</title>
   
 
 
@@ -336,7 +336,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/15/JS-多Tab数据同步问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/01/CSS-【译】为什么伪元素对input和img无效/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="多义词">
@@ -353,7 +353,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">多Tab数据同步问题
+          <h1 class="post-title" itemprop="name headline">【译】为什么::before对input和img无效
 
               
             
@@ -379,7 +379,7 @@
                 
               
 
-              <time title="创建时间：2020-01-15 16:19:49" itemprop="dateCreated datePublished" datetime="2020-01-15T16:19:49+08:00">2020-01-15</time>
+              <time title="创建时间：2020-09-01 18:06:09" itemprop="dateCreated datePublished" datetime="2020-09-01T18:06:09+08:00">2020-09-01</time>
             
 
             
@@ -396,7 +396,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-08-04 18:30:35" itemprop="dateModified" datetime="2020-08-04T18:30:35+08:00">2020-08-04</time>
+                <time title="修改时间：2020-09-05 09:54:55" itemprop="dateModified" datetime="2020-09-05T09:54:55+08:00">2020-09-05</time>
               
             
           </span>
@@ -413,7 +413,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a></span>
 
                 
                 
@@ -432,8 +432,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2020/01/15/JS-多Tab数据同步问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/01/15/JS-多Tab数据同步问题/" itemprop="commentCount"></span>
+                <a href="/2020/09/01/CSS-【译】为什么伪元素对input和img无效/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/09/01/CSS-【译】为什么伪元素对input和img无效/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -468,17 +468,36 @@
       
 
       
-        <p><strong>场景</strong>：用户在A页面创建个人素材，B页面选择素材。用户可能都是在新Tab打开页面A和B，当用户在A页面创建素材时，B页面需要更新素材的内容。</p>
+        <p>原文：<a href="https://webplatform.news/issues/2020-08-26" target="_blank" rel="noopener">Why CSS ::before doesn’t work on inputs and images</a></p>
 <a id="more"></a>
 
-<p><strong>解决</strong>：使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API" target="_blank" rel="noopener">Web Storage API</a>。</p>
-<p>当在A页面创建素材成功后，修改localStorage，key唯一：<code>window.localStorage.setItem(key, value)</code>；</p>
-<p>B页面监听localStorage变化： </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'storage'</span>, (e) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span>(e.key === KEY)&#123;</span><br><span class="line">      <span class="comment">// ... </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>无法将CSS伪元素<code>::before</code>和<code>::after</code>添加到文本输入框和图片，因为这些元素是”替换元素”，这是HTML标准<a href="https://html.spec.whatwg.org/multipage/rendering.html#replaced-elements" target="_blank" rel="noopener">“Rendering section”</a>中定义的特殊类别：</p>
+<blockquote>
+<p>The following elements can be replaced elements: <code>&lt;audio&gt;</code>, <code>&lt;canvas&gt;</code>, <code>&lt;embed&gt;</code>, <code>&lt;iframe&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;object&gt;</code>, and <code>&lt;video&gt;</code>.</p>
+</blockquote>
+<p>CSS工作组成员fantasai在<a href="https://github.com/w3c/csswg-drafts/issues/625#issuecomment-450410371" target="_blank" rel="noopener">GitHub</a>上解释了原因：</p>
+<blockquote>
+<p>Replaced elements replace all the content of the element, including ::before and ::after pseudo-elements. That’s why it doesn’t work on them.</p>
+</blockquote>
+<p>替换元素将替换元素的所有内容，包括<code>::before</code>和<code>::after</code>伪元素。这就是为什么伪元素对他们不起作用的原因。</p>
+<p>例如，在<code>&lt;img&gt;</code>元素上不能使用<code>::before</code>来显示图像的替代文本–这种方法可以在其他元素上使用：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* This doesn’t work! */</span></span><br><span class="line"><span class="selector-tag">img</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="built_in">attr</span>(alt);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="通过-StorageEvent-响应存储的变化"><a href="#通过-StorageEvent-响应存储的变化" class="headerlink" title="通过 StorageEvent 响应存储的变化"></a>通过 StorageEvent 响应存储的变化</h3><p>Storage 对象发生变化时（即创建/更新/删除数据项时，<strong>重复设置相同的键值不会触发该事件</strong>，Storage.clear() 方法至多触发一次该事件），StorageEvent 事件会触发。</p>
-<p>在<strong>同一个页面内发生的改变不会起作用</strong>——在<strong>相同域名</strong>下的其他页面（如一个新标签或 iframe）<strong>发生的改变才会起作用</strong>。在其他域名下的页面不能访问相同的 Storage 对象。</p>
-<p><strong>后记</strong>：除了监听localStorage变化，还可以监听<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/visibilitychange_event" target="_blank" rel="noopener"><code>onvisibilitychange</code></a>事件，在页面切换的时候刷新数据，但是在用户体验上会稍差一点。两种方法都无法避免不必要的请求。</p>
+<p><strong>注意：</strong>取决于浏览器和其他因素，<code>&lt;img&gt;</code>元素不一定总是替换元素。 例如，如果图像无法加载，则在<code>Chrome</code>和<code>Firefox</code>中可以将<code>::before</code>和<code>::after</code>添加到<code>&lt;img&gt;</code>中：<a href="https://bitsofco.de/styling-broken-images/" target="_blank" rel="noopener">Styling Broken Images</a>（翻译：<a href="https://juejin.im/post/5e2fa68ae51d45580329be17" target="_blank" rel="noopener">给破碎图片添加样式</a>）。</p>
+<p>对于表单控件，情况尚不清楚。 <code>&lt;input&gt;</code>和<code>&lt;textarea&gt;</code>元素被视为“半替换”元素，这是CSS规范编辑者Tab Atkins在<a href="https://github.com/whatwg/html/issues/2948#issuecomment-323821560" target="_blank" rel="noopener">GitHub</a>上的工作组讨论中使用的一个术语：</p>
+<blockquote>
+<p>All input types are at least “semi-replaced.” We’re still not really sure how that state works; it’s not fully a replaced element (it doesn’t size like one, and responds to some properties), but still has some notion of an “intrinsic” size that it likes to obey (unlike normal elements) and is unbreakable.</p>
+</blockquote>
+<p>是否可以将CSS<code>::before</code>和<code>::after</code>内容添加到input中，取决于input类型和浏览器。 例如，<code>Chrome</code>和<code>Safari</code>的复选框和单选按钮支持CSS<code>content</code>。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">'💔'</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">vertical-align</span>: top;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">left</span>: -<span class="number">1.5em</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">:checked</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">'❤️'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>demo: <a href="https://jsbin.com/jirehif/edit?html,css,output" target="_blank" rel="noopener">CSS ::before content on a native checkbox in Chrome</a></p>
+<iframe height="265" style="width: 100%;" scrolling="no" title="::before on native checkbox（Chrome and Safari support）" src="https://codepen.io/ly023/embed/WNwZYem?height=265&theme-id=dark&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/ly023/pen/WNwZYem" target="_blank" rel="noopener">::before on native checkbox（Chrome and Safari support）</a> by ly023
+  (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+<p>如果你无法在元素上使用CSS<code>::before</code>或<code>::after</code>内容，请记得检查元素是否为（半）替换元素。</p>
 
       
     </div>
@@ -505,7 +524,7 @@
         
         <div class="post-tags">
           
-            <a href="/tags/JS/" rel="tag"># JS</a>
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
           
         </div>
       
@@ -518,8 +537,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/08/JS-页面跳转后自动调用window.close无效/" rel="next" title="页面跳转后自动调用window.close无效">
-                <i class="fa fa-chevron-left"></i> 页面跳转后自动调用window.close无效
+              <a href="/2020/08/17/JS-Promise执行顺序/" rel="next" title="Promise执行顺序">
+                <i class="fa fa-chevron-left"></i> Promise执行顺序
               </a>
             
           </div>
@@ -527,10 +546,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/03/05/antd Upload + form-data上传文件/" rel="prev" title="antd Upload + form-data上传文件">
-                antd Upload + form-data上传文件 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -581,17 +596,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -731,23 +737,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-StorageEvent-响应存储的变化"><span class="nav-number">1.</span> <span class="nav-text">通过 StorageEvent 响应存储的变化</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
@@ -931,9 +920,9 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "http://yoursite.com/2020/01/15/JS-多Tab数据同步问题/";
-    this.page.identifier = "2020/01/15/JS-多Tab数据同步问题/";
-    this.page.title = '多Tab数据同步问题';
+    this.page.url = "http://yoursite.com/2020/09/01/CSS-【译】为什么伪元素对input和img无效/";
+    this.page.identifier = "2020/09/01/CSS-【译】为什么伪元素对input和img无效/";
+    this.page.title = '【译】为什么::before对input和img无效';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');
