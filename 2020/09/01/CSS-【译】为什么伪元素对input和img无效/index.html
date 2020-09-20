@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="朝花夕拾">
 <meta property="og:description" content="原文：Why CSS ::before doesn’t work on inputs and images">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-09-05T01:54:55.444Z">
+<meta property="og:updated_time" content="2020-09-15T05:34:00.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【译】为什么::before对input和img无效">
 <meta name="twitter:description" content="原文：Why CSS ::before doesn’t work on inputs and images">
@@ -396,7 +396,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-09-05 09:54:55" itemprop="dateModified" datetime="2020-09-05T09:54:55+08:00">2020-09-05</time>
+                <time title="修改时间：2020-09-15 13:34:00" itemprop="dateModified" datetime="2020-09-15T13:34:00+08:00">2020-09-15</time>
               
             
           </span>
@@ -471,7 +471,7 @@
         <p>原文：<a href="https://webplatform.news/issues/2020-08-26" target="_blank" rel="noopener">Why CSS ::before doesn’t work on inputs and images</a></p>
 <a id="more"></a>
 
-<p>无法将CSS伪元素<code>::before</code>和<code>::after</code>添加到文本输入框和图片，因为这些元素是”替换元素”，这是HTML标准<a href="https://html.spec.whatwg.org/multipage/rendering.html#replaced-elements" target="_blank" rel="noopener">“Rendering section”</a>中定义的特殊类别：</p>
+<p>无法将CSS伪元素<code>::before</code>和<code>::after</code>添加到文本输入框和图片，因为这些元素是“替换元素”，这是HTML标准<a href="https://html.spec.whatwg.org/multipage/rendering.html#replaced-elements" target="_blank" rel="noopener">“Rendering section”</a>中定义的特殊类别：</p>
 <blockquote>
 <p>The following elements can be replaced elements: <code>&lt;audio&gt;</code>, <code>&lt;canvas&gt;</code>, <code>&lt;embed&gt;</code>, <code>&lt;iframe&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;object&gt;</code>, and <code>&lt;video&gt;</code>.</p>
 </blockquote>
@@ -481,7 +481,7 @@
 </blockquote>
 <p>替换元素将替换元素的所有内容，包括<code>::before</code>和<code>::after</code>伪元素。这就是为什么伪元素对他们不起作用的原因。</p>
 <p>例如，在<code>&lt;img&gt;</code>元素上不能使用<code>::before</code>来显示图像的替代文本–这种方法可以在其他元素上使用：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* This doesn’t work! */</span></span><br><span class="line"><span class="selector-tag">img</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="built_in">attr</span>(alt);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* This doesn't work! */</span></span><br><span class="line"><span class="selector-tag">img</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="built_in">attr</span>(alt);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>注意：</strong>取决于浏览器和其他因素，<code>&lt;img&gt;</code>元素不一定总是替换元素。 例如，如果图像无法加载，则在<code>Chrome</code>和<code>Firefox</code>中可以将<code>::before</code>和<code>::after</code>添加到<code>&lt;img&gt;</code>中：<a href="https://bitsofco.de/styling-broken-images/" target="_blank" rel="noopener">Styling Broken Images</a>（翻译：<a href="https://juejin.im/post/5e2fa68ae51d45580329be17" target="_blank" rel="noopener">给破碎图片添加样式</a>）。</p>
 <p>对于表单控件，情况尚不清楚。 <code>&lt;input&gt;</code>和<code>&lt;textarea&gt;</code>元素被视为“半替换”元素，这是CSS规范编辑者Tab Atkins在<a href="https://github.com/whatwg/html/issues/2948#issuecomment-323821560" target="_blank" rel="noopener">GitHub</a>上的工作组讨论中使用的一个术语：</p>
