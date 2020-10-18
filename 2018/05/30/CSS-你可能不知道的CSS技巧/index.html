@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="朝花夕拾">
 <meta property="og:description" content=":empty 区分空元素 兼容性：:empty  12&amp;lt;div class=&quot;item&quot;&amp;gt;not empty&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;item&quot;&amp;gt;&amp;lt;/div&amp;gt;  123456789/* 选择空元素 */.item:empty &amp;#123;   /* ... */&amp;#125;/* 选择非空元素 */.item:not(:empty) &amp;#12">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-10-10T10:57:55.653Z">
+<meta property="og:updated_time" content="2020-10-13T10:46:39.962Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你可能不知道的CSS技巧">
 <meta name="twitter:description" content=":empty 区分空元素 兼容性：:empty  12&amp;lt;div class=&quot;item&quot;&amp;gt;not empty&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;item&quot;&amp;gt;&amp;lt;/div&amp;gt;  123456789/* 选择空元素 */.item:empty &amp;#123;   /* ... */&amp;#125;/* 选择非空元素 */.item:not(:empty) &amp;#12">
@@ -396,7 +396,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-10-10 18:57:55" itemprop="dateModified" datetime="2020-10-10T18:57:55+08:00">2020-10-10</time>
+                <time title="修改时间：2020-10-13 18:46:39" itemprop="dateModified" datetime="2020-10-13T18:46:39+08:00">2020-10-13</time>
               
             
           </span>
@@ -518,7 +518,7 @@
   (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
 </iframe>
 
-<p>### </p>
+
 <h3 id="文字竖排-writing-mode"><a href="#文字竖排-writing-mode" class="headerlink" title="文字竖排 writing-mode"></a>文字竖排 writing-mode</h3><blockquote>
 <p>兼容性：<a href="https://www.caniuse.com/#search=writing-mode" target="_blank" rel="noopener">writing-mode</a></p>
 </blockquote>
@@ -559,6 +559,19 @@
 <p>可实现当子元素滚动到顶部或底部时，不影响父元素的滚动：</p>
 <iframe height="265" style="width: 100%;" scrolling="no" title="当子元素滚动到顶部或底部时，不影响父元素的滚动" src="https://codepen.io/ly023/embed/xxVOzgo?height=265&theme-id=dark&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/ly023/pen/xxVOzgo" target="_blank" rel="noopener">当子元素滚动到顶部或底部时，不影响父元素的滚动</a> by ly023
+  (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+<h3 id="控制滚动锚定行为-overflow-anchor"><a href="#控制滚动锚定行为-overflow-anchor" class="headerlink" title="控制滚动锚定行为 overflow-anchor"></a>控制滚动锚定行为 overflow-anchor</h3><blockquote>
+<p>兼容性 <a href="https://www.caniuse.com/css-overflow-anchor" target="_blank" rel="noopener">CSS overflow-anchor (Scroll Anchoring)</a></p>
+</blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/overflow-anchor" target="_blank" rel="noopener">MDN overflow-anchor</a></p>
+<p>滚动锚定（Scroll Anchoring）：当前视区上方DOM元素高度变化时，浏览器自动改变滚动高度，从而保证视区内容不变。</p>
+<p><code>overflow-anchor</code>：提供一种退出浏览器滚动锚定行为的方法，该行为会调整滚动位置以最大程度地减少内容偏移。</p>
+<p>默认情况下，在任何支持滚动锚定行为的浏览器中都将其启用。</p>
+<p>关闭滚动锚定行为：<code>overflow-anchor: none</code></p>
+<iframe height="265" style="width: 100%;" scrolling="no" title="overflow-anchor" src="https://codepen.io/ly023/embed/zYBvKaw?height=265&theme-id=dark&default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/ly023/pen/zYBvKaw" target="_blank" rel="noopener">overflow-anchor</a> by ly023
   (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
 </iframe>
 
@@ -723,7 +736,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">44</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -762,7 +775,7 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -778,10 +791,6 @@
                     
                   
                     
-                    
-                      
-                    
-                      
                     
                       
                     
@@ -859,7 +868,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#empty-区分空元素"><span class="nav-number">1.</span> <span class="nav-text">:empty 区分空元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相邻兄弟选择器区分头尾元素"><span class="nav-number">2.</span> <span class="nav-text">相邻兄弟选择器区分头尾元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垂直居中-position-absolute-margin-auto"><span class="nav-number">3.</span> <span class="nav-text">垂直居中 position: absolute + margin: auto</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-align-last对齐两端文本"><span class="nav-number">4.</span> <span class="nav-text">text-align-last对齐两端文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变文字书写顺序-direction与unicode-bidi"><span class="nav-number">5.</span> <span class="nav-text">改变文字书写顺序 direction与unicode-bidi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文字竖排-writing-mode"><span class="nav-number">6.</span> <span class="nav-text">文字竖排 writing-mode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自适应宽度width-min-content"><span class="nav-number">7.</span> <span class="nav-text">自适应宽度width:min-content</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制滚动到边界时的表现-overscroll-behavior"><span class="nav-number">8.</span> <span class="nav-text">控制滚动到边界时的表现 overscroll-behavior</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#带阴影三角形箭头-filter-drop-shadow"><span class="nav-number">9.</span> <span class="nav-text">带阴影三角形箭头 filter: drop-shadow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#悼念模式filter-grayscale"><span class="nav-number">10.</span> <span class="nav-text">悼念模式filter:grayscale()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用表情符号自定义光标"><span class="nav-number">11.</span> <span class="nav-text">使用表情符号自定义光标</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#empty-区分空元素"><span class="nav-number">1.</span> <span class="nav-text">:empty 区分空元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相邻兄弟选择器区分头尾元素"><span class="nav-number">2.</span> <span class="nav-text">相邻兄弟选择器区分头尾元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垂直居中-position-absolute-margin-auto"><span class="nav-number">3.</span> <span class="nav-text">垂直居中 position: absolute + margin: auto</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-align-last对齐两端文本"><span class="nav-number">4.</span> <span class="nav-text">text-align-last对齐两端文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变文字书写顺序-direction与unicode-bidi"><span class="nav-number">5.</span> <span class="nav-text">改变文字书写顺序 direction与unicode-bidi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文字竖排-writing-mode"><span class="nav-number">6.</span> <span class="nav-text">文字竖排 writing-mode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自适应宽度width-min-content"><span class="nav-number">7.</span> <span class="nav-text">自适应宽度width:min-content</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制滚动到边界时的表现-overscroll-behavior"><span class="nav-number">8.</span> <span class="nav-text">控制滚动到边界时的表现 overscroll-behavior</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制滚动锚定行为-overflow-anchor"><span class="nav-number">9.</span> <span class="nav-text">控制滚动锚定行为 overflow-anchor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#带阴影三角形箭头-filter-drop-shadow"><span class="nav-number">10.</span> <span class="nav-text">带阴影三角形箭头 filter: drop-shadow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#悼念模式filter-grayscale"><span class="nav-number">11.</span> <span class="nav-text">悼念模式filter:grayscale()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用表情符号自定义光标"><span class="nav-number">12.</span> <span class="nav-text">使用表情符号自定义光标</span></a></li></ol></div>
             
 
           </div>

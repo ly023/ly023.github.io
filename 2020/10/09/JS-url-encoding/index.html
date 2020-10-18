@@ -94,17 +94,17 @@
 
 
 
-  <meta name="description" content="个人博客（个人笔记及总结，如有错误欢迎评论指出）">
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+  <meta name="description" content="Javascript编码函数：escape()、encodeURI()以及encodeURIComponent()。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="URL编码">
+<meta property="og:url" content="http://yoursite.com/2020/10/09/JS-url-encoding/index.html">
 <meta property="og:site_name" content="朝花夕拾">
-<meta property="og:description" content="个人博客（个人笔记及总结，如有错误欢迎评论指出）">
+<meta property="og:description" content="Javascript编码函数：escape()、encodeURI()以及encodeURIComponent()。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-16T03:35:34.000Z">
+<meta property="og:updated_time" content="2020-10-15T07:40:32.509Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
-<meta name="twitter:description" content="个人博客（个人笔记及总结，如有错误欢迎评论指出）">
+<meta name="twitter:title" content="URL编码">
+<meta name="twitter:description" content="Javascript编码函数：escape()、encodeURI()以及encodeURIComponent()。">
 
 
 
@@ -112,7 +112,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/categories/">
+  <link rel="canonical" href="http://yoursite.com/2020/10/09/JS-url-encoding/">
 
 
 
@@ -122,7 +122,7 @@
   };
 </script>
 
-  <title>分类 | 朝花夕拾</title>
+  <title>URL编码 | 朝花夕拾</title>
   
 
 
@@ -256,7 +256,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
 
     
     
@@ -315,128 +315,245 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/09/JS-url-encoding/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="多义词">
+      <meta itemprop="description" content="个人博客（个人笔记及总结，如有错误欢迎评论指出）">
+      <meta itemprop="image" content="/assets/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朝花夕拾">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">分类
-
-</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
+          <h1 class="post-title" itemprop="name headline">URL编码
+
               
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-              目前共计 11 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/H5移动端/">H5移动端</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Plugin/">Plugin</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-Plugin/">React Plugin</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/文件上传与下载/">文件上传与下载</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/模板引擎/">模板引擎</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目实践/">项目实践</a><span class="category-list-count">3</span></li></ul>
-            </div>
-          </div>
+            
+          </h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-10-09 09:29:02" itemprop="dateCreated datePublished" datetime="2020-10-09T09:29:02+08:00">2020-10-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-10-15 15:40:32" itemprop="dateModified" datetime="2020-10-15T15:40:32+08:00">2020-10-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2020/10/09/JS-url-encoding/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/10/09/JS-url-encoding/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>Javascript编码函数：<code>escape()</code>、<code>encodeURI()</code>以及<code>encodeURIComponent()</code>。</p>
+<a id="more"></a>
+
+<blockquote>
+<p>只有字母和数字<code>[0-9a-zA-Z]</code>、一些特殊符号<code>$-_.+!*&#39;(),</code>、以及某些保留字，才可以不经过编码直接用于URL。</p>
+</blockquote>
+<h3 id="encodeURI"><a href="#encodeURI" class="headerlink" title="encodeURI()"></a>encodeURI()</h3><p>对整个URL进行编码，因此除了常见的符号以外，对其他一些在网址中有特殊含义的符号<code>;/?:@&amp;=+$,#&#39;</code>不进行编码。编码后，它输出符号的utf-8形式，并且在每个字节前加上<code>%</code>。对应的解码函数是<code>decodeURI()</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">encodeURI</span>(<span class="string">"http://www.baidu.com?wd=what's wrong?"</span>) </span><br><span class="line"><span class="comment">// "http://www.baidu.com?wd=what's%20wrong?"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">encodeURI</span>(<span class="string">"春节"</span>)</span><br><span class="line"><span class="comment">// "%E6%98%A5%E8%8A%82"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="encodeURIComponent"><a href="#encodeURIComponent" class="headerlink" title="encodeURIComponent()"></a>encodeURIComponent()</h3><p>与<code>encodeURI()</code>的区别是，它用于<strong>对URL的组成部分进行个别编码</strong>，而不用于对整个URL进行编码。因此，<code>;/?:@&amp;=+$,#</code>，这些在<code>encodeURI()</code>中不被编码的符号，在<code>encodeURIComponent()</code>中统统会被编码（不对单引号<code>&#39;</code>编码）。至于具体的编码方法，两者是一样。对应的解码函数是<code>decodeURIComponent()</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">encodeURIComponent</span>(<span class="string">"http://www.baidu.com?wd=what's wrong?"</span>)</span><br><span class="line"><span class="comment">//"http%3A%2F%2Fwww.baidu.com%3Fwd%3Dwhat's%20wrong%3F"</span></span><br></pre></td></tr></table></figure>
+
+<p>在添加或提取url参数时注意对参数值进行<code>encodeURIComponent</code>和<code>decodeURIComponent</code>，避免参数值中包含特殊字符影响url解析。</p>
+<h3 id="escape"><a href="#escape" class="headerlink" title="escape()"></a>escape()</h3><p><code>escape()</code>不能直接用于URL编码，现在已经不提倡使用。它的真正作用是返回一个字符的Unicode编码值。比如“春节”的返回结果是<code>%u6625%u8282</code>，也就是说在Unicode字符集中，“春”是第6625个（十六进制）字符，“节”是第8282个（十六进制）字符。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">escape</span>(<span class="string">"春节"</span>) <span class="comment">// "%u6625%u8282"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">escape</span>(<span class="string">"hello word"</span>) <span class="comment">// "hello%20word"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p>阮一峰的网络日志<a href="https://www.ruanyifeng.com/blog/2010/02/url_encoding.html" target="_blank" rel="noopener">关于URL编码</a></p>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/09/01/CSS-【译】为什么伪元素对input和img无效/" rel="next" title="【译】为什么::before对input和img无效">
+                <i class="fa fa-chevron-left"></i> 【译】为什么::before对input和img无效
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -456,8 +573,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -595,6 +721,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#encodeURI"><span class="nav-number">1.</span> <span class="nav-text">encodeURI()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#encodeURIComponent"><span class="nav-number">2.</span> <span class="nav-text">encodeURIComponent()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#escape"><span class="nav-number">3.</span> <span class="nav-text">escape()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文章"><span class="nav-number">4.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -776,9 +919,28 @@
 </script>
 
 
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://yoursite.com/2020/10/09/JS-url-encoding/";
+    this.page.identifier = "2020/10/09/JS-url-encoding/";
+    this.page.title = 'URL编码';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://ewenli.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    window.addEventListener('load', loadComments, false);
+  
+</script>
 
 
 
+
+
+  
 
 
   
