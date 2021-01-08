@@ -70,7 +70,7 @@
     root: '/',
     scheme: 'Pisces',
     version: '7.1.2',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","width":280,"display":"post","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
     fancybox: false,
@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="朝花夕拾">
 <meta property="og:description" content=":empty 区分空元素 兼容性：:empty  12&amp;lt;div class=&quot;item&quot;&amp;gt;not empty&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;item&quot;&amp;gt;&amp;lt;/div&amp;gt;  123456789/* 选择空元素 */.item:empty &amp;#123;   /* ... */&amp;#125;/* 选择非空元素 */.item:not(:empty) &amp;#12">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-12-20T12:48:41.582Z">
+<meta property="og:updated_time" content="2021-01-08T08:42:10.228Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你可能不知道的CSS技巧">
 <meta name="twitter:description" content=":empty 区分空元素 兼容性：:empty  12&amp;lt;div class=&quot;item&quot;&amp;gt;not empty&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;item&quot;&amp;gt;&amp;lt;/div&amp;gt;  123456789/* 选择空元素 */.item:empty &amp;#123;   /* ... */&amp;#125;/* 选择非空元素 */.item:not(:empty) &amp;#12">
@@ -128,6 +128,17 @@
 
 
 
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBH0LLBXJH"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XBH0LLBXJH');
+    }
+  </script>
 
 
 
@@ -396,7 +407,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-12-20 20:48:41" itemprop="dateModified" datetime="2020-12-20T20:48:41+08:00">2020-12-20</time>
+                <time title="修改时间：2021-01-08 16:42:10" itemprop="dateModified" datetime="2021-01-08T16:42:10+08:00">2021-01-08</time>
               
             
           </span>
@@ -481,15 +492,6 @@
   See the Pen <a href="https://codepen.io/ly023/pen/GVQzmM/" target="_blank" rel="noopener">GVQzmM</a> by ly023
   (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
 </iframe>
-
-<h3 id="垂直居中-position-absolute-margin-auto"><a href="#垂直居中-position-absolute-margin-auto" class="headerlink" title="垂直居中 position: absolute + margin: auto"></a>垂直居中 position: absolute + margin: auto</h3><p>仅当需要垂直居中的元素具有固定高度时，此方法才有效。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*  需指定四个方向的定位属性值 */</span></span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*  需指定高度 */</span></span><br><span class="line">  <span class="attribute">height</span>: <span class="number">22px</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<iframe height="265" style="width: 100%;" scrolling="no" title="margin: auto实现垂直居中" src="https://codepen.io/ly023/embed/dyGXLYO?height=265&theme-id=dark&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/ly023/pen/dyGXLYO" target="_blank" rel="noopener">margin: auto实现垂直居中</a> by ly023
-  (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
-</iframe>
-
 
 <h3 id="text-align-last对齐两端文本"><a href="#text-align-last对齐两端文本" class="headerlink" title="text-align-last对齐两端文本"></a>text-align-last对齐两端文本</h3><blockquote>
 <p>兼容性：<a href="https://www.caniuse.com/#search=text-align-last" target="_blank" rel="noopener">text-align-last</a></p>
@@ -577,6 +579,16 @@
 
 <iframe height="265" style="width: 100%;" scrolling="no" title="filter: drop-shadow实现带阴影三角形箭头" src="https://codepen.io/ly023/embed/eYpQzOg?height=265&theme-id=dark&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/ly023/pen/eYpQzOg" target="_blank" rel="noopener">filter: drop-shadow实现带阴影三角形箭头</a> by ly023
+  (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+<h3 id="图片裁剪矩形镂空效果"><a href="#图片裁剪矩形镂空效果" class="headerlink" title="图片裁剪矩形镂空效果"></a>图片裁剪矩形镂空效果</h3><p>利用<code>outline</code>属性：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"clipping-region"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">alt</span>=<span class="string">""</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clipping-region</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">60px</span>;</span><br><span class="line">  <span class="attribute">outline</span>: <span class="number">200px</span> solid <span class="built_in">rgba</span>(0, 0, 0, 0.5);</span><br><span class="line">  <span class="attribute">cursor</span>: move;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<iframe height="265" style="width: 100%;" scrolling="no" title="图片裁剪矩形镂空效果" src="https://codepen.io/ly023/embed/xxEjBPj?height=265&theme-id=dark&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/ly023/pen/xxEjBPj" target="_blank" rel="noopener">图片裁剪矩形镂空效果</a> by ly023
   (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
 </iframe>
 
@@ -731,7 +743,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -770,7 +782,7 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -878,7 +890,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#empty-区分空元素"><span class="nav-number">1.</span> <span class="nav-text">:empty 区分空元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垂直居中-position-absolute-margin-auto"><span class="nav-number">2.</span> <span class="nav-text">垂直居中 position: absolute + margin: auto</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-align-last对齐两端文本"><span class="nav-number">3.</span> <span class="nav-text">text-align-last对齐两端文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变文字书写顺序-direction与unicode-bidi"><span class="nav-number">4.</span> <span class="nav-text">改变文字书写顺序 direction与unicode-bidi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文字竖排"><span class="nav-number">5.</span> <span class="nav-text">文字竖排</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#writing-mode"><span class="nav-number">5.1.</span> <span class="nav-text">writing-mode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#text-combine-upright"><span class="nav-number">5.2.</span> <span class="nav-text">text-combine-upright</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自适应宽度width-min-content"><span class="nav-number">6.</span> <span class="nav-text">自适应宽度width:min-content</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制滚动到边界时的表现-overscroll-behavior"><span class="nav-number">7.</span> <span class="nav-text">控制滚动到边界时的表现 overscroll-behavior</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制滚动锚定行为-overflow-anchor"><span class="nav-number">8.</span> <span class="nav-text">控制滚动锚定行为 overflow-anchor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#带阴影三角形箭头-filter-drop-shadow"><span class="nav-number">9.</span> <span class="nav-text">带阴影三角形箭头 filter: drop-shadow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#悼念模式filter-grayscale"><span class="nav-number">10.</span> <span class="nav-text">悼念模式filter:grayscale()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用表情符号自定义光标"><span class="nav-number">11.</span> <span class="nav-text">使用表情符号自定义光标</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#empty-区分空元素"><span class="nav-number">1.</span> <span class="nav-text">:empty 区分空元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-align-last对齐两端文本"><span class="nav-number">2.</span> <span class="nav-text">text-align-last对齐两端文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变文字书写顺序-direction与unicode-bidi"><span class="nav-number">3.</span> <span class="nav-text">改变文字书写顺序 direction与unicode-bidi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文字竖排"><span class="nav-number">4.</span> <span class="nav-text">文字竖排</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#writing-mode"><span class="nav-number">4.1.</span> <span class="nav-text">writing-mode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#text-combine-upright"><span class="nav-number">4.2.</span> <span class="nav-text">text-combine-upright</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自适应宽度width-min-content"><span class="nav-number">5.</span> <span class="nav-text">自适应宽度width:min-content</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制滚动到边界时的表现-overscroll-behavior"><span class="nav-number">6.</span> <span class="nav-text">控制滚动到边界时的表现 overscroll-behavior</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制滚动锚定行为-overflow-anchor"><span class="nav-number">7.</span> <span class="nav-text">控制滚动锚定行为 overflow-anchor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#带阴影三角形箭头-filter-drop-shadow"><span class="nav-number">8.</span> <span class="nav-text">带阴影三角形箭头 filter: drop-shadow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片裁剪矩形镂空效果"><span class="nav-number">9.</span> <span class="nav-text">图片裁剪矩形镂空效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#悼念模式filter-grayscale"><span class="nav-number">10.</span> <span class="nav-text">悼念模式filter:grayscale()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用表情符号自定义光标"><span class="nav-number">11.</span> <span class="nav-text">使用表情符号自定义光标</span></a></li></ol></div>
             
 
           </div>
@@ -899,7 +911,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
