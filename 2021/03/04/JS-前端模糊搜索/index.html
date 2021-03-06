@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="window.open被浏览器拦截问题。">
-<meta name="keywords" content="JavaScript">
+  <meta name="description" content="前端模糊搜索实现。">
+<meta name="keywords" content="JS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="异步请求回调函数中执行window.open被浏览器拦截">
-<meta property="og:url" content="http://yoursite.com/2020/06/01/JS-异步请求回调函数中执行window.open被浏览器拦截/index.html">
+<meta property="og:title" content="前端模糊搜索">
+<meta property="og:url" content="http://yoursite.com/2021/03/04/JS-前端模糊搜索/index.html">
 <meta property="og:site_name" content="朝花夕拾">
-<meta property="og:description" content="window.open被浏览器拦截问题。">
+<meta property="og:description" content="前端模糊搜索实现。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-10-27T06:04:59.812Z">
+<meta property="og:updated_time" content="2021-03-06T04:05:40.776Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="异步请求回调函数中执行window.open被浏览器拦截">
-<meta name="twitter:description" content="window.open被浏览器拦截问题。">
+<meta name="twitter:title" content="前端模糊搜索">
+<meta name="twitter:description" content="前端模糊搜索实现。">
 
 
 
@@ -113,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/06/01/JS-异步请求回调函数中执行window.open被浏览器拦截/">
+  <link rel="canonical" href="http://yoursite.com/2021/03/04/JS-前端模糊搜索/">
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>异步请求回调函数中执行window.open被浏览器拦截 | 朝花夕拾</title>
+  <title>前端模糊搜索 | 朝花夕拾</title>
   
 
 
@@ -347,7 +347,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/01/JS-异步请求回调函数中执行window.open被浏览器拦截/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/04/JS-前端模糊搜索/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="多义词">
@@ -364,7 +364,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">异步请求回调函数中执行window.open被浏览器拦截
+          <h1 class="post-title" itemprop="name headline">前端模糊搜索
 
               
             
@@ -390,7 +390,7 @@
                 
               
 
-              <time title="创建时间：2020-06-01 09:09:27" itemprop="dateCreated datePublished" datetime="2020-06-01T09:09:27+08:00">2020-06-01</time>
+              <time title="创建时间：2021-03-04 17:59:17" itemprop="dateCreated datePublished" datetime="2021-03-04T17:59:17+08:00">2021-03-04</time>
             
 
             
@@ -407,7 +407,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-10-27 14:04:59" itemprop="dateModified" datetime="2020-10-27T14:04:59+08:00">2020-10-27</time>
+                <time title="修改时间：2021-03-06 12:05:40" itemprop="dateModified" datetime="2021-03-06T12:05:40+08:00">2021-03-06</time>
               
             
           </span>
@@ -424,7 +424,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
 
                 
                 
@@ -443,8 +443,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2020/06/01/JS-异步请求回调函数中执行window.open被浏览器拦截/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/06/01/JS-异步请求回调函数中执行window.open被浏览器拦截/" itemprop="commentCount"></span>
+                <a href="/2021/03/04/JS-前端模糊搜索/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/04/JS-前端模糊搜索/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -479,32 +479,29 @@
       
 
       
-        <p>window.open被浏览器拦截问题。</p>
+        <p>前端模糊搜索实现。</p>
 <a id="more"></a>
 
-<ul>
-<li><p>非用户触发的操作，调用window.open()打开新的tab页，会被浏览器拦截，浏览器认为这可能是一个广告，不是用户希望看到的页面；</p>
-</li>
-<li><p>在用户触发事件函数中，调用多个window.open()，第一个不会被拦截，其他的都会被拦截；</p>
-</li>
-<li><p>在用户触发事件函数中，若有异步请求，在异步请求的回调函数中调用window.open()也会被拦截；</p>
-</li>
-</ul>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="定时器（无效）"><a href="#定时器（无效）" class="headerlink" title="定时器（无效）"></a>定时器（无效）</h4><p>一开始使用定时器的方式，在异步请求前先设置定时器，判断openUrl有值后再调用window.open。后来发现在请求响应慢的情况下（比如上传成千上万条数据）依然会被浏览器拦截。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">timer = <span class="built_in">window</span>.setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">     <span class="keyword">if</span> (openUrl) &#123;</span><br><span class="line">        <span class="built_in">window</span>.open(openUrl, <span class="string">'_blank'</span>)</span><br><span class="line">        clearTimer()</span><br><span class="line">     &#125;</span><br><span class="line">&#125;, <span class="number">500</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="转义关键字"><a href="#转义关键字" class="headerlink" title="转义关键字"></a>转义关键字</h3><p>避免带有<code>()*</code>等特殊字符的字符串与正则冲突：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">escapeRegExp</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> str.replace(<span class="regexp">/[.*+?^$&#123;&#125;()|[\]\\]/g</span>, <span class="string">'\\$&amp;'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="引导用户操作"><a href="#引导用户操作" class="headerlink" title="引导用户操作"></a>引导用户操作</h4><p>如果浏览器拦截了新窗口，引导用户允许网站弹窗或点击链接访问。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> win = <span class="built_in">window</span>.open(url)</span><br><span class="line"><span class="keyword">if</span> (win == <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'新窗口被浏览器拦截'</span>)</span><br><span class="line">    <span class="comment">// ... 引导用户</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="根据关键字生成匹配正则"><a href="#根据关键字生成匹配正则" class="headerlink" title="根据关键字生成匹配正则"></a>根据关键字生成匹配正则</h3><p>将关键字拆分成正则，<code>普通 =&gt; /(.*?)(普)(.*?)(通)(.*?)/i</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">keywordReg</span>(<span class="params">keyword</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> src = [<span class="string">"(.*?)"</span>];</span><br><span class="line">  <span class="keyword">const</span> ks = keyword.split(<span class="string">""</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (ks.length) &#123;</span><br><span class="line">    ks.forEach(<span class="function">(<span class="params">s</span>) =&gt;</span> &#123;</span><br><span class="line">      src.push(<span class="string">`(<span class="subst">$&#123;escapeRegExp(s)&#125;</span>)(.*?)`</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  src = src.join(<span class="string">""</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">RegExp</span>(src, <span class="string">"i"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="打开新页面后再重定向"><a href="#打开新页面后再重定向" class="headerlink" title="打开新页面后再重定向"></a>打开新页面后再重定向</h4><p>在用户点击时先打开新的空白页面，再进行异步请求；请求完成后再对新页面进行重定向：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 打开新页面，提示正在加载中</span></span><br><span class="line"><span class="keyword">const</span> win = <span class="built_in">window</span>.open()</span><br><span class="line">win.document.write(<span class="string">'加载中，请稍候...'</span>)</span><br><span class="line">win.document.title = <span class="string">'加载中...'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ...请求</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求成功重定向</span></span><br><span class="line">win.location = url</span><br><span class="line"><span class="comment">// 请求失败关闭新页面</span></span><br><span class="line">win.close()</span><br></pre></td></tr></table></figure>
+<h3 id="找到最大匹配长度"><a href="#找到最大匹配长度" class="headerlink" title="找到最大匹配长度"></a>找到最大匹配长度</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findMaxMatch</span>(<span class="params">str, keyword</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> escapeKeyword = escapeRegExp(keyword)</span><br><span class="line">    <span class="keyword">let</span> max = <span class="number">0</span></span><br><span class="line">    str.replace(escapeKeyword, (s) =&gt; &#123;</span><br><span class="line">        <span class="comment">// 完全匹配，最大</span></span><br><span class="line">        <span class="keyword">if</span> (keyword === s) &#123;</span><br><span class="line">            max = <span class="built_in">Number</span>.MAX_SAFE_INTEGER</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s.length &gt; max) &#123;</span><br><span class="line">            <span class="comment">// 最小匹配长度</span></span><br><span class="line">            max = s.length</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> max</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="模糊查询"><a href="#模糊查询" class="headerlink" title="模糊查询"></a>模糊查询</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fuzzySearch</span>(<span class="params">strs, keyword</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">Array</span>.isArray(strs) &amp;&amp; <span class="keyword">typeof</span> keyword === <span class="string">'string'</span> &amp;&amp; keyword.trim()) &#123;</span><br><span class="line">        <span class="comment">// 过滤前后空格</span></span><br><span class="line">        keyword = keyword.trim()</span><br><span class="line">        <span class="comment">// 根据关键字生成匹配正则</span></span><br><span class="line">        <span class="keyword">const</span> kr = keywordReg(keyword)</span><br><span class="line">        <span class="comment">// 存放匹配结果</span></span><br><span class="line">        <span class="keyword">let</span> result = []</span><br><span class="line">        strs.forEach(<span class="function">(<span class="params">s</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">typeof</span> s === <span class="string">'string'</span>)</span><br><span class="line">            <span class="keyword">if</span> (kr.test(s)) &#123;</span><br><span class="line">                result.push(s)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">       </span><br><span class="line">        <span class="comment">// 对匹配结果降序排序，匹配度高的在前</span></span><br><span class="line">        <span class="keyword">if</span>(result.length) &#123;</span><br><span class="line">            result = result.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> findMaxMatch(b, keyword) - findMaxMatch(a, keyword))</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> strs = [<span class="string">"VIP1（默认）"</span>, <span class="string">"vip2"</span>, <span class="string">"vi普通用户"</span>, <span class="string">"会员用户"</span>];</span><br><span class="line"><span class="keyword">const</span> keyword = <span class="string">"  VIP "</span>;</span><br><span class="line"><span class="keyword">const</span> resultStrs = fuzzySearch(strs, keyword);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ["VIP1（默认）", "vip2"]</span></span><br></pre></td></tr></table></figure>
 
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js" data-user="ly023" data-slug-hash="XWNYLOG" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="前端模糊查询">
+  <span>See the Pen <a href="https://codepen.io/ly023/pen/XWNYLOG" target="_blank" rel="noopener">
+  前端模糊查询</a> by ly023 (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>)
+  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
-
-
-
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://developpaper.com/fuzzy-search-on-the-front-end/" target="_blank" rel="noopener">https://developpaper.com/fuzzy-search-on-the-front-end/</a></p>
 
       
     </div>
@@ -531,7 +528,7 @@
         
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            <a href="/tags/JS/" rel="tag"># JS</a>
           
         </div>
       
@@ -544,8 +541,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/05/15/JS-debounce&throttle/" rel="next" title="防抖与节流">
-                <i class="fa fa-chevron-left"></i> 防抖与节流
+              <a href="/2021/02/04/CSS-CSS新特性/" rel="next" title="CSS新特性">
+                <i class="fa fa-chevron-left"></i> CSS新特性
               </a>
             
           </div>
@@ -553,10 +550,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/28/JS-==非严格相等/" rel="prev" title="==非严格相等">
-                ==非严格相等 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -781,7 +774,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案"><span class="nav-number">1.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定时器（无效）"><span class="nav-number">1.1.</span> <span class="nav-text">定时器（无效）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引导用户操作"><span class="nav-number">1.2.</span> <span class="nav-text">引导用户操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打开新页面后再重定向"><span class="nav-number">1.3.</span> <span class="nav-text">打开新页面后再重定向</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#转义关键字"><span class="nav-number">1.</span> <span class="nav-text">转义关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根据关键字生成匹配正则"><span class="nav-number">2.</span> <span class="nav-text">根据关键字生成匹配正则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#找到最大匹配长度"><span class="nav-number">3.</span> <span class="nav-text">找到最大匹配长度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模糊查询"><span class="nav-number">4.</span> <span class="nav-text">模糊查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#demo"><span class="nav-number">5.</span> <span class="nav-text">demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -970,9 +963,9 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "http://yoursite.com/2020/06/01/JS-异步请求回调函数中执行window.open被浏览器拦截/";
-    this.page.identifier = "2020/06/01/JS-异步请求回调函数中执行window.open被浏览器拦截/";
-    this.page.title = '异步请求回调函数中执行window.open被浏览器拦截';
+    this.page.url = "http://yoursite.com/2021/03/04/JS-前端模糊搜索/";
+    this.page.identifier = "2021/03/04/JS-前端模糊搜索/";
+    this.page.title = '前端模糊搜索';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');
