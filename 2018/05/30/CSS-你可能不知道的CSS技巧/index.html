@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","width":280,"display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="CSS技巧。">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你可能不知道的CSS技巧">
+<meta property="og:url" content="http://yoursite.com/2018/05/30/CSS-你可能不知道的CSS技巧/index.html">
+<meta property="og:site_name" content="朝花夕拾">
+<meta property="og:description" content="CSS技巧。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-11-29T05:43:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你可能不知道的CSS技巧">
+<meta name="twitter:description" content="CSS技巧。">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="朝花夕拾" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2018/05/30/CSS-你可能不知道的CSS技巧/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>你可能不知道的CSS技巧 | 朝花夕拾</title>
+  
+
+
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBH0LLBXJH"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XBH0LLBXJH');
+    }
+  </script>
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8e19309864baf013c6835520999321e6";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">朝花夕拾</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">视界之外，想象之中</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/30/CSS-你可能不知道的CSS技巧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="多义词">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="/assets/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朝花夕拾">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">你可能不知道的CSS技巧
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-30 22:40:18" itemprop="dateCreated datePublished" datetime="2018-05-30T22:40:18+08:00">2018-05-30</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2021-11-29 13:43:50" itemprop="dateModified" datetime="2021-11-29T13:43:50+08:00">2021-11-29</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2018/05/30/CSS-你可能不知道的CSS技巧/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/05/30/CSS-你可能不知道的CSS技巧/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>CSS技巧。</p>
+<a id="more"></a>
+
+<h3 id="empty-区分空元素"><a href="#empty-区分空元素" class="headerlink" title=":empty 区分空元素"></a>:empty 区分空元素</h3><blockquote>
+<p>兼容性：<a href="https://caniuse.com/#feat=mdn-css_selectors_empty" target="_blank" rel="noopener">:empty</a></p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>not empty<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 选择空元素 */</span></span><br><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:empty</span> &#123;</span><br><span class="line">   <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 选择非空元素 */</span></span><br><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:not(</span><span class="selector-pseudo">:empty)</span> &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<iframe height="265" style="width: 100%;" scrolling="no" title="GVQzmM" src="https://codepen.io/ly023/embed/GVQzmM/?height=265&theme-id=0&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/ly023/pen/GVQzmM/" target="_blank" rel="noopener">GVQzmM</a> by ly023
+  (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+<p>让空a标签显示href</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:empty</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="built_in">attr</span>(href);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="text-align-last对齐两端文本"><a href="#text-align-last对齐两端文本" class="headerlink" title="text-align-last对齐两端文本"></a>text-align-last对齐两端文本</h3><blockquote>
+<p>兼容性：<a href="https://www.caniuse.com/#search=text-align-last" target="_blank" rel="noopener">text-align-last</a></p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="comment">/*  ...  */</span></span><br><span class="line">  <span class="attribute">text-align-last</span>: justify;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<iframe height="265" style="width: 100%;" scrolling="no" title="使用text-align-last对齐两端文本" src="https://codepen.io/ly023/embed/bGNQzLG?height=265&theme-id=default&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/ly023/pen/bGNQzLG" target="_blank" rel="noopener">使用text-align-last对齐两端文本</a> by ly023
+  (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+<h3 id="改变文字书写顺序-direction与unicode-bidi"><a href="#改变文字书写顺序-direction与unicode-bidi" class="headerlink" title="改变文字书写顺序 direction与unicode-bidi"></a>改变文字书写顺序 direction与unicode-bidi</h3><p>参考：<a href="https://www.cnblogs.com/dolphinX/p/4087816.html" target="_blank" rel="noopener">https://www.cnblogs.com/dolphinX/p/4087816.html</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.reverse</span> &#123;</span><br><span class="line">  <span class="attribute">direction</span>: rtl;</span><br><span class="line">  <span class="attribute">unicode-bidi</span>: bidi-override;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<iframe height="265" style="width: 100%;" scrolling="no" title="使用direction与unicode-bidi改变文字书写顺序 " src="https://codepen.io/ly023/embed/xxGRKjQ?height=265&theme-id=default&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/ly023/pen/xxGRKjQ" target="_blank" rel="noopener">使用direction与unicode-bidi改变文字书写顺序 </a> by ly023
+  (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+<h3 id="文字竖排"><a href="#文字竖排" class="headerlink" title="文字竖排"></a>文字竖排</h3><h4 id="writing-mode"><a href="#writing-mode" class="headerlink" title="writing-mode"></a>writing-mode</h4><blockquote>
+<p>兼容性：<a href="https://www.caniuse.com/css-writing-mode" target="_blank" rel="noopener">https://www.caniuse.com/css-writing-mode</a></p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">writing-mode</span>: <span class="selector-tag">vertical-rl</span>; <span class="comment">/* 阅读的顺序是从右往左 */</span></span><br><span class="line"><span class="selector-tag">writing-mode</span>: <span class="selector-tag">vertical-lr</span>; <span class="comment">/* 阅读的顺序是从左往右 */</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="text-combine-upright"><a href="#text-combine-upright" class="headerlink" title="text-combine-upright"></a>text-combine-upright</h4><blockquote>
+<p>兼容性：<a href="https://www.caniuse.com/mdn-css_properties_text-combine-upright" target="_blank" rel="noopener">https://www.caniuse.com/mdn-css_properties_text-combine-upright</a></p>
+</blockquote>
+<p><code>text-combine-upright: all</code>：将元素内的字符水平排列，使其在竖行中占据单个字符空间。</p>
+<p>文字竖向，数字横向：</p>
+<iframe height="265" style="width: 100%;" scrolling="no" title="文字竖排 writing-mode" src="https://codepen.io/ly023/embed/RXJovo?height=265&theme-id=dark&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/ly023/pen/RXJovo" target="_blank" rel="noopener">文字竖排 writing-mode</a> by ly023
+  (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+<h3 id="文本大小写-text-transform"><a href="#文本大小写-text-transform" class="headerlink" title="文本大小写 text-transform"></a>文本大小写 text-transform</h3><p>所有主流浏览器都支持<code>text-transform</code>属性。</p>
+<ul>
+<li><p>单词首字母大写：<code>text-transform: capitalize</code></p>
+</li>
+<li><p>全大写：<code>text-transform: uppercase</code></p>
+</li>
+<li><p>全小写：<code>text-transform: lowercase</code></p>
+</li>
+</ul>
+<h3 id="自适应宽度-width-min-content"><a href="#自适应宽度-width-min-content" class="headerlink" title="自适应宽度 width:min-content"></a>自适应宽度 width:min-content</h3><p>元素的宽度根据子元素的最大固定宽度自适应</p>
+<blockquote>
+<p>兼容性：<a href="https://www.caniuse.com/#search=min-content" target="_blank" rel="noopener">CSS property: width: min-content</a></p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: min-content;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<iframe height="265" style="width: 100%;" scrolling="no" title="元素的宽度根据子元素的最大固定宽度自适应" src="https://codepen.io/ly023/embed/pojzRaJ?height=265&theme-id=dark&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/ly023/pen/pojzRaJ" target="_blank" rel="noopener">元素的宽度根据子元素的最大固定宽度自适应</a> by ly023
+  (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+
+<h3 id="控制滚动到边界时的表现-overscroll-behavior"><a href="#控制滚动到边界时的表现-overscroll-behavior" class="headerlink" title="控制滚动到边界时的表现 overscroll-behavior"></a>控制滚动到边界时的表现 overscroll-behavior</h3><blockquote>
+<p>兼容性 <a href="https://www.caniuse.com/#feat=css-overscroll-behavior" target="_blank" rel="noopener">CSS overscroll-behavior</a></p>
+</blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/overscroll-behavior" target="_blank" rel="noopener">MDN overscroll-behavior</a></p>
+<p><code>overscroll-behavior</code>控制浏览器滚动到边界时的表现。</p>
+<ul>
+<li><p>auto: 默认值</p>
+</li>
+<li><p>contain: 当一个元素滚动到边界时，不会再影响临近的滚动元素</p>
+</li>
+<li><p>none: 和<code>contain</code>一样，当一个元素滚动到边界时，不会再影响临近的滚动元素，滚动到边界的表现也会被阻止（例如 Android 炫光或 iOS 回弹）</p>
+</li>
+</ul>
+<blockquote>
+<p><code>contain</code>和<code>none</code>的差异主要体现在移动端</p>
+</blockquote>
+<p>可实现当子元素滚动到顶部或底部时，不影响父元素的滚动：</p>
+<iframe height="265" style="width: 100%;" scrolling="no" title="当子元素滚动到顶部或底部时，不影响父元素的滚动" src="https://codepen.io/ly023/embed/xxVOzgo?height=265&theme-id=dark&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/ly023/pen/xxVOzgo" target="_blank" rel="noopener">当子元素滚动到顶部或底部时，不影响父元素的滚动</a> by ly023
+  (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+<h3 id="控制滚动锚定行为-overflow-anchor"><a href="#控制滚动锚定行为-overflow-anchor" class="headerlink" title="控制滚动锚定行为 overflow-anchor"></a>控制滚动锚定行为 overflow-anchor</h3><blockquote>
+<p>兼容性 <a href="https://www.caniuse.com/css-overflow-anchor" target="_blank" rel="noopener">CSS overflow-anchor (Scroll Anchoring)</a></p>
+</blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/overflow-anchor" target="_blank" rel="noopener">MDN overflow-anchor</a></p>
+<p>滚动锚定（Scroll Anchoring）：当前视区上方DOM元素高度变化时，浏览器自动改变滚动高度，从而保证视区内容不变。</p>
+<p><code>overflow-anchor</code>：提供一种退出浏览器滚动锚定行为的方法，该行为会调整滚动位置以最大程度地减少内容偏移。</p>
+<p>默认情况下，在任何支持滚动锚定行为的浏览器中都将其启用。</p>
+<p>关闭滚动锚定行为：<code>overflow-anchor: none</code></p>
+<iframe height="330" style="width: 100%;" scrolling="no" title="overflow-anchor" src="https://codepen.io/ly023/embed/zYBvKaw?height=330&theme-id=dark&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/ly023/pen/zYBvKaw" target="_blank" rel="noopener">overflow-anchor</a> by ly023
+  (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+<h3 id="锚点平滑定位-scroll-behavior-smooth"><a href="#锚点平滑定位-scroll-behavior-smooth" class="headerlink" title="锚点平滑定位  scroll-behavior: smooth"></a>锚点平滑定位  scroll-behavior: smooth</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/scroll-behavior" target="_blank" rel="noopener">MDN scroll-behavior</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">scroll-behavior</span>: <span class="selector-tag">smooth</span>;</span><br></pre></td></tr></table></figure>
+
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="css,result" data-user="ly023" data-slug-hash="oNZYZjB" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="锚点平滑定位 （scroll-behavior: smooth）">
+  <span>See the Pen <a href="https://codepen.io/ly023/pen/oNZYZjB" target="_blank" rel="noopener">
+  锚点平滑定位 （scroll-behavior: smooth）</a> by ly023 (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>)
+  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="带阴影三角形箭头-filter-drop-shadow（不规则形状绘制阴影）"><a href="#带阴影三角形箭头-filter-drop-shadow（不规则形状绘制阴影）" class="headerlink" title="带阴影三角形箭头 filter: drop-shadow（不规则形状绘制阴影）"></a>带阴影三角形箭头 filter: drop-shadow（不规则形状绘制阴影）</h3><blockquote>
+<p>兼容性 <a href="https://www.caniuse.com/#feat=css-filters" target="_blank" rel="noopener">CSS Filter Effects</a></p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">filter</span>: <span class="selector-tag">drop-shadow</span>(5<span class="selector-tag">px</span> 5<span class="selector-tag">px</span> 10<span class="selector-tag">px</span> <span class="selector-id">#000</span>);</span><br></pre></td></tr></table></figure>
+
+<p class="codepen" data-height="465" data-default-tab="html,result" data-slug-hash="eYpQzOg" data-user="ly023" style="height: 465px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/ly023/pen/eYpQzOg" target="_blank" rel="noopener">
+  filter: drop-shadow实现带阴影三角形箭头</a> by ly023 (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>)
+  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="网页置灰（悼念模式）filter-grayscale"><a href="#网页置灰（悼念模式）filter-grayscale" class="headerlink" title="网页置灰（悼念模式）filter: grayscale()"></a>网页置灰（悼念模式）filter: grayscale()</h3><blockquote>
+<p>兼容性： <a href="https://www.caniuse.com/#search=CSS%20filter" target="_blank" rel="noopener">CSS filter() function</a></p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">grayscale</span>(<span class="number">100%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<iframe height="365" style="width: 100%;" scrolling="no" title="filter:grayscale()悼念模式" src="https://codepen.io/ly023/embed/JjdbPVV?height=265&theme-id=default&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/ly023/pen/JjdbPVV" target="_blank" rel="noopener">filter:grayscale()悼念模式</a> by ly023
+  (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+<h3 id="简单的网页夜间暗模式-filter-invert-1"><a href="#简单的网页夜间暗模式-filter-invert-1" class="headerlink" title="简单的网页夜间暗模式 filter: invert(1)"></a>简单的网页夜间暗模式 filter: invert(1)</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">invert</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">invert</span>(<span class="number">1</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p class="codepen" data-height="400" data-default-tab="css,result" data-slug-hash="oNWaBOK" data-user="ly023" style="height: 400px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/ly023/pen/oNWaBOK" target="_blank" rel="noopener">
+  filter: invert(1)</a> by ly023 (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>)
+  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+
+<h3 id="图片裁剪矩形镂空效果-outline"><a href="#图片裁剪矩形镂空效果-outline" class="headerlink" title="图片裁剪矩形镂空效果 outline"></a>图片裁剪矩形镂空效果 outline</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"clipping-region"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">alt</span>=<span class="string">""</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clipping-region</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">60px</span>;</span><br><span class="line">  <span class="attribute">outline</span>: <span class="number">200px</span> solid <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.5</span>);</span><br><span class="line">  <span class="attribute">cursor</span>: move;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<iframe height="265" style="width: 100%;" scrolling="no" title="图片裁剪矩形镂空效果" src="https://codepen.io/ly023/embed/xxEjBPj?height=265&theme-id=dark&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/ly023/pen/xxEjBPj" target="_blank" rel="noopener">图片裁剪矩形镂空效果</a> by ly023
+  (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+<h3 id="文字环绕shape-outside"><a href="#文字环绕shape-outside" class="headerlink" title="文字环绕shape-outside"></a>文字环绕shape-outside</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/shape-outside" target="_blank" rel="noopener">MDN shape-outside</a></p>
+<blockquote>
+<p>定义了一个可以是非矩形的形状，相邻的内联内容应围绕该形状进行包装。</p>
+</blockquote>
+<p>兼容性：<a href="https://caniuse.com/mdn-css_properties_shape-outside" target="_blank" rel="noopener">CSS property: shape-outside</a></p>
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="html,result" data-user="ly023" data-slug-hash="poRJjXj" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="shape-outside">
+  <span>See the Pen <a href="https://codepen.io/ly023/pen/poRJjXj" target="_blank" rel="noopener">
+  shape-outside</a> by ly023 (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>)
+  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="标题跨列column-span"><a href="#标题跨列column-span" class="headerlink" title="标题跨列column-span"></a>标题跨列column-span</h3><p>多列布局中，通过给标题设置<code>column-span: all</code>，使标题跨列展示：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.title</span> &#123;</span><br><span class="line">  <span class="attribute">column-span</span>: all;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p class="codepen" data-height="320" data-theme-id="dark" data-default-tab="html,result" data-user="ly023" data-slug-hash="RwpMJxE" style="height: 320px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="column-span 标题跨列展示">
+  <span>See the Pen <a href="https://codepen.io/ly023/pen/RwpMJxE" target="_blank" rel="noopener">
+  column-span 标题跨列展示</a> by ly023 (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>)
+  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="使用表情符号自定义光标"><a href="#使用表情符号自定义光标" class="headerlink" title="使用表情符号自定义光标"></a>使用表情符号自定义光标</h3><p>参考文章：<a href="https://dev.to/alvarosaburido/use-custom-emoji-as-a-cursor-using-css-3j7" target="_blank" rel="noopener">Use custom Emoji as a cursor using CSS 😜.</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/cursor" target="_blank" rel="noopener">MDN cursor</a></p>
+<p>在<code>SVG</code>标签内添加表情符号，它将把表情符号渲染为光标指针：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cursor: url("data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='48px' height='48px'&gt;&lt;text y='50%' style='font-size: 24'&gt;❄️&lt;/text&gt;&lt;/svg&gt;")</span><br><span class="line">      0 0,</span><br><span class="line">    <span class="selector-tag">auto</span>;</span><br></pre></td></tr></table></figure>
+
+<iframe height="265" style="width: 100%;" scrolling="no" title="使用表情符号自定义光标" src="https://codepen.io/ly023/embed/LYNBeoR?height=265&theme-id=dark&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/ly023/pen/LYNBeoR" target="_blank" rel="noopener">使用表情符号自定义光标</a> by ly023
+  (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+
+<h3 id="使用表情符号自定义favicon"><a href="#使用表情符号自定义favicon" class="headerlink" title="使用表情符号自定义favicon"></a>使用表情符号自定义favicon</h3><p>所有现代浏览器都支持SVG格式的favicon，利用这点可以将任何Emoji转换为favicon。</p>
+<p>SVG文件：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 100 100"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">text</span> <span class="attr">y</span>=<span class="string">".9em"</span> <span class="attr">font-size</span>=<span class="string">"90"</span>&gt;</span>⛅️<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>使用：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"icon"</span> <span class="attr">href</span>=<span class="string">"data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;⛅️&lt;/text&gt;&lt;/svg&gt;"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/13/CSS-two-column-layout/" rel="next" title="两列布局">
+                <i class="fa fa-chevron-left"></i> 两列布局
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/17/JS-判断数据类型 Object.prototype.toString.call()/" rel="prev" title="判断数据类型 Object.prototype.toString.call()">
+                判断数据类型 Object.prototype.toString.call() <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/assets/avatar.png" alt="多义词">
+            
+              <p class="site-author-name" itemprop="name">多义词</p>
+              <div class="site-description motion-element" itemprop="description">个人博客</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/ly023" title="GitHub &rarr; https://github.com/ly023" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#empty-区分空元素"><span class="nav-number">1.</span> <span class="nav-text">:empty 区分空元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-align-last对齐两端文本"><span class="nav-number">2.</span> <span class="nav-text">text-align-last对齐两端文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变文字书写顺序-direction与unicode-bidi"><span class="nav-number">3.</span> <span class="nav-text">改变文字书写顺序 direction与unicode-bidi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文字竖排"><span class="nav-number">4.</span> <span class="nav-text">文字竖排</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#writing-mode"><span class="nav-number">4.1.</span> <span class="nav-text">writing-mode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#text-combine-upright"><span class="nav-number">4.2.</span> <span class="nav-text">text-combine-upright</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本大小写-text-transform"><span class="nav-number">5.</span> <span class="nav-text">文本大小写 text-transform</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自适应宽度-width-min-content"><span class="nav-number">6.</span> <span class="nav-text">自适应宽度 width:min-content</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制滚动到边界时的表现-overscroll-behavior"><span class="nav-number">7.</span> <span class="nav-text">控制滚动到边界时的表现 overscroll-behavior</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制滚动锚定行为-overflow-anchor"><span class="nav-number">8.</span> <span class="nav-text">控制滚动锚定行为 overflow-anchor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#锚点平滑定位-scroll-behavior-smooth"><span class="nav-number">9.</span> <span class="nav-text">锚点平滑定位  scroll-behavior: smooth</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#带阴影三角形箭头-filter-drop-shadow（不规则形状绘制阴影）"><span class="nav-number">10.</span> <span class="nav-text">带阴影三角形箭头 filter: drop-shadow（不规则形状绘制阴影）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网页置灰（悼念模式）filter-grayscale"><span class="nav-number">11.</span> <span class="nav-text">网页置灰（悼念模式）filter: grayscale()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单的网页夜间暗模式-filter-invert-1"><span class="nav-number">12.</span> <span class="nav-text">简单的网页夜间暗模式 filter: invert(1)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片裁剪矩形镂空效果-outline"><span class="nav-number">13.</span> <span class="nav-text">图片裁剪矩形镂空效果 outline</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文字环绕shape-outside"><span class="nav-number">14.</span> <span class="nav-text">文字环绕shape-outside</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标题跨列column-span"><span class="nav-number">15.</span> <span class="nav-text">标题跨列column-span</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用表情符号自定义光标"><span class="nav-number">16.</span> <span class="nav-text">使用表情符号自定义光标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用表情符号自定义favicon"><span class="nav-number">17.</span> <span class="nav-text">使用表情符号自定义favicon</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">多义词</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://ewenli.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://yoursite.com/2018/05/30/CSS-你可能不知道的CSS技巧/";
+    this.page.identifier = "2018/05/30/CSS-你可能不知道的CSS技巧/";
+    this.page.title = '你可能不知道的CSS技巧';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://ewenli.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    window.addEventListener('load', loadComments, false);
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

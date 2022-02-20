@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","width":280,"display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="整理了工作中用到的一些正则匹配。">
+<meta name="keywords" content="正则">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则匹配替换">
+<meta property="og:url" content="http://yoursite.com/2019/09/12/JS-正则匹配替换/index.html">
+<meta property="og:site_name" content="朝花夕拾">
+<meta property="og:description" content="整理了工作中用到的一些正则匹配。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-07-30T07:13:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则匹配替换">
+<meta name="twitter:description" content="整理了工作中用到的一些正则匹配。">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="朝花夕拾" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/09/12/JS-正则匹配替换/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>正则匹配替换 | 朝花夕拾</title>
+  
+
+
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBH0LLBXJH"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XBH0LLBXJH');
+    }
+  </script>
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8e19309864baf013c6835520999321e6";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">朝花夕拾</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">视界之外，想象之中</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/12/JS-正则匹配替换/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="多义词">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="/assets/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朝花夕拾">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">正则匹配替换
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-12 08:59:46" itemprop="dateCreated datePublished" datetime="2019-09-12T08:59:46+08:00">2019-09-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2021-07-30 15:13:50" itemprop="dateModified" datetime="2021-07-30T15:13:50+08:00">2021-07-30</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/09/12/JS-正则匹配替换/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/12/JS-正则匹配替换/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>整理了工作中用到的一些正则匹配。</p>
+<a id="more"></a>
+
+<h3 id="去除空格"><a href="#去除空格" class="headerlink" title="去除空格"></a>去除空格</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 仅去除前面的空格 ltrim</span></span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^\s+/</span>;</span><br><span class="line">str.replace(reg, <span class="string">''</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 仅去除后面的空格 rtrim</span></span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/\s+$/</span>;</span><br><span class="line">str.replace(reg, <span class="string">''</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 去除前后空格 trim</span></span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^\s+|\s+$/g</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="关键字匹配"><a href="#关键字匹配" class="headerlink" title="关键字匹配"></a>关键字匹配</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 转义正则表达式特殊字符</span></span><br><span class="line"><span class="keyword">const</span> escapeRegExp = <span class="function"><span class="params">str</span> =&gt;</span> str.replace(<span class="regexp">/[.*+?^$&#123;&#125;()|[\]\\]/g</span>, <span class="string">"\\$&amp;"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> keyword = <span class="string">"):"</span></span><br><span class="line"><span class="keyword">const</span> text = <span class="string">"I feel so bad ):"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果关键字中包含正则表达式特殊字符，需将其转义再创建正则表达式</span></span><br><span class="line"><span class="keyword">const</span> escapeKeyword = escapeRegExp(keyword)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 根据关键字拆分字符串</span></span><br><span class="line"><span class="keyword">const</span> splits = text</span><br><span class="line">  .split(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">`(<span class="subst">$&#123;escapeKeyword&#125;</span>)`</span>, <span class="string">"i"</span>))</span><br><span class="line">  .filter(<span class="function"><span class="params">s</span> =&gt;</span> s !== <span class="string">""</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// ["I feel so bad ", "):"]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="html标签"><a href="#html标签" class="headerlink" title="html标签"></a>html标签</h3><h4 id="去掉所有的html标签"><a href="#去掉所有的html标签" class="headerlink" title="去掉所有的html标签"></a>去掉所有的html标签</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.replace(<span class="regexp">/&lt;[^&gt;]+&gt;/g</span>,<span class="string">''</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="去掉所有的html标签，img标签除外"><a href="#去掉所有的html标签，img标签除外" class="headerlink" title="去掉所有的html标签，img标签除外"></a>去掉所有的html标签，img标签除外</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.replace(<span class="regexp">/&lt;(?!img).*?&gt;/g</span>, <span class="string">''</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="去掉所有的html标签，img和p标签除外"><a href="#去掉所有的html标签，img和p标签除外" class="headerlink" title="去掉所有的html标签，img和p标签除外"></a>去掉所有的html标签，img和p标签除外</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.replace(<span class="regexp">/&lt;(?!img|p|\/p).*?&gt;/g</span>, <span class="string">''</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="提取img标签"><a href="#提取img标签" class="headerlink" title="提取img标签"></a>提取img标签</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.match(<span class="regexp">/(&lt;img(?!.*?alt=(['"]).*?\2)[^&gt;]*)(&gt;)/g</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="匹配p标签及内部内容"><a href="#匹配p标签及内部内容" class="headerlink" title="匹配p标签及内部内容"></a>匹配p标签及内部内容</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.replace(<span class="regexp">/&lt;p&gt;[\s\S]*?&lt;\/p&gt;/g</span>, <span class="string">''</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="匹配html-table-td-内的数据"><a href="#匹配html-table-td-内的数据" class="headerlink" title="匹配html table td 内的数据"></a>匹配html table td 内的数据</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> html = <span class="string">'&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="et1" height="19" width="109"&gt;3766&lt;/td&gt;&lt;td class="et1" height="19" width="100"&gt;110000&lt;/td&gt;&lt;td class="et1" height="19" width="132" &gt;北京&lt;/td&gt;&lt;td class="et1" height="19" width="121"&gt;116.3809433&lt;/td&gt;&lt;td class="et1" height="19" width="135"&gt;39.9236145&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="et1" height="19" width="109" &gt;3783&lt;/td&gt;&lt;td class="et1" height="19" width="100"&gt;120000&lt;/td&gt;&lt;td class="et1" height="19" width="132"&gt;天津&lt;/td&gt;&lt;td class="et1" height="19" width="121"&gt;117.2034988&lt;/td&gt;&lt;td class="et1" height="19" width="135"&gt;39.13111877&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配tr</span></span><br><span class="line"><span class="keyword">const</span> trReg = <span class="regexp">/&lt;tr[^&gt;]*&gt;([\S\s]*?)&lt;\/tr&gt;/gi</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配td</span></span><br><span class="line"><span class="keyword">const</span> tdReg = <span class="regexp">/&lt;td[^&gt;]*&gt;([\S\s]*?)&lt;\/td&gt;/gi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> results = []</span><br><span class="line"></span><br><span class="line">html.replace(trReg, <span class="function"><span class="keyword">function</span>(<span class="params">match, $<span class="number">1</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 保存td的内容 </span></span><br><span class="line">    <span class="keyword">const</span> tdContents = []</span><br><span class="line"></span><br><span class="line">    $<span class="number">1.</span>replace(tdReg, <span class="function"><span class="keyword">function</span>(<span class="params">m, p1</span>) </span>&#123;</span><br><span class="line">        tdContents.push(p1)</span><br><span class="line">    &#125;, <span class="string">''</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> obj = &#123;</span><br><span class="line">        name: tdContents[<span class="number">2</span>],</span><br><span class="line">        log: tdContents[<span class="number">3</span>],</span><br><span class="line">        lat: tdContents[<span class="number">4</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    results.push(obj)</span><br><span class="line">&#125;, <span class="string">''</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(results)</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">&#123;</span></span><br><span class="line"><span class="comment">  lat: "39.9236145",</span></span><br><span class="line"><span class="comment">  log: "116.3809433",</span></span><br><span class="line"><span class="comment">  name: "北京"</span></span><br><span class="line"><span class="comment">&#125;,</span></span><br><span class="line"><span class="comment">&#123;</span></span><br><span class="line"><span class="comment">  lat: "39.13111877",</span></span><br><span class="line"><span class="comment">  log: "117.2034988",</span></span><br><span class="line"><span class="comment">  name: "天津"</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="提取url链接"><a href="#提取url链接" class="headerlink" title="提取url链接"></a>提取url链接</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> urlPattern = <span class="regexp">/(\b(https?|ftp|file):\/\/[-A-Z0-9+&amp;@#\/%?=~_|!:,.;]*[-A-Z0-9+&amp;@#\/%=~_|])/gi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> str = <span class="string">'this is my friend website http://example.com I think it is cool\n\nbaidu website https://www.baidu.com baidu website'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> urls = str.match(urlPattern)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(urls)</span><br><span class="line"><span class="comment">// ["http://example.com", "https://www.baidu.com"]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="提取url所有参数"><a href="#提取url所有参数" class="headerlink" title="提取url所有参数"></a>提取url所有参数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getUrlParameters</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!url || <span class="keyword">typeof</span> url !== <span class="string">'string'</span>) &#123;</span><br><span class="line">      url = <span class="built_in">window</span>.location.href</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 使用 /\?([^/?#:]+)#?/ 正则来匹配 ? 与 #（#为位置标识符）之间的非/?#:字符</span></span><br><span class="line">    <span class="comment">// 或使用</span></span><br><span class="line">    <span class="keyword">const</span> queryString = url.match(<span class="regexp">/\?([^/?#:]+)#?/</span>)?.[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!queryString) &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> queryObj = queryString.split(<span class="string">'&amp;'</span>).reduce(<span class="function">(<span class="params">params, block</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 如果未赋值，则默认为空字符串</span></span><br><span class="line">        <span class="keyword">const</span> [k, v = <span class="string">''</span>] = block.split(<span class="string">'='</span>)</span><br><span class="line">        params[k] = <span class="built_in">decodeURIComponent</span>(v)</span><br><span class="line">        <span class="keyword">return</span> params</span><br><span class="line">    &#125;, &#123;&#125;)</span><br><span class="line">    <span class="keyword">return</span> queryObj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// #section为位置标识符</span></span><br><span class="line">getUrlParameters(<span class="string">'http://localhost:3245/#/crm/extension/?time=2020-05-20&amp;key=test#section'</span>)</span><br><span class="line"><span class="comment">// &#123;time: "2020-05-20", key: "test"&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="删除url中的某个参数"><a href="#删除url中的某个参数" class="headerlink" title="删除url中的某个参数"></a>删除url中的某个参数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeUrlParameter</span>(<span class="params">url, key</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (url &amp;&amp; key) &#123;</span><br><span class="line">        <span class="keyword">const</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">`(\\?|&amp;)<span class="subst">$&#123;key&#125;</span>=[^&amp;]*(&amp;)?`</span>, <span class="string">'g'</span>)</span><br><span class="line">        <span class="keyword">return</span> url.replace(reg, ($<span class="number">0</span>, $<span class="number">1</span>, $<span class="number">2</span>) =&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> ($<span class="number">1</span> === <span class="string">'?'</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> $<span class="number">2</span> ? $<span class="number">1</span> : <span class="string">''</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> $<span class="number">2</span> || <span class="string">''</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> url</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// example</span></span><br><span class="line"><span class="keyword">const</span> url = <span class="string">'https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevgokpcQTweUDIqAPCfxddq3pupiculy78Xhaf2espb72fRB35EibxfxUTFickBvwSyFKpx56dnoA3SYw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(removeUrlParameter(url, <span class="string">'wx_fmt'</span>))</span><br><span class="line"><span class="comment">// "https://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MevgokpcQTweUDIqAPCfxddq3pupiculy78Xhaf2espb72fRB35EibxfxUTFickBvwSyFKpx56dnoA3SYw/640?tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="URL追加参数"><a href="#URL追加参数" class="headerlink" title="URL追加参数"></a>URL追加参数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertParam</span>(<span class="params">url, key, value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (url &amp;&amp; <span class="keyword">typeof</span> url === <span class="string">'string'</span>) &#123;</span><br><span class="line">        url += <span class="string">`<span class="subst">$&#123;url.match(<span class="regexp">/[\\?]/g</span>) ? <span class="string">'&amp;'</span> : <span class="string">'?'</span>&#125;</span><span class="subst">$&#123;key&#125;</span>=<span class="subst">$&#123;<span class="built_in">encodeURIComponent</span>(value)&#125;</span>`</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> url</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// example</span></span><br><span class="line"><span class="keyword">const</span> url = <span class="string">'http://www.example.com?page=1'</span></span><br><span class="line">insertParam(url, <span class="string">'limit'</span>, <span class="number">10</span>)</span><br><span class="line"><span class="comment">// "http://www.example.com?page=1&amp;limit=10"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="删除URL最后一个斜杆"><a href="#删除URL最后一个斜杆" class="headerlink" title="删除URL最后一个斜杆"></a>删除URL最后一个斜杆</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeTrailingSlashes</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> url.replace(<span class="regexp">/\/+$/</span>, <span class="string">''</span>)  <span class="comment">// Removes one or more trailing slashes from URL</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> url = <span class="string">''</span>http:<span class="comment">//www.example.com/demo/"</span></span><br><span class="line"></span><br><span class="line">removeTrailingSlashes(url)</span><br><span class="line"><span class="comment">// "http://www.example.com/demo"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="金钱千分位"><a href="#金钱千分位" class="headerlink" title="金钱千分位"></a>金钱千分位</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> money = <span class="string">'102590.45'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> format = money.replace(<span class="regexp">/\B(?=(\d&#123;3&#125;)+(?!\d))/g</span>, <span class="string">','</span>)</span><br><span class="line"><span class="comment">// "102,590.45"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="匹配"><a href="#匹配" class="headerlink" title="匹配@"></a>匹配@</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">'快来@随便起的昵称 @昵称1 @昵称2 就等你们了@昵称3 @昵称4'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> reg = <span class="regexp">/@([a-zA-Z0-9_\-\u4E00-\u9FA5]+)/g</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> html = str.replace(reg, <span class="function"><span class="keyword">function</span>(<span class="params">match, p1</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">`&lt;a href="/user/home?nickname=<span class="subst">$&#123;<span class="built_in">window</span>.<span class="built_in">encodeURI</span>(p1)&#125;</span>"&gt;<span class="subst">$&#123;match&#125;</span>&lt;/a&gt;`</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="单词边界"><a href="#单词边界" class="headerlink" title="单词边界"></a>单词边界</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"    it's mine and you can't have it. "</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="首字母大写"><a href="#首字母大写" class="headerlink" title="首字母大写"></a>首字母大写</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str1 = str.replace(<span class="regexp">/\b\w/</span>, s =&gt; s.toUpperCase());</span><br><span class="line"><span class="comment">// "    It's mine and you can't have it. " "</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="单词首字母大写"><a href="#单词首字母大写" class="headerlink" title="单词首字母大写"></a>单词首字母大写</h4><!-- \S*：匹配0个或多个非空格，会尽可能多的匹配（贪婪匹配） -->
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str2 = str.replace(<span class="regexp">/\w\S*/g</span>, (s) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> s.replace(<span class="regexp">/^\w/</span>, (c) =&gt; c.toUpperCase())</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// "    It's Mine And You Can't Have It. "</span></span><br></pre></td></tr></table></figure>
+
+<p><code>/\b\w/g</code>会把英文缩写<code>it&#39;s</code>和<code>can&#39;t</code>拆成两部分，所以不能使用<code>\b</code>。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/正则/" rel="tag"># 正则</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/14/canvas获取视频封面/" rel="next" title="Canvas获取视频封面">
+                <i class="fa fa-chevron-left"></i> Canvas获取视频封面
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/12/JS-判断设备工具函数/" rel="prev" title="判断设备工具函数">
+                判断设备工具函数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/assets/avatar.png" alt="多义词">
+            
+              <p class="site-author-name" itemprop="name">多义词</p>
+              <div class="site-description motion-element" itemprop="description">个人博客</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/ly023" title="GitHub &rarr; https://github.com/ly023" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#去除空格"><span class="nav-number">1.</span> <span class="nav-text">去除空格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键字匹配"><span class="nav-number">2.</span> <span class="nav-text">关键字匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html标签"><span class="nav-number">3.</span> <span class="nav-text">html标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#去掉所有的html标签"><span class="nav-number">3.1.</span> <span class="nav-text">去掉所有的html标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#去掉所有的html标签，img标签除外"><span class="nav-number">3.2.</span> <span class="nav-text">去掉所有的html标签，img标签除外</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#去掉所有的html标签，img和p标签除外"><span class="nav-number">3.3.</span> <span class="nav-text">去掉所有的html标签，img和p标签除外</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提取img标签"><span class="nav-number">3.4.</span> <span class="nav-text">提取img标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配p标签及内部内容"><span class="nav-number">3.5.</span> <span class="nav-text">匹配p标签及内部内容</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配html-table-td-内的数据"><span class="nav-number">4.</span> <span class="nav-text">匹配html table td 内的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提取url链接"><span class="nav-number">5.</span> <span class="nav-text">提取url链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提取url所有参数"><span class="nav-number">6.</span> <span class="nav-text">提取url所有参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除url中的某个参数"><span class="nav-number">7.</span> <span class="nav-text">删除url中的某个参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL追加参数"><span class="nav-number">8.</span> <span class="nav-text">URL追加参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除URL最后一个斜杆"><span class="nav-number">9.</span> <span class="nav-text">删除URL最后一个斜杆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#金钱千分位"><span class="nav-number">10.</span> <span class="nav-text">金钱千分位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配"><span class="nav-number">11.</span> <span class="nav-text">匹配@</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单词边界"><span class="nav-number">12.</span> <span class="nav-text">单词边界</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#首字母大写"><span class="nav-number">12.1.</span> <span class="nav-text">首字母大写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单词首字母大写"><span class="nav-number">12.2.</span> <span class="nav-text">单词首字母大写</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">多义词</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://ewenli.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://yoursite.com/2019/09/12/JS-正则匹配替换/";
+    this.page.identifier = "2019/09/12/JS-正则匹配替换/";
+    this.page.title = '正则匹配替换';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://ewenli.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    window.addEventListener('load', loadComments, false);
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

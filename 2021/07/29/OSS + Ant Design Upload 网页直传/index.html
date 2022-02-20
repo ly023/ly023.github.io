@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","width":280,"display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="文档https://help.aliyun.com/document_detail/32069.html?spm=a2c4g.11186623.6.1333.2b4349475kQkEE">
+<meta name="keywords" content="文件上传">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OSS + Ant Design Upload 网页直传">
+<meta property="og:url" content="http://yoursite.com/2021/07/29/OSS + Ant Design Upload 网页直传/index.html">
+<meta property="og:site_name" content="朝花夕拾">
+<meta property="og:description" content="文档https://help.aliyun.com/document_detail/32069.html?spm=a2c4g.11186623.6.1333.2b4349475kQkEE">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-09-02T06:39:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OSS + Ant Design Upload 网页直传">
+<meta name="twitter:description" content="文档https://help.aliyun.com/document_detail/32069.html?spm=a2c4g.11186623.6.1333.2b4349475kQkEE">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="朝花夕拾" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2021/07/29/OSS + Ant Design Upload 网页直传/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>OSS + Ant Design Upload 网页直传 | 朝花夕拾</title>
+  
+
+
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBH0LLBXJH"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XBH0LLBXJH');
+    }
+  </script>
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8e19309864baf013c6835520999321e6";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">朝花夕拾</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">视界之外，想象之中</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/07/29/OSS + Ant Design Upload 网页直传/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="多义词">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="/assets/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朝花夕拾">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">OSS + Ant Design Upload 网页直传
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-07-29 17:10:16" itemprop="dateCreated datePublished" datetime="2021-07-29T17:10:16+08:00">2021-07-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2021-09-02 14:39:10" itemprop="dateModified" datetime="2021-09-02T14:39:10+08:00">2021-09-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/文件上传与下载/" itemprop="url" rel="index"><span itemprop="name">文件上传与下载</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2021/07/29/OSS + Ant Design Upload 网页直传/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/07/29/OSS + Ant Design Upload 网页直传/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><p><a href="https://help.aliyun.com/document_detail/32069.html?spm=a2c4g.11186623.6.1333.2b4349475kQkEE" target="_blank" rel="noopener">https://help.aliyun.com/document_detail/32069.html?spm=a2c4g.11186623.6.1333.2b4349475kQkEE</a></p>
+<a id="more"></a>
+
+<h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><h3 id="ali-oss"><a href="#ali-oss" class="headerlink" title="ali-oss"></a>ali-oss</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add ali-oss</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取直传token"><a href="#获取直传token" class="headerlink" title="获取直传token"></a>获取直传token</h3><p>请求服务端接口获取直传token：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ossConfig = &#123;</span><br><span class="line">    accessKeyId: res.access_key_id,</span><br><span class="line">    accessKeySecret: res.access_key_secret,</span><br><span class="line">    stsToken: res.security_token,</span><br><span class="line">    region: res.region,</span><br><span class="line">    bucket: res.bucket,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>为避免频繁请求token，将token存在localstorage中，比较token中的过期时间，判断过期后才重新获取。</p>
+<h3 id="spark-md5获取文件的md5值"><a href="#spark-md5获取文件的md5值" class="headerlink" title="spark-md5获取文件的md5值"></a>spark-md5获取文件的md5值</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add spark-md5</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> readAsArrayBuffer = useCallback(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">           <span class="keyword">const</span> reader = <span class="keyword">new</span> FileReader()</span><br><span class="line">           reader.readAsArrayBuffer(data)</span><br><span class="line">           reader.onload = <span class="function">(<span class="params">evt</span>) =&gt;</span> &#123;</span><br><span class="line">               <span class="keyword">const</span> body = evt.target?.result</span><br><span class="line">               resolve(body)</span><br><span class="line">           &#125;</span><br><span class="line">           reader.onerror = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">               reject()</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;)</span><br><span class="line">   &#125;, [])</span><br><span class="line"></span><br><span class="line">   <span class="keyword">const</span> computeMd5 = useCallback(<span class="keyword">async</span> (file) =&gt; &#123;</span><br><span class="line">       <span class="keyword">const</span> Md5ChunkSize = <span class="number">2097152</span></span><br><span class="line">       <span class="keyword">let</span> currentChunk = <span class="number">0</span></span><br><span class="line">       <span class="keyword">const</span> chunks = <span class="built_in">Math</span>.ceil(file.size / Md5ChunkSize)</span><br><span class="line">       <span class="keyword">const</span> spark = <span class="keyword">new</span> SparkMD5.ArrayBuffer()</span><br><span class="line"></span><br><span class="line">       <span class="keyword">while</span> (currentChunk &lt; chunks) &#123;</span><br><span class="line">           <span class="keyword">const</span> start = currentChunk * Md5ChunkSize</span><br><span class="line">           <span class="keyword">const</span> end = start + Md5ChunkSize &gt;= file.size ? file.size : start + Md5ChunkSize</span><br><span class="line"></span><br><span class="line">           <span class="keyword">const</span> buffer = <span class="keyword">await</span> readAsArrayBuffer(file.slice(start, end))</span><br><span class="line">           spark.append(buffer)</span><br><span class="line">           currentChunk++</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">return</span> spark.end()</span><br><span class="line">   &#125;, [readAsArrayBuffer])</span><br></pre></td></tr></table></figure>
+
+<h3 id="结合Ant-Design-Upload"><a href="#结合Ant-Design-Upload" class="headerlink" title="结合Ant Design Upload"></a>结合Ant Design Upload</h3><h4 id="OSSUpload组件"><a href="#OSSUpload组件" class="headerlink" title="OSSUpload组件"></a>OSSUpload组件</h4><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">OSSUpload</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;children, ...restProps&#125; = props</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> auth = useRef(<span class="literal">null</span>)</span><br><span class="line">    <span class="keyword">const</span> authLoading = useRef(<span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> checkTokenExpired = useCallback(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!auth.current) &#123;</span><br><span class="line">            auth.current = getLocalToken()</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">const</span> expiredTime = auth.current?.credentials?.expiration || <span class="number">0</span></span><br><span class="line">        <span class="keyword">return</span> moment().isAfter(expiredTime)</span><br><span class="line">    &#125;, [])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> getAuth = useCallback(<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="keyword">async</span> (resolve, reject) =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (checkTokenExpired()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (authLoading.current) &#123;</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            auth.current = <span class="literal">null</span></span><br><span class="line">            authLoading.current = <span class="literal">true</span></span><br><span class="line">            removeLocalToken()</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">const</span> res = <span class="keyword">await</span> API.uploadAuth()</span><br><span class="line">                <span class="keyword">if</span> (!checkTokenExpired()) &#123;</span><br><span class="line">                    resolve()</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (res?.meta?.code === <span class="number">200</span>) &#123;</span><br><span class="line">                    auth.current = res.data</span><br><span class="line">                    setLocalToken(auth.current)</span><br><span class="line">                    resolve()</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    reject()</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">                reject()</span><br><span class="line">            &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                authLoading.current = <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            resolve(auth.current)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;), [checkTokenExpired])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> getFilename = useCallback(<span class="function">(<span class="params">file, hash</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> idx = file.name.lastIndexOf(<span class="string">'.'</span>)</span><br><span class="line">        <span class="keyword">let</span> ext = <span class="string">''</span></span><br><span class="line">        <span class="keyword">if</span> (idx !== <span class="number">-1</span>) &#123;</span><br><span class="line">            ext = file.name.substr(idx)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;auth.current.dir&#125;</span><span class="subst">$&#123;hash&#125;</span><span class="subst">$&#123;ext&#125;</span>`</span></span><br><span class="line">    &#125;, [])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> beforeUpload = useCallback(<span class="keyword">async</span> (file, fileList) =&gt; &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> &#123;beforeUpload&#125; = props</span><br><span class="line">            <span class="keyword">if</span> (beforeUpload) &#123;</span><br><span class="line">                <span class="keyword">const</span> res = <span class="keyword">await</span> beforeUpload(file, fileList)</span><br><span class="line">                <span class="keyword">if</span> (res === <span class="literal">false</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> Upload.LIST_IGNORE</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">await</span> getAuth()</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">            <span class="keyword">return</span> Upload.LIST_IGNORE</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, [getAuth, props])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> upload = useCallback(<span class="function">(<span class="params">option</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!auth.current) &#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">const</span> &#123;file, onProgress, onSuccess, onError&#125; = option</span><br><span class="line"></span><br><span class="line">        computeMd5(file)</span><br><span class="line">            .then(<span class="function">(<span class="params">hash</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">const</span> filename = getFilename(file, hash)</span><br><span class="line"></span><br><span class="line">                <span class="keyword">const</span> AliClient = <span class="keyword">new</span> OSS(ossConfig)</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">                    AliClient</span><br><span class="line">                        .multipartUpload(</span><br><span class="line">                            filename,</span><br><span class="line">                            file,</span><br><span class="line">                            &#123;</span><br><span class="line">                                progress: <span class="keyword">async</span> (percent) =&gt; &#123;</span><br><span class="line">                                    onProgress(&#123;<span class="attr">percent</span>: percent * <span class="number">100</span>&#125;)</span><br><span class="line">                                &#125;,</span><br><span class="line">                            &#125;</span><br><span class="line">                        )</span><br><span class="line">                        .then(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</span><br><span class="line">                            <span class="keyword">const</span> ossPath = result.res.requestUrls[<span class="number">0</span>].split(<span class="string">'?'</span>)[<span class="number">0</span>]</span><br><span class="line">                            <span class="keyword">const</span> url = ossPath.replace(<span class="regexp">/^http:\/\//i</span>, <span class="string">'https://'</span>)</span><br><span class="line">                            <span class="keyword">const</span> data = &#123;</span><br><span class="line">                                status: result?.res?.status,</span><br><span class="line">                                name: result?.name,</span><br><span class="line">                                url: url,</span><br><span class="line">                            &#125;</span><br><span class="line">                            onSuccess(data)</span><br><span class="line">                            resolve(result)</span><br><span class="line">                        &#125;)</span><br><span class="line">                        .catch(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">                            onError(error)</span><br><span class="line">                            reject(error)</span><br><span class="line">                        &#125;)</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;)</span><br><span class="line">            .catch(<span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(e)</span><br><span class="line">                onError(e)</span><br><span class="line">            &#125;)</span><br><span class="line">    &#125;, [computeMd5, getFilename])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> customRequest = useCallback(<span class="function">(<span class="params">option</span>) =&gt;</span> upload(option), [upload])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> uploadProps = &#123;</span><br><span class="line">        ...restProps,</span><br><span class="line">        beforeUpload: beforeUpload,</span><br><span class="line">        customRequest: props.customRequest ? props.customRequest : customRequest,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;Upload &#123;...uploadProps&#125;&gt;</span><br><span class="line">            &#123;children&#125;</span><br><span class="line">        &lt;<span class="regexp">/Upload&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;OSSUpload &#123;...uploadProps&#125;&gt;</span><br><span class="line">    &lt;div&gt;Change Avatar&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>OSSUpload&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="图片处理"><a href="#图片处理" class="headerlink" title="图片处理"></a>图片处理</h2><h3 id="图片缩放处理"><a href="#图片缩放处理" class="headerlink" title="图片缩放处理"></a>图片缩放处理</h3><p><a href="https://help.aliyun.com/document_detail/44688.html?spm=a2c4g.11186623.6.743.2ad549c061kTcJ" target="_blank" rel="noopener">https://help.aliyun.com/document_detail/44688.html?spm=a2c4g.11186623.6.743.2ad549c061kTcJ</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/文件上传/" rel="tag"># 文件上传</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/03/30/腾讯地图JavaScript API获取经纬度/" rel="next" title="腾讯地图JavaScript API获取经纬度">
+                <i class="fa fa-chevron-left"></i> 腾讯地图JavaScript API获取经纬度
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/08/13/react-cropper结合Antd Upload实现图片裁剪并上传/" rel="prev" title="react-cropper结合Antd Upload实现图片裁剪并上传">
+                react-cropper结合Antd Upload实现图片裁剪并上传 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/assets/avatar.png" alt="多义词">
+            
+              <p class="site-author-name" itemprop="name">多义词</p>
+              <div class="site-description motion-element" itemprop="description">个人博客</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/ly023" title="GitHub &rarr; https://github.com/ly023" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文档"><span class="nav-number">1.</span> <span class="nav-text">文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具体实现"><span class="nav-number">2.</span> <span class="nav-text">具体实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ali-oss"><span class="nav-number">2.1.</span> <span class="nav-text">ali-oss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取直传token"><span class="nav-number">2.2.</span> <span class="nav-text">获取直传token</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spark-md5获取文件的md5值"><span class="nav-number">2.3.</span> <span class="nav-text">spark-md5获取文件的md5值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结合Ant-Design-Upload"><span class="nav-number">2.4.</span> <span class="nav-text">结合Ant Design Upload</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#OSSUpload组件"><span class="nav-number">2.4.1.</span> <span class="nav-text">OSSUpload组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用"><span class="nav-number">2.4.2.</span> <span class="nav-text">使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片处理"><span class="nav-number">3.</span> <span class="nav-text">图片处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图片缩放处理"><span class="nav-number">3.1.</span> <span class="nav-text">图片缩放处理</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">多义词</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://ewenli.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://yoursite.com/2021/07/29/OSS + Ant Design Upload 网页直传/";
+    this.page.identifier = "2021/07/29/OSS + Ant Design Upload 网页直传/";
+    this.page.title = 'OSS + Ant Design Upload 网页直传';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://ewenli.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    window.addEventListener('load', loadComments, false);
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
