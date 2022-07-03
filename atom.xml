@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-11-29T05:44:32.000Z</updated>
+  <updated>2022-07-03T12:10:42.530Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>奇怪的CSS问题</title>
+    <link href="http://yoursite.com/2022/03/20/CSS-%E5%A5%87%E6%80%AA%E7%9A%84CSS%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2022/03/20/CSS-%E5%A5%87%E6%80%AA%E7%9A%84CSS%E9%97%AE%E9%A2%98/</id>
+    <published>2022-03-20T04:53:09.303Z</published>
+    <updated>2022-07-03T12:10:42.530Z</updated>
+    
+    <content type="html"><![CDATA[<p>开发中遇到的第一眼摸不着头脑的CSS问题。</p><a id="more"></a><h2 id="input设置斜体字体导致边缘字符被截断"><a href="#input设置斜体字体导致边缘字符被截断" class="headerlink" title="input设置斜体字体导致边缘字符被截断"></a>input设置斜体字体导致边缘字符被截断</h2><p><img src="/images/font.png" alt="demo"></p><p>无论为<code>input</code>设置多大的<code>padding</code>都无法解决问题。</p><p>解决方法：<code>input</code>设置<code>text-indent</code>属性</p><p>参考：<a href="https://aiocollective.com/blog/font-with-italic-style-cut-off-on-edges-in-input/" target="_blank" rel="noopener">font with italic style cut off on edges in input</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;开发中遇到的第一眼摸不着头脑的CSS问题。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="CSS" scheme="http://yoursite.com/categories/CSS/"/>
+    
+    
+    <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>实现Sticky Footer布局</title>
@@ -414,27 +435,6 @@
     
     
     <category term="运算符" scheme="http://yoursite.com/tags/运算符/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>异步请求回调函数中执行window.open被浏览器拦截</title>
-    <link href="http://yoursite.com/2020/06/01/JS-%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E4%B8%AD%E6%89%A7%E8%A1%8Cwindow.open%E8%A2%AB%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8B%A6%E6%88%AA/"/>
-    <id>http://yoursite.com/2020/06/01/JS-%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E4%B8%AD%E6%89%A7%E8%A1%8Cwindow.open%E8%A2%AB%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8B%A6%E6%88%AA/</id>
-    <published>2020-06-01T01:09:26.000Z</published>
-    <updated>2020-10-27T06:04:58.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>window.open被浏览器拦截问题。</p><a id="more"></a><ul><li><p>非用户触发的操作，调用window.open()打开新的tab页，会被浏览器拦截，浏览器认为这可能是一个广告，不是用户希望看到的页面；</p></li><li><p>在用户触发事件函数中，调用多个window.open()，第一个不会被拦截，其他的都会被拦截；</p></li><li><p>在用户触发事件函数中，若有异步请求，在异步请求的回调函数中调用window.open()也会被拦截；</p></li></ul><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="定时器（无效）"><a href="#定时器（无效）" class="headerlink" title="定时器（无效）"></a>定时器（无效）</h4><p>一开始使用定时器的方式，在异步请求前先设置定时器，判断openUrl有值后再调用window.open。后来发现在请求响应慢的情况下（比如上传成千上万条数据）依然会被浏览器拦截。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">timer = <span class="built_in">window</span>.setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">     <span class="keyword">if</span> (openUrl) &#123;</span><br><span class="line">        <span class="built_in">window</span>.open(openUrl, <span class="string">'_blank'</span>)</span><br><span class="line">        clearTimer()</span><br><span class="line">     &#125;</span><br><span class="line">&#125;, <span class="number">500</span>)</span><br></pre></td></tr></table></figure><h4 id="引导用户操作"><a href="#引导用户操作" class="headerlink" title="引导用户操作"></a>引导用户操作</h4><p>如果浏览器拦截了新窗口，引导用户允许网站弹窗或点击链接访问。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> win = <span class="built_in">window</span>.open(url)</span><br><span class="line"><span class="keyword">if</span> (win == <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'新窗口被浏览器拦截'</span>)</span><br><span class="line">    <span class="comment">// ... 引导用户</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="打开新页面后再重定向"><a href="#打开新页面后再重定向" class="headerlink" title="打开新页面后再重定向"></a>打开新页面后再重定向</h4><p>在用户点击时先打开新的空白页面，再进行异步请求；请求完成后再对新页面进行重定向：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 打开新页面，提示正在加载中</span></span><br><span class="line"><span class="keyword">const</span> win = <span class="built_in">window</span>.open()</span><br><span class="line">win.document.write(<span class="string">'加载中，请稍候...'</span>)</span><br><span class="line">win.document.title = <span class="string">'加载中...'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ...请求</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求成功重定向</span></span><br><span class="line">win.location = url</span><br><span class="line"><span class="comment">// 请求失败关闭新页面</span></span><br><span class="line">win.close()</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;window.open被浏览器拦截问题。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
-    
-    
-    <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
   </entry>
   
