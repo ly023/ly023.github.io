@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","width":280,"display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="记录移动端页面开发中遇到的一些iOS兼容性问题。">
+<meta name="keywords" content="移动端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端兼容--iOS篇">
+<meta property="og:url" content="http://yoursite.com/2019/02/26/移动端兼容-iOS/index.html">
+<meta property="og:site_name" content="朝花夕拾">
+<meta property="og:description" content="记录移动端页面开发中遇到的一些iOS兼容性问题。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2022-07-13T10:52:32.470Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端兼容--iOS篇">
+<meta name="twitter:description" content="记录移动端页面开发中遇到的一些iOS兼容性问题。">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="朝花夕拾" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/02/26/移动端兼容-iOS/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>移动端兼容--iOS篇 | 朝花夕拾</title>
+  
+
+
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBH0LLBXJH"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XBH0LLBXJH');
+    }
+  </script>
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8e19309864baf013c6835520999321e6";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">朝花夕拾</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">视界之外，想象之中</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/26/移动端兼容-iOS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="多义词">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="/assets/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朝花夕拾">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">移动端兼容--iOS篇
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-26 09:55:10" itemprop="dateCreated datePublished" datetime="2019-02-26T09:55:10+08:00">2019-02-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2022-07-13 18:52:32" itemprop="dateModified" datetime="2022-07-13T18:52:32+08:00">2022-07-13</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/项目实践/" itemprop="url" rel="index"><span itemprop="name">项目实践</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/26/移动端兼容-iOS/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/26/移动端兼容-iOS/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>记录移动端页面开发中遇到的一些iOS兼容性问题。</p>
+<a id="more"></a>
+
+<h2 id="禁用虚拟键盘上下箭头"><a href="#禁用虚拟键盘上下箭头" class="headerlink" title="禁用虚拟键盘上下箭头"></a>禁用虚拟键盘上下箭头</h2><p>问题描述：虚拟键盘左侧出现上下箭头，点击会导致页面布局错乱</p>
+<p>解决方法：设置<code>input</code>的<code>tabindex</code>属性为<code>-1</code>，将上下箭头禁用</p>
+<h2 id="微信-企业微信下键盘收起页面不会回到原位置"><a href="#微信-企业微信下键盘收起页面不会回到原位置" class="headerlink" title="微信/企业微信下键盘收起页面不会回到原位置"></a>微信/企业微信下键盘收起页面不会回到原位置</h2><p>问题描述：微信下打开网页键盘弹起后页面上滑，键盘收起后页面不会回到原位置，且页面触摸响应错位。</p>
+<p>解决方法：<code>focus</code>键盘弹起时保存<code>element</code>的<code>scrollTop</code>，<code>blur</code>键盘收起时回到原位置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">focus = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.scrollTop = getElementScrollTop(scrollElement)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">blur = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    scrollElement.scrollTop = <span class="keyword">this</span>.scrollTop</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Flex布局设置height-100-无效（iOS-10-3-2）"><a href="#Flex布局设置height-100-无效（iOS-10-3-2）" class="headerlink" title="Flex布局设置height: 100%无效（iOS 10.3.2）"></a>Flex布局设置<code>height: 100%</code>无效（iOS 10.3.2）</h2><p>问题描述：企业微信内置浏览器下，<code>flex-item</code>设置为<code>flex: 1</code>，<code>flex-item-inner</code>为<code>flex-item</code>的子元素，<code>flex-item-inner</code>设置<code>height: 100%</code>无效，没有高度（因设备有限，目前只发现iOS 10.3.2会出现该问题）。</p>
+<p>示例：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"flex-parent"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"flex-item"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"flex-item-inner"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.flex-parent</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.flex-item</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.flex-item-inner</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>解决方法：参考问题<a href="https://stackoverflow.com/questions/33636796/chrome-safari-not-filling-100-height-of-flex-parent" target="_blank" rel="noopener">Chrome / Safari not filling 100% height of flex parent</a>下<a href="https://stackoverflow.com/a/45852643" target="_blank" rel="noopener">这个回答</a>，<code>flex-item</code>添加<code>display: flex</code>，<code>flex-item-inner</code>移除<code>height: 100%</code>。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.flex-parent</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.flex-item</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.flex-item-inner</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>更多方法参考<a href="https://stackoverflow.com/a/33644245" target="_blank" rel="noopener">这个投票最多的回答</a>。上述解决方法对应第四个方法<code>Nested Flex Containers</code>，大致翻译如下：</p>
+<p>摆脱百分比高度。 摆脱table属性。 摆脱<code>vertical-align</code>。 避免绝对定位。 坚持使用flexbox。</p>
+<p>将<code>display: flex</code>应用于flex项目（<code>.flex-item</code>），使其成为flex容器。这会自动设置<code>align-items：stretch</code>，它告诉子元素（<code>.flex-item-inner</code>）扩展父元素的整个高度。</p>
+<p><strong>注意</strong>：从弹性项目中删除指定的高度，此方法才能起作用。 如果子元素设置了<code>height</code>（例如<code>height: 100％</code>），那么它将忽略来自父元素的<code>align-items: stretch</code>。 为了使默认拉伸有效，子元素的height必须计算为<code>auto</code><a href="https://stackoverflow.com/questions/44878379/why-does-width-and-height-of-a-flex-item-affect-how-a-flex-item-is-rendered" target="_blank" rel="noopener">（完整说明）</a>。</p>
+<h2 id="时间转换Invalid-Date"><a href="#时间转换Invalid-Date" class="headerlink" title="时间转换Invalid Date"></a>时间转换Invalid Date</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2018-01-01 00:00:00'</span>)</span><br><span class="line"><span class="comment">// Invalid Date</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2018.01.01 00:00:00'</span>)</span><br><span class="line"><span class="comment">// Invalid Date</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2018/01/01 00:00:00'</span>)</span><br><span class="line"><span class="comment">// Mon Jan 01 2018 00:00:00 GMT+0800(CST)</span></span><br></pre></td></tr></table></figure>
+
+<p>原因：iOS系统不识别<code>YYYY-MM-DD</code>、<code>YYYY.MM.DD</code>格式，能识别<code>YYYY/MM/DD</code>格式</p>
+<p>解决方法：将时间字符串中的<code>-</code>替换成<code>/</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> timeStr = <span class="string">'2018-01-01 00:00:00'</span></span><br><span class="line"><span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(timeStr.replace(<span class="regexp">/-/g</span>, <span class="string">'/'</span>))</span><br></pre></td></tr></table></figure>
+
+<h2 id="iPhone-X适配"><a href="#iPhone-X适配" class="headerlink" title="iPhone X适配"></a>iPhone X适配</h2><p>参考文章：<a href="https://aotu.io/notes/2017/11/27/iphonex/" target="_blank" rel="noopener">https://aotu.io/notes/2017/11/27/iphonex/</a></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--viweport-fit 属性，使得页面内容完全覆盖整个窗口--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, viewport-fit=cover"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*页面主体内容限定在安全区域内*/</span></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">padding-bottom</span>: <span class="built_in">constant</span>(safe-area-inset-bottom); <span class="comment">/* 兼容 iOS &lt; 11.2 */</span></span><br><span class="line">  <span class="attribute">padding-bottom</span>: <span class="built_in">env</span>(safe-area-inset-bottom); <span class="comment">/* 兼容 iOS &gt;= 11.2 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="iOS-input输入框光标及字体不居中"><a href="#iOS-input输入框光标及字体不居中" class="headerlink" title="iOS input输入框光标及字体不居中"></a>iOS input输入框光标及字体不居中</h2><p>原因：使用line-height垂直居中</p>
+<p>解决方法：可直接定义height，然后高度由上下padding值撑开</p>
+<!--
+
+## -webkit-overflow-scrolling:touch与overflow-y:auto与fixed定位
+
+iOS下Web页面，使用`-webkit-overflow-scrolling:touch`会导致使用固定定位的元素随着页面一起滚动，只有滚动停止时才会恢复原位。
+
+解决方法：使用`overflow-y`属性的元素中不应该包含固定定位的元素
+
+-->
+
+<h2 id="iOS-输入框设置readOnly仍会聚焦"><a href="#iOS-输入框设置readOnly仍会聚焦" class="headerlink" title="iOS 输入框设置readOnly仍会聚焦"></a>iOS 输入框设置readOnly仍会聚焦</h2><ul>
+<li>方案一</li>
+</ul>
+<p>改为设置input的<code>disabled</code>属性</p>
+<p>缺点：会使input的点击事件失效</p>
+<ul>
+<li>方案二 </li>
+</ul>
+<p>在input聚焦时失去焦点：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'input[readonly]'</span>).on(<span class="string">'focus'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="keyword">this</span>).trigger(<span class="string">'blur'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="引入fastclick导致输入框难以聚焦"><a href="#引入fastclick导致输入框难以聚焦" class="headerlink" title="引入fastclick导致输入框难以聚焦"></a>引入fastclick导致输入框难以聚焦</h2><p><a href="https://github.com/ftlabs/fastclick/issues/548" target="_blank" rel="noopener">issue: can not bring up keyboard instantly in ios 11.3 </a></p>
+<p>解决方法：修改源码或改写fastclick</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">FastClick.prototype.focus = <span class="function"><span class="keyword">function</span> (<span class="params">targetElement</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> length;</span><br><span class="line">  <span class="keyword">if</span> (targetElement.setSelectionRange &amp;&amp; targetElement.type.indexOf(<span class="string">'date'</span>) !== <span class="number">0</span> &amp;&amp; targetElement.type !== <span class="string">'time'</span> &amp;&amp; targetElement.type !== <span class="string">'month'</span>) &#123;</span><br><span class="line">    length = targetElement.value.length;</span><br><span class="line">    targetElement.focus();</span><br><span class="line">    targetElement.setSelectionRange(length, length);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    targetElement.focus();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/移动端/" rel="tag"># 移动端</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/21/JS-map(Number)/" rel="next" title=".map(Number)所展开的">
+                <i class="fa fa-chevron-left"></i> .map(Number)所展开的
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/28/JS-[[OwnPropertyKeys]]/" rel="prev" title="对象属性枚举顺序">
+                对象属性枚举顺序 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/assets/avatar.png" alt="多义词">
+            
+              <p class="site-author-name" itemprop="name">多义词</p>
+              <div class="site-description motion-element" itemprop="description">个人博客</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/ly023" title="GitHub &rarr; https://github.com/ly023" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#禁用虚拟键盘上下箭头"><span class="nav-number">1.</span> <span class="nav-text">禁用虚拟键盘上下箭头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微信-企业微信下键盘收起页面不会回到原位置"><span class="nav-number">2.</span> <span class="nav-text">微信/企业微信下键盘收起页面不会回到原位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flex布局设置height-100-无效（iOS-10-3-2）"><span class="nav-number">3.</span> <span class="nav-text">Flex布局设置height: 100%无效（iOS 10.3.2）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间转换Invalid-Date"><span class="nav-number">4.</span> <span class="nav-text">时间转换Invalid Date</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iPhone-X适配"><span class="nav-number">5.</span> <span class="nav-text">iPhone X适配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS-input输入框光标及字体不居中"><span class="nav-number">6.</span> <span class="nav-text">iOS input输入框光标及字体不居中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS-输入框设置readOnly仍会聚焦"><span class="nav-number">7.</span> <span class="nav-text">iOS 输入框设置readOnly仍会聚焦</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引入fastclick导致输入框难以聚焦"><span class="nav-number">8.</span> <span class="nav-text">引入fastclick导致输入框难以聚焦</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">多义词</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://ewenli.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://yoursite.com/2019/02/26/移动端兼容-iOS/";
+    this.page.identifier = "2019/02/26/移动端兼容-iOS/";
+    this.page.title = '移动端兼容--iOS篇';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://ewenli.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    window.addEventListener('load', loadComments, false);
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

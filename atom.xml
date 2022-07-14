@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2022-07-03T12:10:42.530Z</updated>
+  <updated>2022-07-14T00:41:32.835Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>移动端开发-文本输入框</title>
+    <link href="http://yoursite.com/2022/04/28/%E7%A7%BB%E5%8A%A8%E7%AB%AF-%E6%96%87%E6%9C%AC%E8%BE%93%E5%85%A5%E6%A1%86/"/>
+    <id>http://yoursite.com/2022/04/28/%E7%A7%BB%E5%8A%A8%E7%AB%AF-%E6%96%87%E6%9C%AC%E8%BE%93%E5%85%A5%E6%A1%86/</id>
+    <published>2022-04-28T06:33:33.310Z</published>
+    <updated>2022-07-14T00:41:32.835Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录移动端开发文本输入框常用的HTML属性。</p><a id="more"></a><h2 id="虚拟键盘inputmode属性"><a href="#虚拟键盘inputmode属性" class="headerlink" title="虚拟键盘inputmode属性"></a>虚拟键盘<code>inputmode</code>属性</h2><p>设置虚拟键盘的显示内容。</p><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/inputmode" target="_blank" rel="noopener">MDN inputmode</a></p><ul><li><p><code>&quot;none&quot;</code><br>无虚拟键盘。</p></li><li><p><code>&quot;text&quot;</code><br>默认值，显示标准输入键盘。</p></li><li><p><code>&quot;decimal&quot;</code><br>小数输入键盘，包含<code>0</code>到<code>9</code>的数字，小数点<code>.</code>。</p></li><li><p><code>&quot;numeric&quot;</code><br>数字输入键盘，包含<code>0</code>到<code>9</code>的数字。</p></li><li><p><code>&quot;tel&quot;</code><br>电话输入键盘，包含<code>0</code>到<code>9</code>的数字，星号（*）和井号（#）键等。表单输入里面的电话输入通常应该使用<code>&lt;input type=&quot;tel&quot;&gt;</code>。</p></li><li><p><code>&quot;search&quot;</code><br>虚拟键盘Enter键可能会显示“搜索”，或其他优化。</p></li><li><p><code>&quot;email&quot;</code><br>为邮件地址输入优化的虚拟键盘，通常包含<code>@</code>符号键和其他优化。表单里面的邮件地址输入应该使用<code>&lt;input type=&quot;email&quot;&gt;</code>。</p></li><li><p><code>&quot;url&quot;</code><br>为网址输入优化的虚拟键盘，比如，“/”键会更加明显、历史记录访问等。表单里面的网址输入通常应该使用<code>&lt;input type=&quot;url&quot;&gt;</code>。</p></li></ul><p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="ExEyQdr" data-user="ly023" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">  <span>See the Pen <a href="https://codepen.io/ly023/pen/ExEyQdr" target="_blank" rel="noopener">  Untitled</a> by ly023 (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>)  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span></p><script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script><h2 id="虚拟键盘enterkeyhint属性"><a href="#虚拟键盘enterkeyhint属性" class="headerlink" title="虚拟键盘enterkeyhint属性"></a>虚拟键盘<code>enterkeyhint</code>属性</h2><p>设置虚拟键盘<code>Enter</code>键的显示内容，只影响按钮的显示，不影响交互。</p><p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/enterkeyhint" target="_blank" rel="noopener">MDN enterkeyhint</a></p><p>兼容性：<a href="https://caniuse.com/mdn-api_htmlelement_enterkeyhint" target="_blank" rel="noopener">HTMLElement API: enterKeyHint</a></p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">enterkeyhint</span>=<span class="string">"done"</span>&gt;</span></span><br></pre></td></tr></table></figure><p><code>enterkeyhint</code>设置虚拟键盘<code>Enter</code>回车键的显示：</p><ul><li>enter：回车，多出现在<code>&lt;textarea&gt;</code>文本域等需要多行输入的场景中</li><li>done：完成，表示没有更多内容输入，输入结束</li><li>go：前往，把用户带到他们输入的文本的目标处</li><li>next：下一项，通常会移动到下一个输入项那里</li><li>previous，上一个，通常会移动到上一个输入项那里</li><li>search：搜索，通常用在搜索行为中</li><li>send：发送，通常用在文本信息的发送上</li></ul><p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="vYRNaxr" data-user="ly023" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">  <span>See the Pen <a href="https://codepen.io/ly023/pen/vYRNaxr" target="_blank" rel="noopener">  Using the enterkeyhint Attribute</a> by ly023 (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>)  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span></p><script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script><h2 id="autocapitalize-quot-off-quot-关闭虚拟键盘首字母大写"><a href="#autocapitalize-quot-off-quot-关闭虚拟键盘首字母大写" class="headerlink" title="autocapitalize=&quot;off&quot;关闭虚拟键盘首字母大写"></a><code>autocapitalize=&quot;off&quot;</code>关闭虚拟键盘首字母大写</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">autocapitalize</span>=<span class="string">"off"</span> /&gt;</span></span><br></pre></td></tr></table></figure><p>还可以在<code>form</code>标签上设置该属性，让每个表单项都继承<code>autocapitalize</code>的设置：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;form autocapitalize=&quot;off&quot;&gt;</span><br><span class="line">  &lt;input type=&quot;text&quot; placeholder=&quot;继承 form 的设置&quot;&gt;</span><br><span class="line">  &lt;textarea&gt;&lt;/textarea&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure><p><code>autocapitalize</code>取值：</p><ul><li><p><code>none</code>或<code>off</code>：所有字母小写</p></li><li><p><code>words</code>：每个单词的开头字母会自动大写</p></li><li><p><code>characters</code>：所有字母大写</p></li><li><p><code>sentences</code>：每句开头字母自动大写</p></li></ul><h2 id="autocorrect-”off”关闭自动纠错功能"><a href="#autocorrect-”off”关闭自动纠错功能" class="headerlink" title="autocorrect=”off”关闭自动纠错功能"></a>autocorrect=”off”关闭自动纠错功能</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">autocorrect</span>=<span class="string">"off"</span> /&gt;</span></span><br></pre></td></tr></table></figure><p>自动纠错功能会悄悄篡改原本的输入内容，用户很难注意到。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;记录移动端开发文本输入框常用的HTML属性。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="项目实践" scheme="http://yoursite.com/categories/项目实践/"/>
+    
+    
+    <category term="移动端" scheme="http://yoursite.com/tags/移动端/"/>
+    
+  </entry>
   
   <entry>
     <title>奇怪的CSS问题</title>
@@ -228,11 +249,11 @@
   </entry>
   
   <entry>
-    <title>移动端监听虚拟键盘弹出收起</title>
-    <link href="http://yoursite.com/2020/12/07/H5-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%9B%91%E5%90%AC%E8%99%9A%E6%8B%9F%E9%94%AE%E7%9B%98%E5%BC%B9%E5%87%BA%E6%94%B6%E8%B5%B7/"/>
-    <id>http://yoursite.com/2020/12/07/H5-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%9B%91%E5%90%AC%E8%99%9A%E6%8B%9F%E9%94%AE%E7%9B%98%E5%BC%B9%E5%87%BA%E6%94%B6%E8%B5%B7/</id>
+    <title>移动端开发-监听虚拟键盘弹出收起</title>
+    <link href="http://yoursite.com/2020/12/07/%E7%A7%BB%E5%8A%A8%E7%AB%AF-%E7%9B%91%E5%90%AC%E8%99%9A%E6%8B%9F%E9%94%AE%E7%9B%98%E5%BC%B9%E5%87%BA%E6%94%B6%E8%B5%B7/"/>
+    <id>http://yoursite.com/2020/12/07/%E7%A7%BB%E5%8A%A8%E7%AB%AF-%E7%9B%91%E5%90%AC%E8%99%9A%E6%8B%9F%E9%94%AE%E7%9B%98%E5%BC%B9%E5%87%BA%E6%94%B6%E8%B5%B7/</id>
     <published>2020-12-07T11:08:28.000Z</published>
-    <updated>2020-12-21T05:45:36.000Z</updated>
+    <updated>2022-07-14T00:42:37.037Z</updated>
     
     <content type="html"><![CDATA[<p>移动端判断虚拟键盘弹出或收起</p><a id="more"></a><h3 id="iOS监听虚拟键盘弹出收起"><a href="#iOS监听虚拟键盘弹出收起" class="headerlink" title="iOS监听虚拟键盘弹出收起"></a>iOS监听虚拟键盘弹出收起</h3><p><code>focusin</code>/<code>focusout</code>事件早于<code>focus</code>/<code>blur</code>事件触发。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 弹出</span></span><br><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'focusin'</span>, focusin)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 收起</span></span><br><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'focusout'</span>, focusout)</span><br></pre></td></tr></table></figure><h3 id="Android监听虚拟键盘弹出收起"><a href="#Android监听虚拟键盘弹出收起" class="headerlink" title="Android监听虚拟键盘弹出收起"></a>Android监听虚拟键盘弹出收起</h3><p>Android虚拟键盘弹出或收起时，会改变<code>window</code>的高度，因此通过监听<code>window</code>的<code>resize</code>事件判断状态：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> originHeight = <span class="built_in">document</span>.documentElement.clientHeight || <span class="built_in">document</span>.body.clientHeight</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reisze</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> resizeHeight = <span class="built_in">document</span>.documentElement.clientHeight || <span class="built_in">document</span>.body.clientHeight</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (resizeHeight &lt; originHeight) &#123;</span><br><span class="line">        <span class="comment">// 键盘弹出</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 键盘收起</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'resize'</span>, reisze)</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -244,7 +265,7 @@
     <category term="项目实践" scheme="http://yoursite.com/categories/项目实践/"/>
     
     
-    <category term="H5移动端" scheme="http://yoursite.com/tags/H5移动端/"/>
+    <category term="移动端" scheme="http://yoursite.com/tags/移动端/"/>
     
   </entry>
   
@@ -414,27 +435,6 @@
     
     
     <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>==非严格相等</title>
-    <link href="http://yoursite.com/2020/06/28/JS-==%E9%9D%9E%E4%B8%A5%E6%A0%BC%E7%9B%B8%E7%AD%89/"/>
-    <id>http://yoursite.com/2020/06/28/JS-==%E9%9D%9E%E4%B8%A5%E6%A0%BC%E7%9B%B8%E7%AD%89/</id>
-    <published>2020-06-28T00:47:54.000Z</published>
-    <updated>2020-07-07T10:55:34.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>规范：<a href="http://ecma-international.org/ecma-262/5.1/#sec-11.9.3" target="_blank" rel="noopener">Section 11.9.3, The Abstract Equality Algorithm</a></p><a id="more"></a><h3 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h3><!--在转换不同的数据类型时，相等操作符遵循下列基本规则：--><!--1. 如果有一个操作数是布尔值，则在比较相等性之前，将其转换为数值；--><!--2. 如果一个操作数是字符串，另一个操作数是数值，在比较之前先将字符串转换为数值；--><!--3. 如果一个操作数是对象，另一个操作数不是，则调用对象的 valueOf() 方法，用得到的基本类型值按照前面的规则进行比较；--><!--4. 如果有一个操作数是 NaN，无论另一个操作数是什么，相等操作符都返回 false；--><!--5. 如果两个操作数都是对象，则比较它们是不是同一个对象。如果指向同一个对象，则相等操作符返回 true；--><!--6. 在比较相等性之前，不能将 null 和 undefined 转成其他值。--><!--7. null 和 undefined 是相等的。--><p>由规范概括出的比较规则：</p><ol><li><p>如果其中一个操作数为<code>Number</code>类型，另一个操作数为<code>String</code>类型，则先将字符串转为<code>Number</code>类型再比较</p></li><li><p>如果其中一个操作数为<code>Boolean</code>类型，则在比较相等性之前，将其转换为<code>Number</code>类型</p></li><li><p>如果其中一个操作数为<code>Object</code>类型，另一个操作数为<code>String</code>或<code>Number</code>类型，则将<code>Object</code>类型的操作数转为基本类型（<a href="http://ecma-international.org/ecma-262/5.1/#sec-9.1" target="_blank" rel="noopener">ToPrimitive</a>）</p></li><li><p><code>NaN</code>与任何类型的操作数比较都返回<code>false</code>(包括自身)</p></li><li><p>如果两个操作数都是为<code>Object</code>类型，则比较它们是不是同一个对象。如果指向同一个对象（指向同一个内存地址），则返回<code>true</code></p></li></ol><p>其他特殊情况：</p><ul><li><p><code>null == undefined</code>返回<code>true</code></p></li><li><p><code>+0 == -0</code>返回<code>true</code>   </p></li></ul><h3 id="例："><a href="#例：" class="headerlink" title="例：[] == ![]"></a>例：[] == ![]</h3><p><code>!</code>操作符优先级高于<code>==</code>，先执行<code>!</code>操作：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[] == <span class="literal">false</span></span><br></pre></td></tr></table></figure><p>满足上述第<code>2</code>条规则，将Boolean类型的操作数转换为Number类型：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[] == <span class="built_in">Number</span>(<span class="literal">false</span>)</span><br></pre></td></tr></table></figure><p>得到：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[] == <span class="number">0</span></span><br></pre></td></tr></table></figure><p>满足上述第<code>3</code>条规则，将<code>Object</code>类型的操作数转为基本类型：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ToPrimitive([]) == 0</span><br></pre></td></tr></table></figure><p><a href="https://zhuanlan.zhihu.com/p/104362868" target="_blank" rel="noopener">toPrimitive()函数是如何执行的</a>，<br>先调用<code>[].valueOf()</code>，结果是<code>[]</code>，不是基本类型，所以继续调用<code>[].toString()</code>，结果是<code>&quot;&quot;</code>，是基本类型，返回<code>&quot;&quot;</code>。</p><p>得到：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">""</span> == <span class="number">0</span></span><br></pre></td></tr></table></figure><p>满足上述第<code>1</code>条规则，将字符串转为<code>Number</code>类型：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(<span class="string">""</span>) == <span class="number">0</span></span><br></pre></td></tr></table></figure><p>最后得到：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> == <span class="number">0</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure><h3 id="例：-1"><a href="#例：-1" class="headerlink" title="例：{} == !{}"></a>例：{} == !{}</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#125; == <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">=&gt;</span><br><span class="line"></span><br><span class="line">ToPrimitive(&#123;&#125;) == <span class="built_in">Number</span>(<span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line">=&gt; </span><br><span class="line"></span><br><span class="line"><span class="string">"[object Object]"</span> == <span class="number">0</span></span><br><span class="line"></span><br><span class="line">=&gt; </span><br><span class="line"></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">"[object Object]"</span>) == <span class="number">0</span></span><br><span class="line"> </span><br><span class="line">=&gt;</span><br><span class="line"></span><br><span class="line"><span class="literal">NaN</span> == <span class="number">0</span> <span class="comment">// false</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;规范：&lt;a href=&quot;http://ecma-international.org/ecma-262/5.1/#sec-11.9.3&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Section 11.9.3, The Abstract Equality Algorithm&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
-    
-    
-    <category term="运算符" scheme="http://yoursite.com/tags/运算符/"/>
     
   </entry>
   
