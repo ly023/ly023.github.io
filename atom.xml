@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2022-07-14T00:41:32.835Z</updated>
+  <updated>2022-07-16T06:24:05.446Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Canvas-透明PNG图像阴影</title>
+    <link href="http://yoursite.com/2022/07/15/Canvas-%E9%80%8F%E6%98%8EPNG%E5%9B%BE%E5%83%8F%E9%98%B4%E5%BD%B1/"/>
+    <id>http://yoursite.com/2022/07/15/Canvas-%E9%80%8F%E6%98%8EPNG%E5%9B%BE%E5%83%8F%E9%98%B4%E5%BD%B1/</id>
+    <published>2022-07-15T01:19:21.709Z</published>
+    <updated>2022-07-16T06:24:05.446Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用Canvas为PNG图像绘制阴影。</p><a id="more"></a><h2 id="绘制阴影"><a href="#绘制阴影" class="headerlink" title="绘制阴影"></a>绘制阴影</h2><h3 id="方法1：shadowBlur-shadowColor-shadowOffsetX-shadowOffsetY"><a href="#方法1：shadowBlur-shadowColor-shadowOffsetX-shadowOffsetY" class="headerlink" title="方法1：shadowBlur + shadowColor + shadowOffsetX + shadowOffsetY"></a>方法1：shadowBlur + shadowColor + shadowOffsetX + shadowOffsetY</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/shadowBlur" target="_blank" rel="noopener">MDN CanvasRenderingContext2D.shadowBlur</a></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ctx.shadowBlur = <span class="number">8</span>;</span><br><span class="line">ctx.shadowColor = <span class="string">'rgba(0,0,0,0.3)'</span>;</span><br><span class="line">ctx.shadowOffsetX = <span class="number">100</span>;</span><br><span class="line">ctx.shadowOffsetY = <span class="number">50</span>;</span><br></pre></td></tr></table></figure><iframe src="https://stackblitz.com/edit/js-kgwzb7?embed=1&file=index.js" width="100%" height="500"></iframe><h4 id="关于shadowBlur"><a href="#关于shadowBlur" class="headerlink" title="关于shadowBlur"></a>关于shadowBlur</h4><p><code>shadowBlur</code>的值既不对应像素值也不受当前转换矩阵的影响：</p><blockquote><p>This value doesn’t correspond to a number of pixels, and is not affected by the current transformation matrix</p></blockquote><p>关于<code>shadowBlur</code>的单位问题，可以参考<a href="https://stackoverflow.com/questions/37195064/what-are-the-units-of-canvasrenderingcontext2d-shadowblur" target="_blank" rel="noopener">What are the units of CanvasRenderingContext2D.shadowBlur?</a>这篇问答，有说明Canvas shadowBlur与CSS filter blur-radius的差别。</p><h3 id="方法2：滤镜函数drop-shadow"><a href="#方法2：滤镜函数drop-shadow" class="headerlink" title="方法2：滤镜函数drop-shadow"></a>方法2：滤镜函数drop-shadow</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/filter" target="_blank" rel="noopener">MDN CanvasRenderingContext2D.filter</a></p><p><strong>IE与Safari（包括iOS Safari）不支持。如果图像仅用于显示，可以用CSS3 filter（兼容Safari不兼容IE）代替。</strong></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.filter = <span class="string">'drop-shadow(50px 50px 10px rgba(0, 0, 0, 0.3))'</span>;</span><br></pre></td></tr></table></figure><iframe src="https://stackblitz.com/edit/js-fkekem?embed=1&file=index.js" width="100%" height="500"></iframe><h2 id="绘制内阴影"><a href="#绘制内阴影" class="headerlink" title="绘制内阴影"></a>绘制内阴影</h2><h3 id="方法1：滤镜函数drop-shadow-globalCompositeOperation"><a href="#方法1：滤镜函数drop-shadow-globalCompositeOperation" class="headerlink" title="方法1：滤镜函数drop-shadow + globalCompositeOperation"></a>方法1：滤镜函数drop-shadow + globalCompositeOperation</h3><p><strong>IE与Safari（包括iOS Safari）不支持filter滤镜。</strong></p><p>方法来自<a href="https://stackoverflow.com/a/51198577/8373132" target="_blank" rel="noopener">Inset-shadow on HTML5 canvas image 提问的回答</a></p><iframe src="https://stackblitz.com/edit/js-ddoaih?embed=1&file=index.js" width="100%" height="500"></iframe><h3 id="方法2：globalCompositeOperation"><a href="#方法2：globalCompositeOperation" class="headerlink" title="方法2：globalCompositeOperation"></a>方法2：globalCompositeOperation</h3><p>借助图像<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation" target="_blank" rel="noopener"><code>globalCompositeOperation</code></a>合成实现内阴影。</p><p>方法来自<a href="https://stackoverflow.com/a/37380488/8373132" target="_blank" rel="noopener">Inset-shadow on HTML5 canvas image 提问的回答 Composition chain</a></p><p>4个步骤：</p><ol><li>Draw in original image</li><li>Invert alpha channel filling the canvas with a solid using xor composition</li><li>Define shadow and draw itself back in</li><li>Deactivate shadow and draw in original image (destination-atop)</li></ol><iframe src="https://stackblitz.com/edit/js-vkkebo?embed=1&file=index.js" width="100%" height="500"></iframe>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;使用Canvas为PNG图像绘制阴影。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Canvas" scheme="http://yoursite.com/categories/Canvas/"/>
+    
+    
+    <category term="Canvas" scheme="http://yoursite.com/tags/Canvas/"/>
+    
+  </entry>
   
   <entry>
     <title>移动端开发-文本输入框</title>
@@ -414,27 +435,6 @@
     
     
     <category term="CSS布局" scheme="http://yoursite.com/tags/CSS布局/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript-快速切换tab导致请求数据不对应问题</title>
-    <link href="http://yoursite.com/2020/07/24/JS-%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2tab%E5%AF%BC%E8%87%B4%E8%AF%B7%E6%B1%82%E6%95%B0%E6%8D%AE%E4%B8%8D%E5%AF%B9%E5%BA%94%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2020/07/24/JS-%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2tab%E5%AF%BC%E8%87%B4%E8%AF%B7%E6%B1%82%E6%95%B0%E6%8D%AE%E4%B8%8D%E5%AF%B9%E5%BA%94%E9%97%AE%E9%A2%98/</id>
-    <published>2020-07-24T00:22:28.000Z</published>
-    <updated>2020-09-25T01:54:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>假设有A、B、C三个tab，点击tab就请求（GET请求）对应的数据，数据存在同一个地方。如果快速切换tab，会发出多个请求，很容易出现最后一个请求完成的数据与选中的tab不对应的情况。</p><a id="more"></a><p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="ly023" data-slug-hash="zYrbOMw" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="快速点击，数据错乱">  <span>See the Pen <a href="https://codepen.io/ly023/pen/zYrbOMw" target="_blank" rel="noopener">  快速点击，数据错乱</a> by ly023 (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>)  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span></p><script async src="https://static.codepen.io/assets/embed/ei.js"></script><h3 id="方案1：只保存最后一次请求的数据"><a href="#方案1：只保存最后一次请求的数据" class="headerlink" title="方案1：只保存最后一次请求的数据"></a>方案1：只保存最后一次请求的数据</h3><p>仅以点击的最后一个tab为准，不终止请求，只保存最后一次请求的数据。</p><p><code>lastRequestId</code>保存发出请求的总次数，<code>requestId</code>记下当前是第几次请求，在更新数据之前检查<code>requestId</code>是否为最后一次请求（是否等于请求总次数<code>lastRequestId</code>），是就更新数据：</p><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> lastRequestId = React.useRef(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fetchData = React.useCallback(<span class="function">(<span class="params">type, timeout</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 每发出一个请求，lastRequestId就加一</span></span><br><span class="line">    lastRequestId.current++;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 当前请求次数</span></span><br><span class="line">    <span class="keyword">const</span> requestId = lastRequestId.current;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 模拟请求</span></span><br><span class="line">    <span class="built_in">window</span>.setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// requestId等于请求总次数，更新数据</span></span><br><span class="line">        <span class="keyword">if</span> (requestId === lastRequestId.current) &#123;</span><br><span class="line">            setData(responseData);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, timeout);</span><br><span class="line">&#125;, []);</span><br></pre></td></tr></table></figure><iframe height="265" style="width: 100%;" scrolling="no" title="快速点击，不终止请求，只保存最后一次请求的数据" src="https://codepen.io/ly023/embed/Bajbaoa?height=265&theme-id=dark&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">  See the Pen <a href="https://codepen.io/ly023/pen/Bajbaoa" target="_blank" rel="noopener">快速点击，不终止请求，只保存最后一次请求的数据</a> by ly023  (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</iframe>]]></content>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h3&gt;&lt;p&gt;假设有A、B、C三个tab，点击tab就请求（GET请求）对应的数据，数据存在同一个地方。如果快速切换tab，会发出多个请求，很容易出现最后一个请求完成的数据与选中的tab不对应的情况。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
-    
-    
-    <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
   </entry>
   
