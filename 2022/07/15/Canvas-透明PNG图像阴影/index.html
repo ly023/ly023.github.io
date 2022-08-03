@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="朝花夕拾">
 <meta property="og:description" content="使用Canvas为PNG图像绘制阴影。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2022-07-16T06:24:05.446Z">
+<meta property="og:updated_time" content="2022-07-18T06:31:43.830Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Canvas-透明PNG图像阴影">
 <meta name="twitter:description" content="使用Canvas为PNG图像绘制阴影。">
@@ -409,7 +409,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2022-07-16 14:24:05" itemprop="dateModified" datetime="2022-07-16T14:24:05+08:00">2022-07-16</time>
+                <time title="修改时间：2022-07-18 14:31:43" itemprop="dateModified" datetime="2022-07-18T14:31:43+08:00">2022-07-18</time>
               
             
           </span>
@@ -489,11 +489,11 @@
 
 <iframe src="https://stackblitz.com/edit/js-kgwzb7?embed=1&file=index.js" width="100%" height="500"></iframe>
 
-<h4 id="关于shadowBlur"><a href="#关于shadowBlur" class="headerlink" title="关于shadowBlur"></a>关于shadowBlur</h4><p><code>shadowBlur</code>的值既不对应像素值也不受当前转换矩阵的影响：</p>
+<h4 id="关于shadowBlur单位问题"><a href="#关于shadowBlur单位问题" class="headerlink" title="关于shadowBlur单位问题"></a>关于shadowBlur单位问题</h4><p><code>shadowBlur</code>的值既不对应像素值也不受当前变换矩阵的影响：</p>
 <blockquote>
 <p>This value doesn’t correspond to a number of pixels, and is not affected by the current transformation matrix</p>
 </blockquote>
-<p>关于<code>shadowBlur</code>的单位问题，可以参考<a href="https://stackoverflow.com/questions/37195064/what-are-the-units-of-canvasrenderingcontext2d-shadowblur" target="_blank" rel="noopener">What are the units of CanvasRenderingContext2D.shadowBlur?</a>这篇问答，有说明Canvas shadowBlur与CSS filter blur-radius的差别。</p>
+<p>可以参考<a href="https://stackoverflow.com/questions/37195064/what-are-the-units-of-canvasrenderingcontext2d-shadowblur" target="_blank" rel="noopener">What are the units of CanvasRenderingContext2D.shadowBlur?</a>这篇问答，有说明Canvas shadowBlur与CSS filter blur-radius的差别。</p>
 <h3 id="方法2：滤镜函数drop-shadow"><a href="#方法2：滤镜函数drop-shadow" class="headerlink" title="方法2：滤镜函数drop-shadow"></a>方法2：滤镜函数drop-shadow</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/filter" target="_blank" rel="noopener">MDN CanvasRenderingContext2D.filter
 </a></p>
 <p><strong>IE与Safari（包括iOS Safari）不支持。如果图像仅用于显示，可以用CSS3 filter（兼容Safari不兼容IE）代替。</strong></p>
@@ -501,13 +501,13 @@
 
 <iframe src="https://stackblitz.com/edit/js-fkekem?embed=1&file=index.js" width="100%" height="500"></iframe>
 
-<h2 id="绘制内阴影"><a href="#绘制内阴影" class="headerlink" title="绘制内阴影"></a>绘制内阴影</h2><h3 id="方法1：滤镜函数drop-shadow-globalCompositeOperation"><a href="#方法1：滤镜函数drop-shadow-globalCompositeOperation" class="headerlink" title="方法1：滤镜函数drop-shadow + globalCompositeOperation"></a>方法1：滤镜函数drop-shadow + globalCompositeOperation</h3><p><strong>IE与Safari（包括iOS Safari）不支持filter滤镜。</strong></p>
+<h2 id="绘制内阴影"><a href="#绘制内阴影" class="headerlink" title="绘制内阴影"></a>绘制内阴影</h2><h3 id="方法1：滤镜函数-drop-shadow-合成操作globalCompositeOperation"><a href="#方法1：滤镜函数-drop-shadow-合成操作globalCompositeOperation" class="headerlink" title="方法1：滤镜函数 drop-shadow + 合成操作globalCompositeOperation"></a>方法1：滤镜函数 drop-shadow + 合成操作globalCompositeOperation</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation" target="_blank" rel="noopener">MDN globalCompositeOperation</a></p>
+<p><strong>IE与Safari（包括iOS Safari）不支持filter滤镜。</strong></p>
 <p>方法来自<a href="https://stackoverflow.com/a/51198577/8373132" target="_blank" rel="noopener">Inset-shadow on HTML5 canvas image 提问的回答</a></p>
 <iframe src="https://stackblitz.com/edit/js-ddoaih?embed=1&file=index.js" width="100%" height="500"></iframe>
 
 
-<h3 id="方法2：globalCompositeOperation"><a href="#方法2：globalCompositeOperation" class="headerlink" title="方法2：globalCompositeOperation"></a>方法2：globalCompositeOperation</h3><p>借助图像<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation" target="_blank" rel="noopener"><code>globalCompositeOperation</code></a>合成实现内阴影。</p>
-<p>方法来自<a href="https://stackoverflow.com/a/37380488/8373132" target="_blank" rel="noopener">Inset-shadow on HTML5 canvas image 提问的回答 Composition chain</a></p>
+<h3 id="方法2：合成操作-globalCompositeOperation-shadowBlur-shadowColor"><a href="#方法2：合成操作-globalCompositeOperation-shadowBlur-shadowColor" class="headerlink" title="方法2：合成操作 globalCompositeOperation + shadowBlur + shadowColor"></a>方法2：合成操作 globalCompositeOperation + shadowBlur + shadowColor</h3><p>方法来自<a href="https://stackoverflow.com/a/37380488/8373132" target="_blank" rel="noopener">Inset-shadow on HTML5 canvas image 提问的回答 Composition chain</a></p>
 <p>4个步骤：</p>
 <ol>
 <li>Draw in original image</li>
@@ -567,6 +567,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2022/07/21/项目配置Stylelint校验CSS与SCSS文件/" rel="prev" title="项目配置Stylelint校验CSS与SCSS文件">
+                项目配置Stylelint校验CSS与SCSS文件 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -644,7 +648,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">51</span>
+                    <span class="site-state-item-count">53</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -681,7 +685,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -742,7 +752,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -802,7 +816,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制阴影"><span class="nav-number">1.</span> <span class="nav-text">绘制阴影</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法1：shadowBlur-shadowColor-shadowOffsetX-shadowOffsetY"><span class="nav-number">1.1.</span> <span class="nav-text">方法1：shadowBlur + shadowColor + shadowOffsetX + shadowOffsetY</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关于shadowBlur"><span class="nav-number">1.1.1.</span> <span class="nav-text">关于shadowBlur</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法2：滤镜函数drop-shadow"><span class="nav-number">1.2.</span> <span class="nav-text">方法2：滤镜函数drop-shadow</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制内阴影"><span class="nav-number">2.</span> <span class="nav-text">绘制内阴影</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法1：滤镜函数drop-shadow-globalCompositeOperation"><span class="nav-number">2.1.</span> <span class="nav-text">方法1：滤镜函数drop-shadow + globalCompositeOperation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法2：globalCompositeOperation"><span class="nav-number">2.2.</span> <span class="nav-text">方法2：globalCompositeOperation</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制阴影"><span class="nav-number">1.</span> <span class="nav-text">绘制阴影</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法1：shadowBlur-shadowColor-shadowOffsetX-shadowOffsetY"><span class="nav-number">1.1.</span> <span class="nav-text">方法1：shadowBlur + shadowColor + shadowOffsetX + shadowOffsetY</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关于shadowBlur单位问题"><span class="nav-number">1.1.1.</span> <span class="nav-text">关于shadowBlur单位问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法2：滤镜函数drop-shadow"><span class="nav-number">1.2.</span> <span class="nav-text">方法2：滤镜函数drop-shadow</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制内阴影"><span class="nav-number">2.</span> <span class="nav-text">绘制内阴影</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法1：滤镜函数-drop-shadow-合成操作globalCompositeOperation"><span class="nav-number">2.1.</span> <span class="nav-text">方法1：滤镜函数 drop-shadow + 合成操作globalCompositeOperation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法2：合成操作-globalCompositeOperation-shadowBlur-shadowColor"><span class="nav-number">2.2.</span> <span class="nav-text">方法2：合成操作 globalCompositeOperation + shadowBlur + shadowColor</span></a></li></ol></li></ol></div>
             
 
           </div>
