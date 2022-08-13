@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2022-08-03T00:59:25.197Z</updated>
+  <updated>2022-08-13T04:31:15.515Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Safari兼容性问题</title>
+    <link href="http://yoursite.com/2022/08/13/Safari%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2022/08/13/Safari%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98/</id>
+    <published>2022-08-13T04:09:35.090Z</published>
+    <updated>2022-08-13T04:31:15.515Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录项目开发过程中遇到的一些Safari兼容性问题。</p><ul><li>Safari下overflow:hidden + border-radius失效</li></ul><a id="more"></a><h2 id="Safari下overflow-hidden-border-radius失效"><a href="#Safari下overflow-hidden-border-radius失效" class="headerlink" title="Safari下overflow:hidden + border-radius失效"></a>Safari下overflow:hidden + border-radius失效</h2><p>Safari下，父元素设置<code>overflow: hidden</code> + <code>border-radius</code>，子元素<code>hover</code>放大时，父元素<code>border-radius</code>的限制无效：</p><p class="codepen" data-height="360" data-default-tab="html,result" data-slug-hash="ExEdxYj" data-user="ly023" style="height: 360px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">  <span>See the Pen <a href="https://codepen.io/ly023/pen/ExEdxYj" target="_blank" rel="noopener">  Untitled</a> by ly023 (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>)  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span></p><script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script><p><a href="https://stackoverflow.com/questions/49066011/overflow-hidden-with-border-radius-not-working-on-safari" target="_blank" rel="noopener">https://stackoverflow.com/questions/49066011/overflow-hidden-with-border-radius-not-working-on-safari</a></p><p>解决方法：在设置<code>overflow: hidden</code>的元素上添加<code>transform: translateZ(0);</code></p><p class="codepen" data-height="360" data-default-tab="html,result" data-slug-hash="xxWyxwO" data-user="ly023" style="height: 360px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">  <span>See the Pen <a href="https://codepen.io/ly023/pen/xxWyxwO" target="_blank" rel="noopener">  Safari下overflow:hidden + border-radius兼容问题解决方案</a> by ly023 (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>)  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span></p><script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;记录项目开发过程中遇到的一些Safari兼容性问题。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Safari下overflow:hidden + border-radius失效&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="浏览器兼容性" scheme="http://yoursite.com/categories/浏览器兼容性/"/>
+    
+    
+    <category term="Safari" scheme="http://yoursite.com/tags/Safari/"/>
+    
+  </entry>
   
   <entry>
     <title>选择Dropbox网盘文件-Chooser API</title>
@@ -107,12 +131,15 @@
     <link href="http://yoursite.com/2022/03/20/CSS-%E5%A5%87%E6%80%AA%E7%9A%84CSS%E9%97%AE%E9%A2%98/"/>
     <id>http://yoursite.com/2022/03/20/CSS-%E5%A5%87%E6%80%AA%E7%9A%84CSS%E9%97%AE%E9%A2%98/</id>
     <published>2022-03-20T04:53:09.303Z</published>
-    <updated>2022-07-03T12:10:42.530Z</updated>
+    <updated>2022-08-13T04:09:52.810Z</updated>
     
-    <content type="html"><![CDATA[<p>开发中遇到的第一眼摸不着头脑的CSS问题。</p><a id="more"></a><h2 id="input设置斜体字体导致边缘字符被截断"><a href="#input设置斜体字体导致边缘字符被截断" class="headerlink" title="input设置斜体字体导致边缘字符被截断"></a>input设置斜体字体导致边缘字符被截断</h2><p><img src="/images/font.png" alt="demo"></p><p>无论为<code>input</code>设置多大的<code>padding</code>都无法解决问题。</p><p>解决方法：<code>input</code>设置<code>text-indent</code>属性</p><p>参考：<a href="https://aiocollective.com/blog/font-with-italic-style-cut-off-on-edges-in-input/" target="_blank" rel="noopener">font with italic style cut off on edges in input</a></p>]]></content>
+    <content type="html"><![CDATA[<p>记录开发中遇到的第一眼摸不着头脑的CSS问题。</p><ul><li>input设置斜体字体导致边缘字符被截断</li></ul><a id="more"></a><h2 id="input设置斜体字体导致边缘字符被截断"><a href="#input设置斜体字体导致边缘字符被截断" class="headerlink" title="input设置斜体字体导致边缘字符被截断"></a>input设置斜体字体导致边缘字符被截断</h2><p><img src="/images/font.png" alt="demo"></p><p>无论为<code>input</code>设置多大的<code>padding</code>都无法解决问题。</p><p>解决方法：<code>input</code>设置<code>text-indent</code>属性</p><p>参考：<a href="https://aiocollective.com/blog/font-with-italic-style-cut-off-on-edges-in-input/" target="_blank" rel="noopener">font with italic style cut off on edges in input</a></p>]]></content>
     
     
-    <summary type="html">&lt;p&gt;开发中遇到的第一眼摸不着头脑的CSS问题。&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;记录开发中遇到的第一眼摸不着头脑的CSS问题。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;input设置斜体字体导致边缘字符被截断&lt;/li&gt;
+&lt;/ul&gt;</summary>
     
     
     
@@ -416,27 +443,6 @@
     
     
     <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Promise执行顺序</title>
-    <link href="http://yoursite.com/2020/08/17/JS-Promise%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/"/>
-    <id>http://yoursite.com/2020/08/17/JS-Promise%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</id>
-    <published>2020-08-17T11:03:38.000Z</published>
-    <updated>2020-09-25T01:55:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>记录项目开发中遇到的一些Promise执行顺序问题。</p><a id="more"></a><h2 id="promise按顺序执行"><a href="#promise按顺序执行" class="headerlink" title="promise按顺序执行"></a>promise按顺序执行</h2><p>上一个请求完成后才发起下一个请求。</p><h3 id="方法一：Array-prototype-reduce-组成Promise-chain"><a href="#方法一：Array-prototype-reduce-组成Promise-chain" class="headerlink" title="方法一：Array.prototype.reduce()组成Promise chain"></a>方法一：Array.prototype.reduce()组成Promise chain</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce" target="_blank" rel="noopener">MDN Array.prototype.reduce() promise顺序执行</a> </p><p>demo：按顺序下载图片（未处理错误情况）</p><iframe height="265" style="width: 100%;" scrolling="no" title="promise顺序执行-Array.prototype.reduce" src="https://codepen.io/ly023/embed/dyMpLQQ?height=265&theme-id=dark&default-tab=js,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">  See the Pen <a href="https://codepen.io/ly023/pen/dyMpLQQ" target="_blank" rel="noopener">promise顺序执行-Array.prototype.reduce</a> by ly023  (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</iframe><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">runPromiseInSequence</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> arr.reduce(</span><br><span class="line">    (promiseChain, currentFunction) =&gt; promiseChain.then(currentFunction),</span><br><span class="line">    <span class="built_in">Promise</span>.resolve()</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadImage</span>(<span class="params">url, index</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> img = <span class="keyword">new</span> Image();</span><br><span class="line"></span><br><span class="line">      img.onload = resolve</span><br><span class="line"></span><br><span class="line">      img.onerror = reject</span><br><span class="line"></span><br><span class="line">      img.src = url;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> promises = urls.map(<span class="function">(<span class="params">url, index</span>) =&gt;</span> loadImage(url, index));</span><br><span class="line"></span><br><span class="line">runPromiseInSequence(promises);</span><br></pre></td></tr></table></figure><h2 id="限制Promise的并发数"><a href="#限制Promise的并发数" class="headerlink" title="限制Promise的并发数"></a>限制Promise的并发数</h2><p>限制一次最多发送m个请求</p><h3 id="方法一：Promise-all"><a href="#方法一：Promise-all" class="headerlink" title="方法一：Promise.all"></a>方法一：Promise.all</h3><p>demo：有n个图片资源，要求同时下载的图片数量不超过m个（未处理错误情况）</p><iframe height="265" style="width: 100%;" scrolling="no" title="promise并发控制-Promise.all" src="https://codepen.io/ly023/embed/bGpqMeK?height=265&theme-id=dark&default-tab=js,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">  See the Pen <a href="https://codepen.io/ly023/pen/bGpqMeK" target="_blank" rel="noopener">promise并发控制-Promise.all</a> by ly023  (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</iframe><!--## 插件[async-pool](https://github.com/rxaviers/async-pool)[es6-promise-pool](https://github.com/timdp/es6-promise-pool)[p-limit](https://github.com/sindresorhus/p-limit)-->]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;记录项目开发中遇到的一些Promise执行顺序问题。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
-    
-    
-    <category term="Promise" scheme="http://yoursite.com/tags/Promise/"/>
     
   </entry>
   
