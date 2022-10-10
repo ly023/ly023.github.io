@@ -572,7 +572,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2022-09-28 10:22:10" itemprop="dateModified" datetime="2022-09-28T10:22:10+08:00">2022-09-28</time>
+                <time title="修改时间：2022-10-10 12:18:52" itemprop="dateModified" datetime="2022-10-10T12:18:52+08:00">2022-10-10</time>
               
             
           </span>
@@ -643,6 +643,22 @@
 <ul>
 <li>Safari下overflow:hidden + border-radius失效</li>
 </ul>
+<h2 id="Safari下overflow-hidden-border-radius失效"><a href="#Safari下overflow-hidden-border-radius失效" class="headerlink" title="Safari下overflow:hidden + border-radius失效"></a>Safari下overflow:hidden + border-radius失效</h2><p>Safari下，父元素设置<code>overflow: hidden</code> + <code>border-radius</code>，子元素<code>hover</code>放大时，父元素<code>border-radius</code>的限制无效：</p>
+<p class="codepen" data-height="360" data-default-tab="html,result" data-slug-hash="ExEdxYj" data-user="ly023" style="height: 360px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/ly023/pen/ExEdxYj" target="_blank" rel="noopener">
+  Untitled</a> by ly023 (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>)
+  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<p><a href="https://stackoverflow.com/questions/49066011/overflow-hidden-with-border-radius-not-working-on-safari" target="_blank" rel="noopener">https://stackoverflow.com/questions/49066011/overflow-hidden-with-border-radius-not-working-on-safari</a></p>
+<p>解决方法：在设置<code>overflow: hidden</code>的元素上添加<code>transform: translateZ(0);</code></p>
+<p class="codepen" data-height="360" data-default-tab="html,result" data-slug-hash="xxWyxwO" data-user="ly023" style="height: 360px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/ly023/pen/xxWyxwO" target="_blank" rel="noopener">
+  Safari下overflow:hidden + border-radius兼容问题解决方案</a> by ly023 (<a href="https://codepen.io/ly023" target="_blank" rel="noopener">@ly023</a>)
+  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
           <!--noindex-->
           
             <div class="post-button text-center">
