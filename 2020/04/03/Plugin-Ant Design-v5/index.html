@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","width":280,"display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="记录项目开发过程中遇到的一些问题（antd 5.x）">
+<meta name="keywords" content="antd">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ant Design v5">
+<meta property="og:url" content="http://yoursite.com/2020/04/03/Plugin-Ant Design-v5/index.html">
+<meta property="og:site_name" content="朝花夕拾">
+<meta property="og:description" content="记录项目开发过程中遇到的一些问题（antd 5.x）">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2023-04-25T10:02:46.028Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ant Design v5">
+<meta name="twitter:description" content="记录项目开发过程中遇到的一些问题（antd 5.x）">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="朝花夕拾" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2020/04/03/Plugin-Ant Design-v5/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Ant Design v5 | 朝花夕拾</title>
+  
+
+
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBH0LLBXJH"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XBH0LLBXJH');
+    }
+  </script>
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8e19309864baf013c6835520999321e6";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">朝花夕拾</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">视界之外，想象之中</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/03/Plugin-Ant Design-v5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="多义词">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="/assets/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朝花夕拾">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Ant Design v5
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-04-03 08:46:08" itemprop="dateCreated datePublished" datetime="2020-04-03T08:46:08+08:00">2020-04-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2023-04-25 18:02:46" itemprop="dateModified" datetime="2023-04-25T18:02:46+08:00">2023-04-25</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Plugin/" itemprop="url" rel="index"><span itemprop="name">Plugin</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2020/04/03/Plugin-Ant Design-v5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/04/03/Plugin-Ant Design-v5/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>记录项目开发过程中遇到的一些问题（antd 5.x）</p>
+<a id="more"></a>
+
+<h3 id="官网镜像地址"><a href="#官网镜像地址" class="headerlink" title="官网镜像地址"></a>官网镜像地址</h3><p>ant-design各版本国内镜像：<a href="https://github.com/ant-design/ant-design/issues/25661" target="_blank" rel="noopener">https://github.com/ant-design/ant-design/issues/25661</a></p>
+<p>Ant Design 5.x：</p>
+<ul>
+<li><a href="https://ant-design.antgroup.com" target="_blank" rel="noopener">https://ant-design.antgroup.com</a></li>
+<li><a href="https://ant-design.gitee.io" target="_blank" rel="noopener">https://ant-design.gitee.io</a></li>
+</ul>
+<h3 id="Form"><a href="#Form" class="headerlink" title="Form"></a>Form</h3><h4 id="根据某个表单项的值渲染其他表单项"><a href="#根据某个表单项的值渲染其他表单项" class="headerlink" title="根据某个表单项的值渲染其他表单项"></a>根据某个表单项的值渲染其他表单项</h4><p><a href="https://ant.design/components/form-cn/#shouldUpdate" target="_blank" rel="noopener">shouldUpdate</a></p>
+<p>shouldUpdate: boolean | (prevValue, curValue) =&gt; boolean</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;Form.Item noStyle shouldUpdate&gt;</span><br><span class="line">  &#123;(&#123;getFieldValue&#125;) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 通过getFieldValue获取所需的字段值</span></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;Form.Item name=<span class="string">"other"</span>&gt;</span><br><span class="line">        &lt;Input/&gt;</span><br><span class="line">      &lt;<span class="regexp">/Form.Item&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">  &#125;&#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>Form.Item&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="一个表单项中有多个控件"><a href="#一个表单项中有多个控件" class="headerlink" title="一个表单项中有多个控件"></a>一个表单项中有多个控件</h4><p><a href="https://ant.design/components/form-cn/#components-form-demo-complex-form-control" target="_blank" rel="noopener">复杂一点的控件</a></p>
+<h4 id="提交失败时自动滚动到指定字段"><a href="#提交失败时自动滚动到指定字段" class="headerlink" title="提交失败时自动滚动到指定字段"></a>提交失败时自动滚动到指定字段</h4><p><a href="https://ant-design.gitee.io/components/form-cn/#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A1%A8%E5%8D%95%E6%8E%A7%E4%BB%B6-scrollToFirstError-%E5%92%8C-scrollToField-%E5%A4%B1%E6%95%88%EF%BC%9F" target="_blank" rel="noopener">自定义表单控件 scrollToFirstError 和 scrollToField 失效？</a></p>
+<ol>
+<li>scrollToFirstError</li>
+</ol>
+<p>提交失败自动滚动到第一个错误字段。</p>
+<p>注意：必须使用表单submit提交才会触发。</p>
+<ol start="2">
+<li>scrollToField</li>
+</ol>
+<p>如果不使用表单submit提交，使用scrollToField滚动到对应字段位置：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrollToField(name: NamePath, <span class="attr">options</span>: ScrollOptions)</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://github.com/scroll-into-view/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options" target="_blank" rel="noopener">ScrollOptions</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> submit = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> values = <span class="keyword">await</span> form.validateFields();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (errorInfo) &#123;</span><br><span class="line">        <span class="comment">// 滚动到第一个错误字段</span></span><br><span class="line">        form.scrollToField(errorInfo.errorFields[<span class="number">0</span>].name, &#123;</span><br><span class="line">            block: <span class="string">'center'</span>,</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="嵌套结构校验"><a href="#嵌套结构校验" class="headerlink" title="嵌套结构校验"></a>嵌套结构校验</h4><p>校验嵌套数据结构中的某几个项：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;FormItem name=&#123;[<span class="string">'app'</span>, <span class="string">'name'</span> ]&#125;&gt;</span><br><span class="line">   &lt;Input /&gt;</span><br><span class="line">&lt;<span class="regexp">/FormItem&gt;</span></span><br><span class="line"><span class="regexp">&lt;FormItem name=&#123;['app', 'desc' ]&#125;&gt;</span></span><br><span class="line"><span class="regexp">   &lt;Input /</span>&gt;</span><br><span class="line">&lt;<span class="regexp">/FormItem&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只校验app.name</span></span><br><span class="line">form.validateFields([[<span class="string">'app'</span>, <span class="string">'name'</span> ]])</span><br></pre></td></tr></table></figure>
+
+<h4 id="Form-List的局部校验"><a href="#Form-List的局部校验" class="headerlink" title="Form.List的局部校验"></a>Form.List的局部校验</h4><p><a href="https://juejin.cn/post/6844904176770613261" target="_blank" rel="noopener">https://juejin.cn/post/6844904176770613261</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单行验证, index代表的是第几行数据</span></span><br><span class="line">form.validateFields([</span><br><span class="line">    [<span class="string">'users'</span>, index, <span class="string">'firstName'</span>],</span><br><span class="line">    [<span class="string">'users'</span>, index, <span class="string">'lastName'</span>]</span><br><span class="line">]).then(<span class="function"><span class="params">values</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(values.users[index].firstName, values.users[index].lastName)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 整个users验证需要把每行的field name传进去，暂未找到别的解决方案</span></span><br><span class="line">form.validateFields([</span><br><span class="line">    [<span class="string">'users'</span>, <span class="number">0</span>, <span class="string">'firstName'</span>],</span><br><span class="line">    [<span class="string">'users'</span>, <span class="number">0</span>, <span class="string">'lastName'</span>]，</span><br><span class="line">    [<span class="string">'users'</span>, <span class="number">1</span>, <span class="string">'firstName'</span>],</span><br><span class="line">    [<span class="string">'users'</span>, <span class="number">1</span>, <span class="string">'lastName'</span>]</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+
+<h4 id="关闭Modal销毁form中的数据"><a href="#关闭Modal销毁form中的数据" class="headerlink" title="关闭Modal销毁form中的数据"></a>关闭Modal销毁form中的数据</h4><p>4.5.0之后，可以给<code>Form</code>加上<code>preserve={false}</code>属性来清除跟随<code>Modal</code> 销毁的字段数据：<a href="https://codesandbox.io/s/mystifying-sound-lkin8" target="_blank" rel="noopener">https://codesandbox.io/s/mystifying-sound-lkin8</a></p>
+<h4 id="Instance-created-by-useForm-is-not-connect-to-any-Form-element-Forget-to-pass-form-prop"><a href="#Instance-created-by-useForm-is-not-connect-to-any-Form-element-Forget-to-pass-form-prop" class="headerlink" title="Instance created by useForm is not connect to any Form element. Forget to pass form prop?"></a>Instance created by useForm is not connect to any Form element. Forget to pass form prop?</h4><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> formRef = useRef(<span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (formRef.current) </span><br><span class="line">    form.setFieldsValue(&#123; </span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;, [])</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> (</span><br><span class="line">  &lt;Form</span><br><span class="line">    ref=&#123;formRef&#125;</span><br><span class="line">    form=&#123;form&#125;</span><br><span class="line">    initialValues=&#123;...&#125;</span><br><span class="line">    onFinish=&#123;...&#125;</span><br><span class="line">  &gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h3><blockquote>
+<p>如果发现下拉菜单跟随页面滚动，或者需要在其他弹层中触发 Select，请尝试使用<code>getPopupContainer={triggerNode =&gt; triggerNode.parentElement}</code>将下拉弹层渲染节点固定在触发器的父元素中。</p>
+</blockquote>
+<h4 id="自定义回填内容"><a href="#自定义回填内容" class="headerlink" title="自定义回填内容"></a><a href="https://github.com/ant-design/ant-design/issues/9455" target="_blank" rel="noopener">自定义回填内容</a></h4><p><code>optionLabelProp=&quot;name&quot;</code>：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Select optionLabelProp=<span class="string">"name"</span>&gt;</span><br><span class="line">&lt;Option key=<span class="string">"..."</span> name=&#123;opt.name&#125; value=<span class="string">"..."</span>&#125; /&gt;</span><br><span class="line">&lt;<span class="regexp">/Select&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="自定义搜索筛选filterOption"><a href="#自定义搜索筛选filterOption" class="headerlink" title="自定义搜索筛选filterOption"></a>自定义搜索筛选filterOption</h4><p>利用<code>option.key</code>与<code>option.title</code></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;Select showSearch filterOption=&#123;(input, option) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> inputSearch = input.toLowerCase();</span><br><span class="line">    <span class="keyword">return</span> option.key.toLowerCase().indexOf(inputSearch) &gt;= <span class="number">0</span> || option.title.toLowerCase().indexOf(inputSearch) &gt;= <span class="number">0</span>;</span><br><span class="line">  &#125;&#125;&gt;</span><br><span class="line">      &#123;countries.map(<span class="function">(<span class="params">country</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> &#123; abbreviation, emoji, englishName &#125; = country;</span><br><span class="line">        <span class="keyword">const</span> value = valueWidthName ? <span class="string">`<span class="subst">$&#123;abbreviation&#125;</span>,<span class="subst">$&#123;englishName&#125;</span>`</span> : abbreviation;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">          &lt;Option key=&#123;value&#125; title=&#123;englishName&#125; value=&#123;value&#125;&gt;</span><br><span class="line">            &lt;div className=&#123;classNames(style.option, optionClassName)&#125;&gt;</span><br><span class="line">              &lt;Twemoji className=&#123;classNames(style.emoji, emojiClassName)&#125;&gt;&#123;emoji&#125;&lt;<span class="regexp">/Twemoji&gt;</span></span><br><span class="line"><span class="regexp">              &lt;span className=&#123;style.name&#125;&gt;&#123;englishName&#125;&lt;/</span>span&gt;</span><br><span class="line">            &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>Option&gt;</span><br><span class="line">        );</span><br><span class="line">      &#125;)&#125;</span><br><span class="line">&lt;<span class="regexp">/Select&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="滚动加载"><a href="#滚动加载" class="headerlink" title="滚动加载"></a>滚动加载</h4><p><code>onPopupScroll</code>: 下拉列表滚动时的回调</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> handlePopupScroll = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;target&#125; = e</span><br><span class="line">    <span class="keyword">if</span> (target.scrollTop + target.offsetHeight === target.scrollHeight) &#123;</span><br><span class="line">        <span class="keyword">if</span> (loading) &#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Tree"><a href="#Tree" class="headerlink" title="Tree"></a>Tree</h3><h4 id="虚拟滚动"><a href="#虚拟滚动" class="headerlink" title="虚拟滚动"></a>虚拟滚动</h4><p>默认<code>virtual: true</code>开启<a href="https://ant.design/components/tree-cn/#components-tree-demo-virtual-scroll" target="_blank" rel="noopener">虚拟滚动</a>，通过添加<code>height</code>属性激活。如果需要支持横向滚动，应该关闭虚拟滚动，因为虚拟滚动不会渲染所有节点，无法自动拓转横向宽度（<a href="https://ant.design/components/tree-cn/#%E8%99%9A%E6%8B%9F%E6%BB%9A%E5%8A%A8%E7%9A%84%E9%99%90%E5%88%B6" target="_blank" rel="noopener">虚拟滚动的限制</a>）。</p>
+<h4 id="onSelect获取key"><a href="#onSelect获取key" class="headerlink" title="onSelect获取key"></a>onSelect获取key</h4><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> onSelect = <span class="function">(<span class="params">selectedKeys, e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> key = e.node.key</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h3><h4 id="表头分组（嵌套表头）"><a href="#表头分组（嵌套表头）" class="headerlink" title="表头分组（嵌套表头）"></a>表头分组（嵌套表头）</h4><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   title: <span class="string">'表头分组'</span>,</span><br><span class="line">   dataIndex: <span class="string">'group'</span>,</span><br><span class="line">   align: <span class="string">'center'</span>,</span><br><span class="line">   children: [</span><br><span class="line">     &#123;</span><br><span class="line">       title: <span class="string">'分组1'</span>,</span><br><span class="line">       dataIndex: [<span class="string">'group'</span>, <span class="string">'children1'</span>],</span><br><span class="line">       align: <span class="string">'center'</span></span><br><span class="line">     &#125;,</span><br><span class="line">     &#123;</span><br><span class="line">       title: <span class="string">'分组2'</span>,</span><br><span class="line">       dataIndex: [<span class="string">'group'</span>, <span class="string">'children2'</span>],</span><br><span class="line">       align: <span class="string">'center'</span></span><br><span class="line">     &#125;</span><br><span class="line">   ]</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="rowSelection-renderCell"><a href="#rowSelection-renderCell" class="headerlink" title="rowSelection.renderCell"></a>rowSelection.renderCell</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">renderCell: <span class="function">(<span class="params">_value, _record, _index, originNode</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// return ...</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">### Drawer</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#### 监听滚动事件</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Drawer滚动事件在`</span>ant-drawer-body<span class="string">`节点上，可以通过修改css，转移滚动对象，使`</span>ant-drawer-body<span class="string">`不滚动。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">### Modal</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#### 网页全屏下Modal不显示问题</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">使用`</span>getContainer<span class="string">`：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>jsx</span><br><span class="line">&lt;Modal</span><br><span class="line">  getContainer=&#123;() =&gt; dom&#125; <span class="comment">// &lt;----</span></span><br><span class="line">  &gt;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"> &lt;<span class="regexp">/Modal&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Table-1"><a href="#Table-1" class="headerlink" title="Table"></a>Table</h3><!--#### 针对某一列换行
+
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">columns=&#123;[</span><br><span class="line">&#123;</span><br><span class="line">  ...</span><br><span class="line">  textWrap: <span class="string">'word-break'</span>,</span><br><span class="line">&#125;</span><br><span class="line">]&#125;</span><br><span class="line"><span class="string">``</span><span class="string">`--&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#### 超过宽度省略</span></span><br><span class="line"><span class="string">   </span></span><br><span class="line"><span class="string">&gt; 暂不支持和排序筛选一起使用。</span></span><br><span class="line"><span class="string">设置为 true 或 &#123; showTitle?: boolean &#125; 时，表格布局将变成 tableLayout="fixed"   </span></span><br><span class="line"><span class="string">       </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>jsx</span><br><span class="line">columns = [</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    ellipsis: <span class="literal">true</span>,</span><br><span class="line">&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h4 id="flex布局下Table宽度溢出问题"><a href="#flex布局下Table宽度溢出问题" class="headerlink" title="flex布局下Table宽度溢出问题"></a>flex布局下Table宽度溢出问题</h4><p><a href="https://github.com/ant-design/ant-design/issues/28158#issuecomment-737648133">https://github.com/ant-design/ant-design/issues/28158#issuecomment-737648133</a></p>
+<p>设置flex元素：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.flex</span> &#123;</span><br><span class="line">    <span class="attribute">flex</span>: auto;</span><br><span class="line">    <span class="attribute">min-width</span>: <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Upload"><a href="#Upload" class="headerlink" title="Upload"></a>Upload</h3><h4 id="beforeUpload"><a href="#beforeUpload" class="headerlink" title="beforeUpload"></a>beforeUpload</h4><p>阻止不符合要求的文件上传<code>return Upload.LIST_IGNORE</code>：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">beforeUpload</span>(<span class="params">file</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (file.size &gt; <span class="number">1024</span> * <span class="number">1024</span> * MAX_FILES_SIZE) &#123;</span><br><span class="line">        message.error(<span class="string">'error'</span>);</span><br><span class="line">        <span class="keyword">return</span> Upload.LIST_IGNORE;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Affix"><a href="#Affix" class="headerlink" title="Affix"></a>Affix</h3><p>页面顶部导航栏用<code>&lt;Affix offsetTop={0}&gt;</code>包裹，滚动时会抖动。</p>
+<p>解决方法：<code>&lt;Affix offsetTop={0.1}&gt;</code></p>
+-->
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/antd/" rel="tag"># antd</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/10/JS-CryptoJS AES加密/" rel="next" title="CryptoJS AES加密">
+                <i class="fa fa-chevron-left"></i> CryptoJS AES加密
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/14/JSZip+FileSaver实现文件批量打包下载/" rel="prev" title="JSZip + FileSaver实现文件批量打包下载">
+                JSZip + FileSaver实现文件批量打包下载 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/assets/avatar.png" alt="多义词">
+            
+              <p class="site-author-name" itemprop="name">多义词</p>
+              <div class="site-description motion-element" itemprop="description">个人博客</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">56</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/ly023" title="GitHub &rarr; https://github.com/ly023" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#官网镜像地址"><span class="nav-number">1.</span> <span class="nav-text">官网镜像地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Form"><span class="nav-number">2.</span> <span class="nav-text">Form</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#根据某个表单项的值渲染其他表单项"><span class="nav-number">2.1.</span> <span class="nav-text">根据某个表单项的值渲染其他表单项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一个表单项中有多个控件"><span class="nav-number">2.2.</span> <span class="nav-text">一个表单项中有多个控件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提交失败时自动滚动到指定字段"><span class="nav-number">2.3.</span> <span class="nav-text">提交失败时自动滚动到指定字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌套结构校验"><span class="nav-number">2.4.</span> <span class="nav-text">嵌套结构校验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Form-List的局部校验"><span class="nav-number">2.5.</span> <span class="nav-text">Form.List的局部校验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭Modal销毁form中的数据"><span class="nav-number">2.6.</span> <span class="nav-text">关闭Modal销毁form中的数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Instance-created-by-useForm-is-not-connect-to-any-Form-element-Forget-to-pass-form-prop"><span class="nav-number">2.7.</span> <span class="nav-text">Instance created by useForm is not connect to any Form element. Forget to pass form prop?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Select"><span class="nav-number">3.</span> <span class="nav-text">Select</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义回填内容"><span class="nav-number">3.1.</span> <span class="nav-text">自定义回填内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义搜索筛选filterOption"><span class="nav-number">3.2.</span> <span class="nav-text">自定义搜索筛选filterOption</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#滚动加载"><span class="nav-number">3.3.</span> <span class="nav-text">滚动加载</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tree"><span class="nav-number">4.</span> <span class="nav-text">Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#虚拟滚动"><span class="nav-number">4.1.</span> <span class="nav-text">虚拟滚动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onSelect获取key"><span class="nav-number">4.2.</span> <span class="nav-text">onSelect获取key</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Table"><span class="nav-number">5.</span> <span class="nav-text">Table</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#表头分组（嵌套表头）"><span class="nav-number">5.1.</span> <span class="nav-text">表头分组（嵌套表头）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rowSelection-renderCell"><span class="nav-number">5.2.</span> <span class="nav-text">rowSelection.renderCell</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Table-1"><span class="nav-number">6.</span> <span class="nav-text">Table</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2023</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">多义词</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://ewenli.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://yoursite.com/2020/04/03/Plugin-Ant Design-v5/";
+    this.page.identifier = "2020/04/03/Plugin-Ant Design-v5/";
+    this.page.title = 'Ant Design v5';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://ewenli.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    window.addEventListener('load', loadComments, false);
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
