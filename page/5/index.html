@@ -348,227 +348,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/18/JS-常用正则表达式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="多义词">
-      <meta itemprop="description" content="个人博客">
-      <meta itemprop="image" content="/assets/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="朝花夕拾">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/10/18/JS-常用正则表达式/" class="post-title-link" itemprop="url">常用正则表达式</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-18 14:44:12" itemprop="dateCreated datePublished" datetime="2019-10-18T14:44:12+08:00">2019-10-18</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2021-07-26 10:47:26" itemprop="dateModified" datetime="2021-07-26T10:47:26+08:00">2021-07-26</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/10/18/JS-常用正则表达式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/10/18/JS-常用正则表达式/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="中文正则（不包括中文标点符号等）"><a href="#中文正则（不包括中文标点符号等）" class="headerlink" title="中文正则（不包括中文标点符号等）"></a>中文正则（不包括中文标点符号等）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cnPattern = <span class="regexp">/[一-龥]/</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="双字节正则（中文及中文标点等）"><a href="#双字节正则（中文及中文标点等）" class="headerlink" title="双字节正则（中文及中文标点等）"></a>双字节正则（中文及中文标点等）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> doubleBytePattern = <span class="regexp">/[^\x00-\xff]/</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="链接正则"><a href="#链接正则" class="headerlink" title="链接正则"></a>链接正则</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var linkPattern = (https?|ftp|file):\/\/[-A-Za-z0-9+&amp;@#/%?=~_|!:,.;]+[-A-Za-z0-9+&amp;@#/%=~_|]</span><br></pre></td></tr></table></figure>
-
-<h3 id="邮箱正则"><a href="#邮箱正则" class="headerlink" title="邮箱正则"></a>邮箱正则</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">foobar@dk</span><br><span class="line"></span><br><span class="line">2454515593@qq.com</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// https://stackoverflow.com/a/32010185</span></span><br><span class="line"><span class="keyword">const</span> reg = <span class="regexp">/^[a-zA-Z0-9.!#$%&amp;'*+\/=?^_`&#123;|&#125;~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]&#123;0,61&#125;[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]&#123;0,61&#125;[a-zA-Z0-9])?)*$/</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="微信号正则"><a href="#微信号正则" class="headerlink" title="微信号正则"></a>微信号正则</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 微信号正则，6至20位，以字母开头，字母，数字，减号，下划线</span></span><br><span class="line"><span class="keyword">var</span> wxPattern = <span class="regexp">/^[a-zA-Z][-_a-zA-Z0-9]&#123;5,19&#125;$/</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="QQ号码正则"><a href="#QQ号码正则" class="headerlink" title="QQ号码正则"></a>QQ号码正则</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从10000开始</span></span><br><span class="line"><span class="keyword">var</span> qqPattern = <span class="regexp">/^[1-9][0-9]&#123;4,&#125;$/</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="联系电话正则"><a href="#联系电话正则" class="headerlink" title="联系电话正则"></a>联系电话正则</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 移动电话</span></span><br><span class="line"><span class="keyword">const</span> mobileReg = <span class="regexp">/^1[0-9]&#123;10&#125;$/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 座机</span></span><br><span class="line"><span class="keyword">const</span> phoneType1Reg = <span class="regexp">/^0\d&#123;2,3&#125;-[1-9]\d&#123;6,7&#125;$/</span> <span class="comment">// 0571-86295197</span></span><br><span class="line"><span class="keyword">const</span> phoneType2Reg = <span class="regexp">/^\d&#123;3,4&#125;-\d&#123;3,4&#125;-\d&#123;3,4&#125;$/</span> <span class="comment">// 4001-550-520</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="身份证号正则"><a href="#身份证号正则" class="headerlink" title="身份证号正则"></a>身份证号正则</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[1-9]&#123;1&#125;[0-9]&#123;14&#125;$|^[1-9]&#123;1&#125;[0-9]&#123;16&#125;([0-9]|[xX])$/</span><br></pre></td></tr></table></figure>
-
-<h3 id="国内邮政编码"><a href="#国内邮政编码" class="headerlink" title="国内邮政编码"></a>国内邮政编码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[1-9]\d&#123;5&#125;(?!\d)$/</span><br></pre></td></tr></table></figure>
-
-<h3 id="营业执照号"><a href="#营业执照号" class="headerlink" title="营业执照号"></a>营业执照号</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reg = <span class="regexp">/(^(?:(?![IOZSV])[\dA-Z])&#123;2&#125;\d&#123;6&#125;(?:(?![IOZSV])[\dA-Z])&#123;10&#125;$)|(^\d&#123;15&#125;$)/</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="车牌号正则"><a href="#车牌号正则" class="headerlink" title="车牌号正则"></a>车牌号正则</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//车牌号正则</span><br><span class="line">var cPattern = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]&#123;1&#125;[A-Z]&#123;1&#125;[A-Z0-9]&#123;4&#125;[A-Z0-9挂学警港澳]&#123;1&#125;$/;</span><br></pre></td></tr></table></figure>
-
-<h3 id="数字正则"><a href="#数字正则" class="headerlink" title="数字正则"></a>数字正则</h3><p>可以是整数也可以是浮点数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 正数正则</span><br><span class="line">var posPattern = /^\d*\.?\d+$/;</span><br><span class="line"></span><br><span class="line">// 负数正则</span><br><span class="line">var negPattern = /^-\d*\.?\d+$/;</span><br><span class="line"></span><br><span class="line">// 数字正则</span><br><span class="line">var numPattern = /^-?\d*\.?\d+$/;</span><br></pre></td></tr></table></figure>
-
-<h3 id="正整数"><a href="#正整数" class="headerlink" title="正整数"></a>正整数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[1-9]\d*$/</span><br></pre></td></tr></table></figure>
-
-<h3 id="自然数"><a href="#自然数" class="headerlink" title="自然数"></a>自然数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 只能输入0或正整数，并且去除数字前的0</span><br><span class="line">value.replace(/[^\d]/g, &apos;&apos;).replace(/0*(\d+)/,&apos;$1&apos;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="非负整数"><a href="#非负整数" class="headerlink" title="非负整数"></a>非负整数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[1-9]\d*|0$/</span><br></pre></td></tr></table></figure>
-
-<h3 id="整数正则"><a href="#整数正则" class="headerlink" title="整数正则"></a>整数正则</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//负整数正则</span><br><span class="line">var negPattern = /^-\d+$/;</span><br><span class="line">//整数正则</span><br><span class="line">var intPattern = /^-?\d+$/;</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/12/JS-判断设备工具函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2268,6 +2047,199 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/21/JS-map(Number)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="多义词">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="/assets/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朝花夕拾">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/21/JS-map(Number)/" class="post-title-link" itemprop="url">.map(Number)所展开的</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-21 09:04:58" itemprop="dateCreated datePublished" datetime="2019-02-21T09:04:58+08:00">2019-02-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-07-13 18:31:04" itemprop="dateModified" datetime="2020-07-13T18:31:04+08:00">2020-07-13</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/21/JS-map(Number)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/21/JS-map(Number)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="map-Number"><a href="#map-Number" class="headerlink" title=".map(Number)"></a>.map(Number)</h3><p>字符数组转数字数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>].map(<span class="built_in">Number</span>)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/02/21/JS-map(Number)/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2316,7 +2288,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">59</span>
+                    <span class="site-state-item-count">58</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
